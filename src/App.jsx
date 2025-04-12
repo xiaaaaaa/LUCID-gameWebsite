@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import './App.css';
+import HomePage from './pages/HomePage'
+import WorldviewPage from './pages/WorldviewPage'
+import FlowerShopPage from './pages/FlowerShopPage'
+import Garden from "./components/Garden";
 
-function App() {
-  const [count, setCount] = useState(0)
+// 若是畫面在「花店頁面 /world/flowershop」garden 元件就不會顯示
+function AppContent() {
+  const location = useLocation();
+  const showGarden = location.pathname !== '/world/flowershop';
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="world">
+          <Route path="" element={<WorldviewPage />} />
+          <Route path="flowershop" element={<FlowerShopPage />} />
+        </Route>
+      </Routes>
+      {showGarden && <Garden />}
     </>
-  )
+  );
 }
 
-export default App
+function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
+  );
+}
+
+export default App;
