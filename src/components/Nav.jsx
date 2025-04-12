@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 function Nav() {
     return (
-        <div className="navbar bg-base-100 shadow-sm">
-            <div className="flex-1">
+        <div className="flex justify-between navbar bg-base-100 shadow-sm">
+            <div className="flex">
                 <a className="btn btn-ghost text-xl"><Link to="/">LUCID</Link></a>
             </div>
             <div className="flex-none">
