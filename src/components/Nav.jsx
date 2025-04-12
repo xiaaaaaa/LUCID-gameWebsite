@@ -34,7 +34,8 @@ function Nav() {
             {/* 桌面版導覽列 */}
             <div className="hidden md:flex justify-between navbar bg-base-100">
                 <div className="flex flex-row items-center h-12">
-                    <a className="btn btn-ghost text-xl"><Link to="/">LUCID</Link></a>
+                    <a className="text-xl mx-3"><Link to="/">LUCID</Link></a>
+                    
                     <SetColorMode />
                 </div>
                 
@@ -47,7 +48,7 @@ function Nav() {
             {/* 手機版 Drawer */}
             <div className="md:hidden bg-base-100 mobile-nav">
                 <div className="flex flex-row items-center h-16">
-                    <a className="btn btn-ghost text-xl"><Link to="/">LUCID</Link></a>
+                    <a className="text-xl mx-3"><Link to="/">LUCID</Link></a>
                     <SetColorMode />
                     <HamMenu
                         id="ham-menu"
