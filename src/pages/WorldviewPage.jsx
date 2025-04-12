@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 
 function WorldviewPage() {
     return (
-        <div className="content">
+        <div className="relative">
             <Nav />
 
             <button className="btn">
@@ -59,6 +59,7 @@ function WorldviewPage() {
                     </div>
                 </div>
             </div>
+
             <Footer />
         </div>
     );
