@@ -6,7 +6,9 @@ function HomePage() {
     return (
         <div className="relative">
             <Nav />
-            <HomeBody />
+            <div className="content-container">
+                <HomeBody />
+            </div>
             <Footer />
         </div>
     );
