@@ -1,7 +1,9 @@
 @import "tailwindcss" source(none);
 @source "./pages";
 @source "./components";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light, dark;
+}
 @plugin "daisyui/theme" {
   name: "mytheme";
   default: true; /* set as default */
@@ -9,13 +11,67 @@
   color-scheme: light; /* color of browser-provided UI */
   --color-primary: #6366F2;
 }
+@plugin "daisyui/theme" {
+  name: "dark";
+  --color-primary: #6366F2;
+}
 
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #6366F2;
+}
+
+[data-theme="light"] {
+  body {
+    background-color: #fff;
+    color: black;
+  }
+  .footer {
+    background-color: #fff;
+    color: black
+  }
+
+  .drop {
+    background-color: #fff;
+    color:black;
+  }
+  .spanbg {
+    background-color: black;
+  }
+
+}
+
+[data-theme="dark"] {
+  body {
+    background-color: black;
+    color: white;
+  }
+  .navbar {
+    background-color: black;
+    color: white;
+  }
+  .mobile-nav {
+    background-color: black;
+    color: white;
+  }
+  .drawer-bg {
+    background-color: black;
+  }
+  .spanbg {
+    background-color: #fff;
+  }
+  .drop {
+    background-color: black;
+    color:white;
+  }
+}
 html,
 body {
   font-size: 16px;
   line-height: 1.6;
-  background-color: #111828;
-  color: white;
+  background-color: white;
+  color: black;
 }
 
 .main-layout {

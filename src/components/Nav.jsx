@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from 'react';
 import HamMenu from "./HamMenu";
+import SetColorMode from "./SetColorMode";
 
 function Nav() {
     const [isOpen, setIsOpen] = useState(false);
@@ -31,10 +32,12 @@ function Nav() {
     return (
         <>
             {/* 桌面版導覽列 */}
-            <div className="hidden md:flex justify-between navbar bg-base-100 shadow-sm">
-                <div className="flex">
+            <div className="hidden md:flex justify-between navbar bg-base-100">
+                <div className="flex flex-row items-center h-12">
                     <a className="btn btn-ghost text-xl"><Link to="/">LUCID</Link></a>
+                    <SetColorMode />
                 </div>
+                
                 <div className="flex-none">
                     <ul className="menu menu-horizontal px-5 ">
                         <NavBarContent />
@@ -42,10 +45,10 @@ function Nav() {
                 </div>
             </div>
             {/* 手機版 Drawer */}
-            <div className="md:hidden bg-base-100 shadow-sm">
-
-                <div className="flex flex-row justify-between items-center h-16">
+            <div className="md:hidden bg-base-100 mobile-nav">
+                <div className="flex flex-row items-center h-16">
                     <a className="btn btn-ghost text-xl"><Link to="/">LUCID</Link></a>
+                    <SetColorMode />
                     <HamMenu
                         id="ham-menu"
                         className="cursor-pointer"
@@ -56,7 +59,7 @@ function Nav() {
 
                 {/* dropdown menu，從 HamMenu 下方展開 */}
                 {isOpen && (
-                    <div className="absolute left-0 right-0 bg-gray-900 text-white p-4 z-50">
+                    <div className="absolute drop left-0 right-0 text-white p-4 z-50">
                         <NavBarContent />
                     </div>
                 )}

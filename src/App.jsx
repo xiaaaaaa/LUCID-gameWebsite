@@ -1,9 +1,11 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { Provider } from "react-redux";
 import './App.css';
 import HomePage from './pages/HomePage'
 import WorldviewPage from './pages/WorldviewPage'
 import FlowerShopPage from './pages/FlowerShopPage'
 import Garden from "./components/Garden";
+import store from "./redux/store";
 
 // 若是畫面在「花店頁面 /world/flowershop」garden 元件就不會顯示
 function AppContent() {
@@ -26,9 +28,11 @@ function AppContent() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <AppContent />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
+    </Provider>
   );
 }
 
