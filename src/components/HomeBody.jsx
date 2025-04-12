@@ -2,7 +2,7 @@ function HomeBody() {
     return (
         <div className="home-body">
             <div>
-                <img className="w-full h-full object-cover" src="/images/MainVisual.png" alt="home" />
+                <img className="hero w-full h-full object-cover" src="/images/MainVisual.png" alt="home" />
             </div>
             <div className="flex justify-center items-center">
                 <div className="grid grid-cols-1 gap-6content">
