@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function FlowerShopPage() {
     return (
-        <div >
+        <div className="h-screen flex flex-col items-center justify-center">
             <div>
                 <button className="btn">
                     <img src="/images/flower1.png" alt="flowerShopIcon" />
@@ -14,7 +14,7 @@ function FlowerShopPage() {
 
 
             <button className="btn">
-            <Link to="/world">離開花店</Link>
+                <Link to="/world">離開花店</Link>
             </button>
         </div>
     );

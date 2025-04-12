@@ -4,6 +4,10 @@ import './App.css';
 import HomePage from './pages/HomePage'
 import WorldviewPage from './pages/WorldviewPage'
 import FlowerShopPage from './pages/FlowerShopPage'
+import ArtGalleryPage from './pages/ArtGalleryPage';
+import FanClubPage from './pages/FanClubPage';
+import TeamPage from './pages/TeamPage';
+
 import Garden from "./components/Garden";
 import store from "./redux/store";
 
@@ -20,6 +24,9 @@ function AppContent() {
           <Route path="" element={<WorldviewPage />} />
           <Route path="flowershop" element={<FlowerShopPage />} />
         </Route>
+        <Route path="/gallery" element={<ArtGalleryPage />} />
+        <Route path="/fanclub" element={<FanClubPage />} />
+        <Route path="/team" element={<TeamPage />} />
       </Routes>
       {showGarden && <Garden />}
     </>
