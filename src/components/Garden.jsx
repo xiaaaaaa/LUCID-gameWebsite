@@ -1,6 +1,7 @@
-function Garden() {
+function Garden({isStuck}) {
     return (
-        <div className="fixed bottom-6 left-12 size-fit z-[9999] ">
+        // 當 garden 接觸到 footer 時，isStuck 會改變。isStuck=false fixed 固定在螢幕左下；isStuck=true absolute 固定在父容器上方 96px
+         <div className={`${isStuck ? 'absolute bottom-60' : 'fixed bottom-6'} left-12 size-fit z-[9999] transition-all duration-300`}>
             {/* data-tip：hover 上的字 */}
             <ul className="menu menu-horizontal bg-transparent rounded-box -mb-1 ">
                 <li>
@@ -16,10 +17,9 @@ function Garden() {
                 
             </ul>
 
-            <img className="w-full h-full  object-contain" src="/images/garden.png" alt="flowerShopIcon" />
+            <img className="w-full h-full object-contain" src="/images/garden.png" alt="flowerShopIcon" />
         </div>
     );
 }
 
 export default Garden;
-

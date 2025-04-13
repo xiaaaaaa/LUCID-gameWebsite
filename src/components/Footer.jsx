@@ -1,6 +1,8 @@
-function Footer() {
+import { forwardRef } from "react";
+
+const Footer = forwardRef((props, ref) => {
     return (
-        <footer className="footer sm:footer-horizontal bg-base-300 text-base-content p-10">
+        <footer ref={ref} className="footer sm:footer-horizontal bg-base-300 text-base-content p-10">
             <nav>
                 <h6 className="footer-title">Services</h6>
                 <a className="link link-hover">Branding</a>
@@ -55,5 +57,7 @@ function Footer() {
             </nav>
         </footer>
     );
-}
+});
+
+Footer.displayName = 'Footer';
 export default Footer;

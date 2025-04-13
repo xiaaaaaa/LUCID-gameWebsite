@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { Provider } from "react-redux";
+import { useState, useEffect } from 'react';
 import './App.css';
 import HomePage from './pages/HomePage'
 import WorldviewPage from './pages/WorldviewPage'
@@ -9,15 +10,17 @@ import FanClubPage from './pages/FanClubPage';
 import TeamPage from './pages/TeamPage';
 
 import Garden from "./components/Garden";
+import { useGardenPosition } from './hooks/useGardenPosition';
 import store from "./redux/store";
 
-// 若是畫面在「花店頁面 /world/flowershop」garden 元件就不會顯示
+
 function AppContent() {
   const location = useLocation();
   const showGarden = location.pathname !== '/world/flowershop';
+  const isStuck = useGardenPosition();
 
   return (
-    <>
+    <div className="relative min-h-screen">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="world">
@@ -28,10 +31,11 @@ function AppContent() {
         <Route path="/fanclub" element={<FanClubPage />} />
         <Route path="/team" element={<TeamPage />} />
       </Routes>
-      {showGarden && <Garden />}
-    </>
+      {showGarden && <Garden isStuck={isStuck} />}
+    </div>
   );
 }
+
 
 function App() {
   return (
