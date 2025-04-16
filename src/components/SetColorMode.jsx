@@ -19,9 +19,9 @@ export default function SetColorMode() {
       <div onClick={toggleColor} className="cursor-pointer" >
          {
             lightMode ? (
-               <Sun className="w-5 h-5 md:w-6 md:h-6 text-current group-hover:scale-105 transition-transform" />
+               <Sun className="w-5 h-5 md:w-6 md:h-6 text-current group-hover:scale-105 transition-transform bg-white rounded-full border-4 border-white" />
             ) : (
-               <Moon className="w-5 h-5 md:w-6 md:h-6 text-current group-hover:scale-105 transition-transform" /> 
+               <Moon className="w-5 h-5 md:w-6 md:h-6 text-current group-hover:scale-105 transition-transform bg-black rounded-full border-3 border-black" /> 
             )
          }
       </div>

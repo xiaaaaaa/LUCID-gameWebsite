@@ -5,20 +5,13 @@
   themes: light, dark;
 }
 @plugin "daisyui/theme" {
-  name: "mytheme";
-  default: true; /* set as default */
-  prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
-  color-scheme: light; /* color of browser-provided UI */
-  --color-primary: #6366F2;
-}
-@plugin "daisyui/theme" {
   name: "dark";
-  --color-primary: #6366F2;
+  default: true;
+  --color-primary: ;
 }
 
 @plugin "daisyui/theme" {
   name: "light";
-  default: true;
   --color-primary: #6366F2;
 }
 
@@ -26,6 +19,10 @@
   body {
     background-color: #fff;
     color: black;
+  }
+  .navbar {
+    background-color: #E93969;
+    color: white;
   }
   .footer {
     background-color: #fff;
@@ -44,15 +41,15 @@
 
 [data-theme="dark"] {
   body {
-    background-color: black;
+    background-color: #0C3C41;
     color: white;
   }
   .navbar {
-    background-color: black;
+    background-color: #30B1BD;
     color: white;
   }
   .mobile-nav {
-    background-color: black;
+    background-color: #30B1BD;
     color: white;
   }
   .drawer-bg {
@@ -71,7 +68,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   background-color: transparent;
-  color: black;
+  color: white;
 }
 
 .main-layout {
@@ -90,6 +87,30 @@ body {
   grid-area: header;
 }
 
+.navbar {
+  background-color: #30B1BD;
+  color: white;
+}
+
+.homeContent {
+  background-color: #141414;
+  color: white;
+  border-radius: 0.5rem;
+}
+
+.hcontent-title {
+  font-family: var(--font-sans);
+  font-size: 30px;
+  color:#30B1BD;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.hcontent-sectitle{
+  font-family: var(--font-sans);
+  color:#B4B4B4;
+  font-weight: bold;
+  text-align: left;
+}
 .content {
   grid-area: content;
 }
