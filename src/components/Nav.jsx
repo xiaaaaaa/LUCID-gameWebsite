@@ -9,11 +9,11 @@ function Nav() {
         { to: "/", label: "遊戲介紹" },
         { to: "/world", label: "世界觀" },
         { to: "/gallery", label: "藝廊" },
-        { to: "/fanclub", label: "Fan Club" },
+        { to: "/fanclub", label: "粉絲俱樂部" },
         { to: "/team", label: "製作團隊" },
     ]
     const NavBarContent = () => (
-        <div className="flex flex-col sm:flex-row justify-around space-x-6">
+        <div className="flex flex-col sm:flex-row justify-between space-x-6 mb-3">
             {navBarContent.map(({ to, label }) => (
                 <Link
                     key={to}
@@ -45,10 +45,10 @@ function Nav() {
             </div>
             {/* 手機版 Drawer */}
             <div className="sm:hidden bg-base-100 mobile-nav">
-                <div className="flex flex-row justify-between items-center h-16">
+                <div className="flex flex-row justify-between items-center h-16 mr-[70px]">
                     <Link to="/"><img className="h-[45px]" src="/images/lucidLogo.png" alt="home" /></Link>
                     <div className="flex flex-row items-center">
-                        <div className="right-1">
+                        <div className="mr-[10%]">
                             <SetColorMode />
                         </div>
                         <HamMenu

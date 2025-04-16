@@ -7,10 +7,13 @@ function HomePage() {
     return (
         <div className="relative">
             <Nav />
-            <div className="content-container">
+            <div className="content-container relative z-0">
                 <HomeBody />
             </div>
-            <Footer />
+            <div className="relative z-10">
+
+                <Footer />
+            </div>
         </div>
     );
 }
