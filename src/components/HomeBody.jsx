@@ -28,16 +28,19 @@ function HomeBody() {
             <div className="flex justify-center items-center -mt-28 relative z-0">
                 <img className="hero w-[1125px] h-full object-cover" src="/images/MainVisual.png" alt="主視覺" />
             </div>
+            <div className="flex flex-row justify-center items-center relative z-50">
+                <Npc1 />
+                <Npc2 />
+            </div>
             <div className="flex flex-row justify-center items-center">
                 <img className="w-[1015px] mt-7 relative z-49" src="/images/pictureHole.png" alt="裝飾" />
             </div>
+            
             <div className="mainContent flex justify-center items-center -mt-424 relative z-0">
                 <div className="grid grid-cols-1 gap-6content w-[1062px] bg-[#141414]">
                     <div className="flex flex-col justify-center items-center mt-8">
                         <img className="w-[150px]" src="/images/cameraIcon.png" alt="相機" />
                     </div>
-                    <Npc1 />
-                    <Npc2 />
                     <div className="flex flex-col justify-center items-center mt-5">
                         <div className="mt-5 border-1 w-[800px] border-[#30B1BD] rounded-full" />
                     </div>
