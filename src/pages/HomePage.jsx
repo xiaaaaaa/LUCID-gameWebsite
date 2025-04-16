@@ -1,5 +1,6 @@
 import Nav from "../components/Nav"
 import HomeBody from "../components/HomeBody";
+
 import Footer from "../components/Footer";
 
 function HomePage() {

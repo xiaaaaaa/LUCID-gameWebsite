@@ -1,9 +1,14 @@
+import Npc1 from "../components/Npc1";
+import Npc2 from "../components/Npc2";
+
 function HomeBody() {
     return (
         <div className="home-body">
             <div>
                 <img className="hero w-full h-full object-cover" src="/images/MainVisual.png" alt="home" />
             </div>
+            <Npc1 />
+            <Npc2 />
             <div className="flex justify-center items-center">
                 <div className="grid grid-cols-1 gap-6content">
                     <div className="card flex flex-col md:flex-row bg-base-100 w-full shadow-sm">
