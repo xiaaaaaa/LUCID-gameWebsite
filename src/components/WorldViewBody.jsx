@@ -32,14 +32,14 @@ function WorldViewBody() {
             <div className="flex justify-center items-center mt-25 mb-5">
                 <img className="hero w-[35vw] max-w-[500px] h-auto object-cover" src="/images/Mainlogo.png" alt="LUCID_MainLogo" />
             </div>
-            <div className="flex flex-row justify-center">
+            <div className="flex flex-row justify-center ">
 
                 {/*Main Content*/}
-                <div className="mainContent flex justify-center items-center">
+                <div className="mainContent flex justify-center items-center md:w-[80%]">
                     <CameraLine />
                     <div className="grid grid-cols-1 gap-6content xl:w-[1062px]">
                         <div className="flex flex-col justify-center items-center mt-[10%]">
-                            <div className="line mt-[10%] mb-[10%] border-1 w-[70vw]" />
+                            <div className="line mt-[10%] mb-[10%] border-1 w-[60vw]" />
                         </div>
                         {/*Map Introduction*/}
                         <div className="flex justify-center items-center relative z-49">
@@ -49,7 +49,7 @@ function WorldViewBody() {
                                     <h2 className="sm:hidden hcontent-title flex ">地圖介紹</h2>
                                 </div>
                                 <div className="sm:hidden flex flex-col justify-center items-center">
-                                    <div className=" border-1 w-[70vw] mb-[10%] mt-[10%] md:mb-0 line" />
+                                    <div className=" border-1 w-[60vw] mb-[10%] mt-[10%] md:mb-0 line" />
                                 </div>
                                 {/*Map Intro*/}
                                 <button className="btn bg-transparent border-0 my-10 md:my-0 cursor-pointer" onClick={() => document.getElementById('my_modal_4').showModal()}>
@@ -101,7 +101,7 @@ function WorldViewBody() {
                             </div>
                         </div>
                         <div className="flex flex-col justify-center items-center">
-                            <div className="mt-[10%] mb-[10%] border-1 w-[70vw] line" />
+                            <div className="mt-[10%] mb-[10%] border-1 w-[60vw] line" />
                         </div>
 
                         {/*Game Character*/}
@@ -109,10 +109,10 @@ function WorldViewBody() {
                             <div className="flex md:justify-start md:items-start md:mb-10 md:mr-[62%]">
                                 <h2 className="hcontent-title flex md:text-left">人物設定</h2>
                             </div>
-                            <div className="homeContent flex flex-col justify-around md:justify-center items-center w-[80%]">
+                            <div className="homeContent flex flex-col justify-around md:justify-center items-center">
 
                                 <div className="md:hidden flex flex-col justify-center items-center">
-                                    <div className="mt-[10%] mb-[10%] border-1 w-[70vw] line" />
+                                    <div className="mt-[10%] mb-[10%] border-1 w-[60vw] line" />
                                 </div>
                                 <div className="flex flex-row justify-between items-center md:w-[90%] md:h-[374px] md:border-5 textframe -mt-2">
                                     <div className="flex flex-col justify-center items-center md:items-start md:ml-10">
@@ -145,10 +145,10 @@ function WorldViewBody() {
                                         <div className="relative">
                                             <img
                                                 src={"/images/lucidCharacter.png"}
-                                                className="w-[370px] border-2 frame md:relative md:ml-30 md:mb-30"
+                                                className="w-[370px] border-2 frame md:relative md:ml-10 md:mb-40"
                                             />
                                         </div>
-                                        <p className="hidden md:flex font-semibold color absolute pt-80 pl-80">＜Lucian’s File＞</p>
+                                        <p className="hidden md:flex font-semibold color absolute pt-80 pl-40">＜Lucian’s File＞</p>
                                     </div>
                                 </div>
                             </div>
@@ -187,7 +187,7 @@ function WorldViewBody() {
                         </div>
 
                         <div className="flex flex-col justify-center items-center mb-[20%]">
-                            <div className="mt-[10%] border-1 w-[70vw] line" />
+                            <div className="mt-[10%] border-1 w-[60vw] line" />
                         </div>
                     </div>
                     <CameraLine />
