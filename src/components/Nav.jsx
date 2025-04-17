@@ -13,7 +13,7 @@ function Nav() {
         { to: "/team", label: "製作團隊" },
     ]
     const NavBarContent = () => (
-        <div className="flex flex-col sm:flex-row justify-between space-x-6 mb-3">
+        <div className="flex flex-col sm:flex-row justify-between space-x-6">
             {navBarContent.map(({ to, label }) => (
                 <Link
                     key={to}
@@ -36,7 +36,7 @@ function Nav() {
                 <div>
                     <Link to="/"><img className="h-[45px]" src="/images/lucidLogo.png" alt="home" /></Link>
                 </div>
-                <div className="flex flex-row items-center">
+                <div className="flex flex-row justify-center items-center">
                     <SetColorMode />
                     <ul className="menu menu-horizontal px-5 ">
                         <NavBarContent />
