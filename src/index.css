@@ -57,6 +57,7 @@
   }
   .spanbg {
     background-color: #fff;
+    border-radius: 10px;
   }
   .drop {
     background-color: black;

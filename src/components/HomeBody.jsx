@@ -95,11 +95,12 @@ function HomeBody() {
                     </div>
 
                     {/*Game Mechanic*/}
-                    <div className="flex justify-center items-center">
-                        <div className="homeContent flex flex-col justify-around items-center md:items-start w-[80%]">
-                            <div className="flex justify-center items-center">
-                                <h2 className="hcontent-title flex md:text-left">解謎機制</h2>
-                            </div>
+                    <div className="flex flex-col justify-center items-center">
+                        <div className="flex md:justify-start md:items-start md:mb-10 md:mr-[62%]">
+                            <h2 className="hcontent-title flex md:text-left">解謎機制</h2>
+                        </div>
+                        <div className="homeContent flex flex-col justify-around md:justify-center items-center w-[80%]">
+
                             {/*For Moblie to display */}
                             <div className="md:hidden flex flex-col justify-center items-center">
                                 <div className="mt-[10%] mb-[10%] border-1 w-[70vw] border-[#30B1BD] rounded-full" />
@@ -114,7 +115,7 @@ function HomeBody() {
                                             alt="解謎機制大圖"
                                         />
                                     </div>
-                            {/*For Moblie to display */}
+                                    {/*For Moblie to display */}
                                     <div className="flex flex-row justify-around md:justify-start w-[60%] md:w-[250px] my-5 md:mb-10">
                                         {thumbnails.map((item, index) => (
                                             <img
