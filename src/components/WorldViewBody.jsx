@@ -29,11 +29,10 @@ function WorldViewBody() {
     return (
         <div className="home-body">
             {/*Logo*/}
-            <div className="flex justify-center items-center mt-25 mb-5">
+            <div className="flex justify-center items-center mt-25 mb-5 md:relative z-50">
                 <img className="hero w-[35vw] max-w-[500px] h-auto object-cover" src="/images/Mainlogo.png" alt="LUCID_MainLogo" />
             </div>
-            <div className="flex flex-row justify-center ">
-
+            <div className="flex flex-row justify-center md:-mt-30 md:relative z-0">
                 {/*Main Content*/}
                 <div className="mainContent flex justify-center items-center md:w-[80%]">
                     <CameraLine />
@@ -43,7 +42,7 @@ function WorldViewBody() {
                         </div>
                         {/*Map Introduction*/}
                         <div className="flex justify-center items-center relative z-49">
-                            <div className="homeContent flex justify-center items-center flex-col md:flex-row w-[80%] h-[90%]">
+                            <div className="homeContent flex justify-center items-center flex-col md:flex-row w-[100%] h-[100%]">
                                 {/*For Moblie to display*/}
                                 <div className="flex flex-row justify-center">
                                     <h2 className="sm:hidden hcontent-title flex ">地圖介紹</h2>
@@ -52,9 +51,9 @@ function WorldViewBody() {
                                     <div className=" border-1 w-[60vw] mb-[10%] mt-[10%] md:mb-0 line" />
                                 </div>
                                 {/*Map Intro*/}
-                                <button className="btn bg-transparent border-0 my-10 md:my-0 cursor-pointer" onClick={() => document.getElementById('my_modal_4').showModal()}>
+                                <button className="btn h-[100px] md:h-0 bg-transparent border-0 my-10 md:my-0 cursor-pointer shadow-none" onClick={() => document.getElementById('my_modal_4').showModal()}>
                                     <div className="flex justify-center items-center">
-                                        <img className="flex w-[150px] md:h-[90%] md:w-[305px] mb-[20px] sm:mb-0 frame" src="/images/gameMap.png" alt="地圖" />
+                                        <img className="flex w-[370px] md:h-[90%] md:w-[305px] mb-5 sm:mb-0 frame" src="/images/gameMap.png" alt="地圖" />
                                     </div>
                                 </button>
                                 {/*Modal for Map*/}
@@ -145,7 +144,7 @@ function WorldViewBody() {
                                         <div className="relative">
                                             <img
                                                 src={"/images/lucidCharacter.png"}
-                                                className="w-[370px] border-2 frame md:relative md:ml-10 md:mb-40"
+                                                className="w-[370px] border-2 sm:border-4 frame md:relative md:ml-10 md:mb-40"
                                             />
                                         </div>
                                         <p className="hidden md:flex font-semibold color absolute pt-80 pl-40">＜Lucian’s File＞</p>
@@ -159,7 +158,7 @@ function WorldViewBody() {
                             <div className="flex justify-center items-center mt-4 space-x-2">
                                 <button
                                     onClick={prev}
-                                    className="btn btn-sm bg-transparent border-none shadow-none"
+                                    className="btn btn-sm color bg-transparent border-none shadow-none"
                                 >
                                     ◀
                                 </button>
@@ -186,7 +185,7 @@ function WorldViewBody() {
                             </div>
                         </div>
 
-                        <div className="flex flex-col justify-center items-center mb-[20%]">
+                        <div className="flex flex-col justify-center items-center mb-[70%] md:mb-[20%]">
                             <div className="mt-[10%] border-1 w-[60vw] line" />
                         </div>
                     </div>
