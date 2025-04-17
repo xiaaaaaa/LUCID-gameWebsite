@@ -16,32 +16,32 @@ function Npc1() {
 
     const addToNpc = (flowerName, e) => {
         dispatch(addGetFlowerLists({
-            name: "npc1",
+            name: "lucid",
             flower: flowerName,
         }))
     }
 
     return (
         <>
-            {getFlowerPeople.some(item => item.name === "npc1") ? (
-                <div className="tooltip">
+            {getFlowerPeople.some(item => item.name === "lucid") ? (
+                <div className="tooltip tooltip-right">
                     <div className="tooltip-content">
                         <div className="animate-bounce text-red-400 -rotate-0 text-2xl font-black">
-                            謝謝你送我{getFlowerPeople.find(item => item.name === "npc1")?.flower}!
+                            謝謝你送我{getFlowerPeople.find(item => item.name === "lucid")?.flower}!
                         </div>
                     </div>
-                    <button className="btn">npc1</button>
+                    <button className=" h-[100px] w-[100px] p-0 " onClick={toggleDropdown}>
+                        <img className='h-[100px] w-[100px] -ml-2 object-none' src="/images/npc-lucid.png" alt="lucid" />
+                    </button>
                 </div>
             ) : (
-                <div className="dropdown dropdown-end">
-                    <button className="btn m-1" onClick={toggleDropdown}>
-                        {/* <img src="" alt={product.name} /> */}
-                        npc1
+                <div className="dropdown dropdown-start">
+                    <button className=" h-[100px] w-[100px] p-0 " onClick={toggleDropdown}>
+                        <img className='h-[100px] w-[100px] -ml-2 object-none' src="/images/npc-lucid.png" alt="lucid" />
                     </button>
 
                     {isOpen && (
                         <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                            {/* <li><button className="btn" onClick={() => { toggleDropdown() }}>買一朵</button></li> */}
                             {cartItems.length === 0 && <p>哪裡有花可以送?</p>}
                             {cartItems.length > 0 &&
                                 <>

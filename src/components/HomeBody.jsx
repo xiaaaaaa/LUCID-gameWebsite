@@ -31,12 +31,12 @@ function HomeBody() {
             </div>
 
             {/*Main Content*/}
-            <div className="flex flex-row justify-center items-center relative z-50 mt-10">
+            {/* <div className="flex flex-row justify-center items-center relative z-50 mt-10">
                 <div className="flex justify-between w-[390px]">
                     <Npc1 />
                     <Npc2 />
                 </div>
-            </div>
+            </div> */}
             <div className="flex flex-row justify-center items-center">
                 <img className="w-[95%] lg:w-[1015px] h-[1800px] mt-[5%] relative z-48" src="/images/pictureHole.png" alt="裝飾" />
             </div>

@@ -1,17 +1,23 @@
 import Nav from "../components/Nav"
 import HomeBody from "../components/HomeBody";
-
 import Footer from "../components/Footer";
+import Npc1 from "../components/Npc1";
+import Npc2 from "../components/Npc2";
 
 function HomePage() {
     return (
         <div className="relative">
             <Nav />
+            <div class="absolute top-350 left-5 z-10">
+                <Npc1 />
+            </div>
+            <div class="absolute top-580 right-5 z-10">
+                <Npc2 />
+            </div>
             <div className="content-container relative z-0">
                 <HomeBody />
             </div>
             <div className="relative z-10">
-
                 <Footer />
             </div>
         </div>
