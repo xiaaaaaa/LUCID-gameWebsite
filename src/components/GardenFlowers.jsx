@@ -8,9 +8,9 @@ function GardenFlowers({ byWho, flowerName }) {
 
     return (
         <li className="!bg-transparent !p-0">
-            <div className="tooltip !bg-transparent" data-tip={`${flowerName}  ― by ${byWho}`}>
+            <div className="tooltip !bg-transparent !p-0" data-tip={`${flowerName}  ― by ${byWho}`}>
                 <div className="!bg-transparent !p-0">
-                    <img src={flowerImage} alt={flowerName} className="w-[50px] h-[50px]" />
+                    <img src={flowerImage} alt={flowerName} className="h-[80px]" />
                 </div>
             </div>
         </li>

@@ -1,14 +1,26 @@
 [
     {
         "id":"1",
-        "name":"風信子",
-        "image": "/images/flower1.png",
+        "name":"鬱金香",
+        "image": "/images/flower-tulipa.png",
         "qty":0
     },
     {
         "id":"2",
         "name":"雛菊",
-        "image": "/images/flower2.png",
+        "image": "/images/flower-perennis.png",
+        "qty":0
+    },
+    {
+        "id":"3",
+        "name":"風鈴草",
+        "image": "/images/flower-campanula.png",
+        "qty":0
+    },
+    {
+        "id":"4",
+        "name":"玫瑰",
+        "image": "/images/flower-rosa.png",
         "qty":0
     }
 ]

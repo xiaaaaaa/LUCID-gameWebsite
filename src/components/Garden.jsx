@@ -13,14 +13,14 @@ function Garden({ isStuck }) {
                 <div className={`${isStuck ? 'absolute bottom-70' : 'fixed bottom-6'} left-12 size-fit z-50 transition-all duration-300`}>
                     {getFlowerList.length > 0 ? (
                         <>
-                            <ul className="menu menu-horizontal bg-transparent rounded-box -mb-1 ">
+                            <ul className="menu menu-horizontal bg-transparent rounded-box gap-5 !p-0 ">
                                 {getFlowerList.map((item, index) => (
                                     <li key={index}>
                                         <GardenFlowers byWho={item.name} flowerName={item.flower} />
                                     </li>
                                 ))}
                             </ul>
-                            <img className="w-[180px] h-auto object-contain" src="/images/garden.png" alt="flowerShopIcon" />
+                            <img className="w-[180px] h-auto object-contain -mt-1.5" src="/images/garden.png" alt="flowerShopIcon" />
                         </>
                     ) : (
                         <div className="tooltip">
@@ -44,14 +44,14 @@ function Garden({ isStuck }) {
                     <div className={`${isStuck ? 'absolute bottom-75' : 'fixed bottom-6'} size-fit transition-all duration-300`}>
                         {getFlowerList.length > 0 ? (
                             <>
-                                <ul className="menu menu-horizontal bg-transparent rounded-box -mb-1 ">
+                                <ul className="menu menu-horizontal bg-transparent rounded-box gap-5 !p-0 ">
                                     {getFlowerList.map((item, index) => (
                                         <li key={index}>
                                             <GardenFlowers byWho={item.name} flowerName={item.flower} />
                                         </li>
                                     ))}
                                 </ul>
-                                <img className="w-[180px] h-auto object-contain" src="/images/garden.png" alt="flowerShopIcon" />
+                                <img className="w-[180px] h-auto object-contain -mt-1.5" src="/images/garden.png" alt="flowerShopIcon" />
                             </>
                         ) : (
                             <div className="tooltip" data-tip="這裡好像可以插花？">

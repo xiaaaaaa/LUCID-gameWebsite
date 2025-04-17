@@ -136,6 +136,15 @@
     font-weight: 900;
   }
 
+  .flowerShop-bg{
+    background-color: #FFDADB !important;
+  }
+
+  .flowerShop-toast{
+    background-color: white !important;
+    border: 3px solid #FFDADB;
+  }
+
 }
 
 
@@ -212,12 +221,12 @@
   }
 
   .npc-diolog {
-    background-color: #141414;
+    background-color: #0C3C41;
     border: 2px solid #B4B4B4;
   }
 
   .npc-choose {
-    background-color: #141414;
+    background-color: #0C3C41;
     border: 2px solid #30B1BD;
 
     &:hover {
@@ -261,6 +270,15 @@
   .tooltip:after {
     background-color: #0C3C41 !important;
     font-weight: 900;
+  }
+
+  .flowerShop-bg{
+    background-color: #30B1BD !important;
+  }
+
+  .flowerShop-toast{
+    background-color: #0C3C41 !important;
+    border: 3px solid #30B1BD;
   }
 }
 

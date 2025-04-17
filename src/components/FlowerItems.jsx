@@ -31,22 +31,25 @@ function FlowerItems({ product }) {
     };
 
     return (
-        <div className="dropdown dropdown-end">
-            <button className="btn m-1" onClick={toggleDropdown}>
-                <img src={product.image} alt={product.name} />
+        <div className="dropdown">
+            <button className="h-[90px] sm:h-[130px] md:h-[150px] lg:h-[170px]" onClick={toggleDropdown}>
+                <img src={product.image} alt={product.name} className="h-[90px] sm:h-[130px] md:h-[150px] lg:h-[170px] object-cover" />
             </button>
 
             {isOpen && (
-                <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                    <li><button className="btn" onClick={() => { addToCart(); toggleDropdown() }}>買一朵{product.name}</button></li>
-                    <li><button className="btn" onClick={toggleDropdown}>不買</button></li>
+                <ul className="dropdown-content menu z-1 w-52 p-2">
+                    <li><button className="btn npc-choose mb-1.5" onClick={() => { addToCart(); toggleDropdown() }}>買一朵{product.name}</button></li>
+                    <li><button className="btn npc-choose" onClick={toggleDropdown}>不買</button></li>
                 </ul>
             )}
             {showToast && (
-                <div className="toast toast-end">
-                    <div className="alert">
-                        <img src={product.image} alt={product.name} />
-                        <span>
+                <div className="toast toast-end ">
+                    <div className="alert p-0 flowerShop-toast">
+                        <div className="size-[90px] sm:size-[130px] md:size-[150px] lg:size-[170px] my-1.5 ml-1.5 rounded-lg bg-[#ffffff] flex items-center justify-center">
+                            <img src={product.image} alt={product.name} className="h-[70px] sm:h-[110px] md:h-[130px] lg:h-[150px] object-cover mx-auto " />
+                        </div>
+
+                        <span className="pr-20">
                             感謝你購買一朵{product.name}
                         </span>
                     </div>
