@@ -21,7 +21,7 @@ function HomeBody() {
 
     const [current, setCurrent] = useState(0);
     return (
-        <div className="home-body">
+        <div className="mt-20 sm:home-body sm:mt-0">
             {/*Main Visual and Logo*/}
             <div className="flex justify-center items-center relative z-50">
                 <img className="hero w-[35vw] max-w-[500px] h-auto object-cover" src="/images/Mainlogo.png" alt="LUCID_MainLogo" />

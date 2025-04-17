@@ -46,7 +46,7 @@ function Nav() {
                 </div>
             </div>
             {/* 手機版 Drawer */}
-            <div className="sm:hidden mobile-nav ">
+            <div className="sm:hidden mobile-nav fixed top-0 w-screen z-50">
                 <div className="flex flex-row justify-between items-center h-16 mr-[70px]">
                     <NavLink to="/"><img className="h-[45px] pl-5" src="/images/lucidLogo.png" alt="home" /></NavLink>
                     <div className="flex flex-row items-center">
