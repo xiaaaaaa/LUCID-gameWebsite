@@ -17,24 +17,59 @@
 
 [data-theme="light"] {
   body {
-    background-color: #fff;
+    background-color: #FFDADB;
     color: black;
   }
   .navbar {
     background-color: #E93969;
     color: white;
   }
-  .footer {
-    background-color: #fff;
-    color: black
+  .mobile-nav {
+    background-color: #E93969;
+    color: white;
   }
-
   .drop {
-    background-color: #fff;
+    background-color: #E93969;
     color:black;
   }
   .spanbg {
-    background-color: black;
+    background-color: white;
+    border-radius: 10px;
+  }
+  .mainContent {
+    background-color: #fff;
+    color: black;
+  }
+  .line {
+    border-color: #E93969; 
+    border-radius: 10px;
+  }
+
+  .frame{
+    border-color: #E93969;
+  }
+  .textframe{
+    border-color: black;
+  }
+  .color{
+    color: #E93969;
+  }
+  .footer {
+    background-color: #E93969;
+    color: white
+  }
+  .homeContent {
+    background-color: #fff;
+    color: black;
+    border-radius: 0.5rem;
+  }
+  
+  .hcontent-title {
+    font-family: var(--font-sans);
+    font-size: 30px;
+    color:#E93969;
+    font-weight: bold;
+    margin-bottom: 1rem;
   }
 
 }
@@ -62,6 +97,40 @@
   .drop {
     background-color: black;
     color:white;
+  }
+  .mainContent {
+    background-color: #141414;
+    color: white;
+  }
+  .frame{
+    border-color: #30B1BD;
+  }
+  .textframe{
+    border-color: white;
+  }
+  .line {
+    border-color: #30B1BD; 
+    border-radius: 10px;
+  }
+  .color{
+    color: #30B1BD;
+  }
+  .homeContent {
+    background-color: #141414;
+    color: white;
+    border-radius: 0.5rem;
+  }
+  .hcontent-title {
+    font-family: var(--font-sans);
+    font-size: 30px;
+    color:#30B1BD;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .footer {
+    background-color: black;
+    color: white
   }
 }
 html,
@@ -93,19 +162,6 @@ body {
   color: white;
 }
 
-.homeContent {
-  background-color: #141414;
-  color: white;
-  border-radius: 0.5rem;
-}
-
-.hcontent-title {
-  font-family: var(--font-sans);
-  font-size: 30px;
-  color:#30B1BD;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
 .hcontent-sectitle{
   font-family: var(--font-sans);
   color:#B4B4B4;

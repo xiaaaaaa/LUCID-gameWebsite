@@ -51,7 +51,7 @@ const Footer = forwardRef((props, ref) => {
                 </div>
             </div>
             <div className="flex flex-col justify-center items-center">
-                <div className="border-1 w-[85vw] border-[#30B1BD] rounded-full" />
+                <div className="border-[0.5px] w-[85vw] border-[#FFFFFF] rounded-full" />
             </div>
             <div className="-my-3 -mb-8">
                 <p className="font-light">© LUCID 2025, Jiabun NO.1 Inc.</p>

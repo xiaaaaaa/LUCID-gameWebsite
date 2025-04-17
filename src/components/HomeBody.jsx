@@ -27,7 +27,8 @@ function HomeBody() {
                 <img className="hero w-[35vw] max-w-[500px] h-auto object-cover" src="/images/Mainlogo.png" alt="LUCID_MainLogo" />
             </div>
             <div className="flex justify-center items-center -mt-[max(10vh,10px)] relative z-49 sm:-mt-28">
-                <img className="hero w-[1125px] h-full object-cover" src="/images/MainVisual.png" alt="MainVisual" />
+                <img className="hidden dark:block hero w-[1125px] h-full object-cover" src="/images/MainVisual.png" alt="MainVisual" />
+                <img className="block dark:hidden hero w-[1125px] h-full object-cover" src="/images/MainVisual_light.png" alt="MainVisual" />
             </div>
 
             {/*Main Content*/}
@@ -41,12 +42,12 @@ function HomeBody() {
                 <img className="w-[95%] lg:w-[1015px] h-[1800px] mt-[5%] relative z-48" src="/images/pictureHole.png" alt="裝飾" />
             </div>
             <div className="mainContent flex justify-center items-center -mt-[1900px] lg:mt-[-1900px] relative z-1">
-                <div className="grid grid-cols-1 gap-6content w-[1062px] bg-[#141414] ">
+                <div className="grid grid-cols-1 gap-6content w-[1062px]">
                     <div className="flex flex-col justify-center items-center mt-[10%]">
                         <img className="w-[150px]" src="/images/cameraIcon.png" alt="相機" />
                     </div>
                     <div className="flex flex-col justify-center items-center mt-5">
-                        <div className="mt-[10%] mb-[10%] border-1 w-[80%] border-[#30B1BD] rounded-full" />
+                        <div className="line mt-[10%] mb-[10%] border-1 w-[80%]" />
                     </div>
                     {/*Game Introduction*/}
                     <div className="flex justify-center items-center">
@@ -56,11 +57,11 @@ function HomeBody() {
                                 <h2 className="sm:hidden hcontent-title flex ">遊戲介紹</h2>
                             </div>
                             <div className="sm:hidden flex flex-col justify-center items-center">
-                                <div className=" border-1 w-[70vw] mb-[10%] mt-[10%] sm:mb-0 border-[#30B1BD] rounded-full" />
+                                <div className=" border-1 w-[70vw] mb-[10%] mt-[10%] sm:mb-0 line" />
                             </div>
                             {/*Normal*/}
                             <div className="flex justify-center items-center">
-                                <img className="flex w-[90%] h-[90%] sm:w-[305px] mb-[20px] sm:mb-0" src="/images/gameStory.jpg" alt="簡介" />
+                                <img className="flex w-[90%] h-[90%] sm:w-[305px] mb-[20px] sm:mb-0 frame" src="/images/gameStory.jpg" alt="簡介" />
                             </div>
                             <div className="flex flex-col justify-center sm:ml-10">
                                 <h2 className="hidden hcontent-title sm:flex text-left">遊戲介紹</h2>
@@ -70,7 +71,7 @@ function HomeBody() {
                         </div>
                     </div>
                     <div className="flex flex-col justify-center items-center">
-                        <div className="mt-[10%] mb-[10%] border-1 w-[80%] border-[#30B1BD] rounded-full" />
+                        <div className="mt-[10%] mb-[10%] border-1 w-[80%] line" />
                     </div>
 
                     {/*Game Story*/}
@@ -81,7 +82,7 @@ function HomeBody() {
                             </div>
                             {/*For Moblie to display*/}
                             <div className="sm:hidden flex flex-col justify-center items-center">
-                                <div className="mt-[10%] mb-[10%] border-1 w-[70vw] border-[#30B1BD] rounded-full" />
+                                <div className="mt-[10%] mb-[10%] border-1 w-[70vw] line" />
                             </div>
                             {/*Normal*/}
                             <div className="flex flex-col justify-start ">
@@ -91,7 +92,7 @@ function HomeBody() {
                         </div>
                     </div>
                     <div className="flex flex-col justify-center items-center">
-                        <div className="mt-[10%] mb-[10%] border-1 w-[80%] border-[#30B1BD] rounded-full" />
+                        <div className="mt-[10%] mb-[10%] border-1 w-[80%] line" />
                     </div>
 
                     {/*Game Mechanic*/}
@@ -103,14 +104,14 @@ function HomeBody() {
 
                             {/*For Moblie to display */}
                             <div className="md:hidden flex flex-col justify-center items-center">
-                                <div className="mt-[10%] mb-[10%] border-1 w-[70vw] border-[#30B1BD] rounded-full" />
+                                <div className="mt-[10%] mb-[10%] border-1 w-[70vw] line" />
                             </div>
-                            <div className="flex flex-row justify-between items-center md:w-[90%] md:h-[374px] md:border-5 border-white -mt-2">
+                            <div className="flex flex-row justify-between items-center md:w-[90%] md:h-[374px] md:border-5 textframe -mt-2">
                                 <div className="flex flex-col justify-center items-center md:items-start md:ml-10">
                                     <div className="md:hidden flex flex-col justify-center items-start md:relative">
-                                        <p className="md:hidden flex font-semibold text-[#30B1BD] mb-[5px]">＜ Playing... ＞</p>
+                                        <p className="md:hidden flex font-semibold color mb-[5px]">＜ Playing... ＞</p>
                                         <img
-                                            className="w-[370px] border-2 border-[#30B1BD]"
+                                            className="w-[370px] border-2 frame"
                                             src={thumbnails[current].big}
                                             alt="解謎機制大圖"
                                         />
@@ -123,29 +124,29 @@ function HomeBody() {
                                                 src={item.src}
                                                 alt="縮圖"
                                                 onClick={() => setCurrent(index)}
-                                                className={`w-[40%] cursor-pointer md:mr-5 border-4 ${current === index ? "border-[#30B1BD]" : "border-white"
+                                                className={`w-[40%] cursor-pointer md:mr-5 border-4 ${current === index ? "frame" : "textframe"
                                                     } transition`}
                                             />
                                         ))}
                                     </div>
-                                    <div className="flex flex-col justify-center md:justify-start md:items-start w-[100%] border-3 md:border-5 border-white">
+                                    <div className="flex flex-col justify-center md:justify-start md:items-start w-[100%] border-3 md:border-5 textframe">
                                         <p className="hcontent-sectitle mx-3 mt-3">{thumbnails[current].title}</p>
                                         <p className="md:w-[227px] m-4 text-left">{thumbnails[current].desc}</p>
                                     </div>
                                 </div>
                                 <div className="hidden md:flex justify-center items-center md:relative">
                                     <img
-                                        className="w-[370px] border-2 border-[#30B1BD] md:relative md:ml-30 md:mb-30"
+                                        className="w-[370px] border-2 frame md:relative md:ml-30 md:mb-30"
                                         src={thumbnails[current].big}
                                         alt="解謎機制大圖"
                                     />
-                                    <p className="hidden md:flex font-semibold text-[#30B1BD] absolute pt-80 pl-80">＜ Playing... ＞</p>
+                                    <p className="hidden md:flex font-semibold color absolute pt-80 pl-80">＜ Playing... ＞</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="flex flex-col justify-center items-center mb-[20%]">
-                        <div className="mt-[10%] border-1 w-[80%] border-[#30B1BD] rounded-full" />
+                        <div className="mt-[10%] border-1 w-[80%] line" />
                     </div>
                 </div>
             </div>
