@@ -12,7 +12,7 @@ export function useGardenPosition() {
 
             const footerRect = footer.getBoundingClientRect();  // 取得 footer 的位置
             const windowHeight = window.innerHeight;  // 取得視窗高度
-            const gardenBottomOffset = 24; // garden 底部的偏移量
+            const gardenBottomOffset = 0; // garden 底部的偏移量
 
             // 如果footer頂部 碰觸到 garden 底部時 => 表示要切換 garden 到 "absolute" (原本是 fixed)
             const shouldStick = footerRect.top <= windowHeight - gardenBottomOffset;
