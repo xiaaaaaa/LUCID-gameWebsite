@@ -1,5 +1,5 @@
-import { useDispatch,useSelector } from "react-redux";
-import { addCartItems,selectCartItems } from "../redux/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addCartItems, selectCartItems } from "../redux/cartSlice";
 import { useState } from 'react';
 
 function FlowerItems({ product }) {
@@ -9,8 +9,10 @@ function FlowerItems({ product }) {
         cartItems.find(item => item.id === product.id)?.qty || 0
     );
     const [isOpen, setIsOpen] = useState(false); // 新增 state 來控制清單開關
+    const [showToast, setShowToast] = useState(false);
 
     const addToCart = (e) => {
+        setShowToast(true); // 顯示 toast
         setQty(prevQty => prevQty + 1);
         dispatch(addCartItems({
             id: product.id,
@@ -18,6 +20,10 @@ function FlowerItems({ product }) {
             image: product.image,
             qty: qty + 1,
         }))
+        // 2 秒後自動關閉 toast
+        setTimeout(() => {
+            setShowToast(false);
+        }, 2000);
     };
 
     const toggleDropdown = () => {
@@ -35,6 +41,16 @@ function FlowerItems({ product }) {
                     <li><button className="btn" onClick={() => { addToCart(); toggleDropdown() }}>買一朵{product.name}</button></li>
                     <li><button className="btn" onClick={toggleDropdown}>不買</button></li>
                 </ul>
+            )}
+            {showToast && (
+                <div className="toast toast-end">
+                    <div className="alert">
+                        <img src={product.image} alt={product.name} />
+                        <span>
+                            感謝你購買一朵{product.name}
+                        </span>
+                    </div>
+                </div>
             )}
         </div>
     );
