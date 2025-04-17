@@ -8,12 +8,23 @@ function HomePage() {
     return (
         <div className="relative">
             <Nav />
-            <div class="absolute top-350 left-5 z-10">
-                <Npc1 />
+            <div className="hidden md:flex">
+                <div class="absolute top-300 left-3 z-10">
+                    <Npc1 />
+                </div>
+                <div class="absolute top-450 right-3 z-10">
+                    <Npc2 />
+                </div>
             </div>
-            <div class="absolute top-580 right-5 z-10">
-                <Npc2 />
+            <div className="md:hidden">
+                <div class="absolute top-100 left-10 z-10">
+                    <Npc1 />
+                </div>
+                <div class="absolute top-350 right-8 z-10">
+                    <Npc2 />
+                </div>
             </div>
+
             <div className="content-container relative z-0">
                 <HomeBody />
             </div>

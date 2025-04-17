@@ -29,14 +29,28 @@ function Npc2() {
                             謝謝你送我{getFlowerPeople.find(item => item.name === "police")?.flower}!
                         </div>
                     </div>
-                    <button className=" h-[120px] w-[90px] p-0" onClick={toggleDropdown}>
-                        <img className='h-[120px] w-[90px] object-none' src="/images/npc-police.png" alt="police" />
+                    <button
+                        className="h-[70px] w-[70px] md:h-[110px] md:w-[80px]"
+                        onClick={toggleDropdown}
+                    >
+                        <img
+                            className="h-[70px] w-[50px] md:h-full md:w-full object-cover "
+                            src="/images/npc-police.png"
+                            alt="police"
+                        />
                     </button>
                 </div>
             ) : (
                 <div className="dropdown dropdown-end">
-                    <button className=" h-[120px] w-[90px] p-0" onClick={toggleDropdown}>
-                        <img className='h-[120px] w-[90px] object-none' src="/images/npc-police.png" alt="police" />
+                    <button
+                        className=" h-[70px] w-[70px] md:h-[110px] md:w-[80px]"
+                        onClick={toggleDropdown}
+                    >
+                        <img
+                            className="h-[70px] w-[50px] md:h-full md:w-full object-cover "
+                            src="/images/npc-police.png"
+                            alt="police"
+                        />
                     </button>
 
                     {isOpen && (

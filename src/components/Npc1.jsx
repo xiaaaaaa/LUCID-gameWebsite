@@ -30,18 +30,32 @@ function Npc1() {
                             謝謝你送我{getFlowerPeople.find(item => item.name === "lucid")?.flower}!
                         </div>
                     </div>
-                    <button className=" h-[100px] w-[100px] p-0 " onClick={toggleDropdown}>
-                        <img className='h-[100px] w-[100px] -ml-2 object-none' src="/images/npc-lucid.png" alt="lucid" />
+                    <button
+                        className=" h-[60px] w-[50px] md:h-[100px] md:w-[90px]"
+                        onClick={toggleDropdown}
+                    >
+                        <img
+                            className="h-[60px] w-[50px] md:h-full md:w-full object-cover "
+                            src="/images/npc-lucid.png"
+                            alt="lucid"
+                        />
                     </button>
                 </div>
             ) : (
                 <div className="dropdown dropdown-start">
-                    <button className=" h-[100px] w-[100px] p-0 " onClick={toggleDropdown}>
-                        <img className='h-[100px] w-[100px] -ml-2 object-none' src="/images/npc-lucid.png" alt="lucid" />
+                    <button
+                        className=" h-[60px] w-[50px] md:h-[100px] md:w-[90px]"
+                        onClick={toggleDropdown}
+                    >
+                        <img
+                            className="h-[60px] w-[50px] md:h-full md:w-full object-cover "
+                            src="/images/npc-lucid.png"
+                            alt="lucid"
+                        />
                     </button>
 
                     {isOpen && (
-                        <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                        <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm -mt-5">
                             {cartItems.length === 0 && <p>哪裡有花可以送?</p>}
                             {cartItems.length > 0 &&
                                 <>
