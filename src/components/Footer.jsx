@@ -21,7 +21,7 @@ const Footer = forwardRef((props, ref) => {
                     className={({ isActive }) =>
                         `mt-5 text-white  transition-all duration-500 ease-in-out 
                         ${isActive ? "opacity-100" : "opacity-60"} 
-                        hover:opacity-100 hover:underline`
+                        hover:opacity-100`
                     }
                 >
                     {label}
