@@ -1,8 +1,11 @@
 import { forwardRef } from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useState } from 'react';
+import { selectLightMode } from "../redux/colorSlice";
 
 const Footer = forwardRef((props, ref) => {
+    const lightMode = useSelector(selectLightMode);
     const [isOpen, setIsOpen] = useState(false);
     const navBarContent = [
         { to: "/", label: "遊戲介紹" },
@@ -39,7 +42,11 @@ const Footer = forwardRef((props, ref) => {
                     <div className="grid grid-flow-col gap-4">
                         <NavLink to="/"><img className="w-[70%] max-w-[30px] min-w-[30px]" src="/images/facebook.png" alt="facebook" /></NavLink>
                         <NavLink to="/"><img className="w-[70%] max-w-[30px] min-w-[30px]" src="/images/instagram.png" alt="instagram" /></NavLink>
-                        <NavLink to="/"><img className="w-[70%] max-w-[30px] min-w-[30px]" src="/images/twitter.png" alt="X" /></NavLink>
+                        {lightMode===true ? (
+                             <NavLink to="/"><img className="w-[70%] max-w-[30px] min-w-[30px]" src="/images/twitter-light.png" alt="X" /></NavLink>
+                        ):(
+                            <NavLink to="/"><img className="w-[70%] max-w-[30px] min-w-[30px]" src="/images/twitter.png" alt="X" /></NavLink>
+                        )}
                     </div>
                     <div className="hidden sm:flex justify-end">
                         <div className="flex flex-row sm:flex-col justify-end items-end sm:w-[400px]">

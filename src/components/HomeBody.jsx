@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { selectLightMode } from "../redux/colorSlice";
 
-import Npc1 from "../components/Npc1";
-import Npc2 from "../components/Npc2";
 
 function HomeBody() {
+    const lightMode = useSelector(selectLightMode);
     const thumbnails = [
         {
             src: "/images/gameMech1.png",
@@ -27,17 +28,14 @@ function HomeBody() {
                 <img className="hero w-[35vw] max-w-[500px] h-auto object-cover" src="/images/Mainlogo.png" alt="LUCID_MainLogo" />
             </div>
             <div className="flex justify-center items-center -mt-[max(10vh,10px)] relative z-49 sm:-mt-28">
-                <img className="hidden dark:block hero w-[1125px] h-full object-cover" src="/images/MainVisual.png" alt="MainVisual" />
-                <img className="block dark:hidden hero w-[1125px] h-full object-cover" src="/images/MainVisual_light.png" alt="MainVisual" />
+                {lightMode === true ? (
+                    <img className="hero w-[1125px] h-full object-cover" src="/images/MainVisual_light.png" alt="MainVisual" />
+                ) : (
+                    <img className="hero w-[1125px] h-full object-cover" src="/images/MainVisual.png" alt="MainVisual" />
+                )}
             </div>
 
             {/*Main Content*/}
-            {/* <div className="flex flex-row justify-center items-center relative z-50 mt-10">
-                <div className="flex justify-between w-[390px]">
-                    <Npc1 />
-                    <Npc2 />
-                </div>
-            </div> */}
             <div className="flex flex-row justify-center items-center">
                 <img className="w-[95%] lg:w-[1015px] h-[1800px] mt-[5%] relative z-48" src="/images/pictureHole.png" alt="裝飾" />
             </div>
