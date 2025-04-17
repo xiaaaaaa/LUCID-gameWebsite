@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { Provider } from "react-redux";
 import { useState, useEffect } from 'react';
+import { useDispatch } from "react-redux";
 import './App.css';
 import HomePage from './pages/HomePage'
 import WorldviewPage from './pages/WorldviewPage'
@@ -11,6 +12,7 @@ import TeamPage from './pages/TeamPage';
 
 import Garden from "./components/Garden";
 import { useGardenPosition } from './hooks/useGardenPosition';
+import { selectLightMode, setColorMode } from "./redux/colorSlice";
 import store from "./redux/store";
 
 
@@ -18,6 +20,12 @@ function AppContent() {
   const location = useLocation();
   const showGarden = location.pathname !== '/world/flowershop';
   const isStuck = useGardenPosition();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setColorMode(false));
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }, []);
 
   return (
     <div className="relative min-h-screen">
@@ -38,6 +46,8 @@ function AppContent() {
 
 
 function App() {
+  
+
   return (
     <Provider store={store}>
       <BrowserRouter>

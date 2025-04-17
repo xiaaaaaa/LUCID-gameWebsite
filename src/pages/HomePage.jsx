@@ -9,18 +9,18 @@ function HomePage() {
         <div className="relative">
             <Nav />
             <div className="hidden md:flex">
-                <div class="absolute top-300 left-3 z-10">
+                <div className="absolute top-300 left-3 z-10">
                     <Npc1 />
                 </div>
-                <div class="absolute top-450 right-3 z-10">
+                <div className="absolute top-450 right-3 z-10">
                     <Npc2 />
                 </div>
             </div>
             <div className="md:hidden">
-                <div class="absolute top-100 left-10 z-10">
+                <div className="absolute top-100 left-10 z-10">
                     <Npc1 />
                 </div>
-                <div class="absolute top-350 right-8 z-10">
+                <div className="absolute top-350 right-8 z-10">
                     <Npc2 />
                 </div>
             </div>
