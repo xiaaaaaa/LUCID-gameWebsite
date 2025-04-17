@@ -21,7 +21,7 @@ function Nav() {
                         to={to}
                         onClick={() => setIsOpen(false)}
                         className={({ isActive }) =>
-                            `my-3 sm:my-0 text-white transition-all duration-500 ease-in-out ${isActive ? "opacity-100" : "opacity-60"
+                            `my-3 sm:my-0 transition-all duration-500 ease-in-out ${isActive ? "opacity-100" : "opacity-60"
                             } hover:opacity-100`
                         }
                     >
@@ -64,7 +64,7 @@ function Nav() {
 
                 {/* dropdown menu，從 HamMenu 下方展開 */}
                 {isOpen && (
-                    <div className="drop left-0 right-0 text-white p-4 z-50">
+                    <div className="drop left-0 right-0 p-4 z-50">
                         <NavBarContent />
                     </div>
                 )}
