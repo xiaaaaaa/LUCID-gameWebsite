@@ -7,14 +7,13 @@ function WorldviewPage() {
     return (
         <div className="relative">
             <Nav />
-            
-            <div className="content-container">
+            {/*<div className="content-container">
                 <button className="btn">
                     <Link to="/world/flowershop">
                         <img src="/images/flowerShopIcon.png" alt="flowerShopIcon" />
                     </Link>
                 </button>
-            </div>
+            </div>*/}
             <WorldViewBody />
             <Footer />
         </div>

@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import Npc1 from "../components/Npc1";
 import Npc2 from "../components/Npc2";
+import Corseral from "../components/Corseral";
 
 function WorldViewBody() {
     const thumbnails = [
@@ -11,20 +13,13 @@ function WorldViewBody() {
             title: "路西安",
             desc: "喜歡攝影，時常抱著相機到處拍。個性直率，似乎沒有什麼朋友。",
         },
-        {
-            src: "/images/gameMech2.png",
-            big: "/images/gameMech2.png",
-            title: "【黑白彩色】",
-            desc: "黑白彩色藏有細節，玩家需觀察出其中的規律。",
-        },
     ];
-
     const [current, setCurrent] = useState(0);
     return (
         <div className="home-body">
             {/*Logo*/}
             <div className="flex justify-center items-center relative z-50">
-                <img className="hero w-[35vw] max-w-[500px] h-auto object-cover" src="/images/Mainlogo.png" alt="LUCID_MainLogo" />
+                <img className="hero w-[35vw] max-w-[500px] h-auto object-cover my-10" src="/images/Mainlogo.png" alt="LUCID_MainLogo" />
             </div>
             {/* <div className="flex flex-row justify-center items-center relative z-50 mt-10">
                 <div className="flex justify-between w-[390px]">
@@ -57,25 +52,33 @@ function WorldViewBody() {
                             </button>
                             <dialog id="my_modal_4" className="modal flex justify-center items-center bg-transparent">
                                 <div className="flex flex-row modal-box w-11/12 max-w-5xl bg-transparent">
+
                                     <div className="flex justify-center items-center">
                                         <img className="flex w-[60%] mb-[20px] sm:mb-0 min-w-[150px] border-3 frame mr-10" src="/images/shop_Map.png" alt="地圖" />
                                     </div>
-                                    <div className="flex flex-col justify-center items-center bg-[#30B1BD] border-3 border-white w-[80vw]">
-                                        <div className="flex flex-row justify-between items-center w-[90%]">
-                                            <h3 className="font-bold text-lg  py-5">商店街</h3>
-                                            <div className="modal-action flex justify-center items-center">
-                                                <form method="dialog">
-                                                    {/* if there is a button, it will close the modal */}
-                                                    <button className="btn bg-transparent border-none">X</button>
-                                                </form>
+                                    <div className="flex flex-col  w-[80vw]">
+                                        <button className="btn w-[50px]">
+                                            <Link to="/world/flowershop">
+                                                <img src="/images/flowerShopIcon.png" alt="flowerShopIcon" />
+                                            </Link>
+                                        </button>
+                                        <div className="flex flex-col justify-center items-center bg-[#30B1BD] border-3 border-white">
+                                            <div className="flex flex-row justify-between items-center w-[90%]">
+                                                <h3 className="font-bold text-lg  py-5">商店街</h3>
+                                                <div className="modal-action flex justify-center items-center">
+                                                    <form method="dialog">
+                                                        {/* if there is a button, it will close the modal */}
+                                                        <button className="btn bg-transparent border-none">X</button>
+                                                    </form>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="flex flex-col justify-center items-center bg-white text-black w-[90%] mb-5">
-                                            <div className="flex justify-center items-center">
-                                                <img className="flex w-[160px] sm:w-[] mb-[20px] sm:mb-0  frame" src="/images/flowerShop_Map.png" alt="地圖" />
+                                            <div className="flex flex-col justify-center items-center bg-white text-black w-[90%] mb-5">
+                                                <div className="flex justify-center items-center">
+                                                    <img className="flex w-[160px] sm:w-[] mb-[20px] sm:mb-0  frame" src="/images/flowerShop_Map.png" alt="地圖" />
+                                                </div>
+                                                <h3 className="font-bold text-lg text-[#30B1BD]">花店</h3>
+                                                <p className="py-4 w-[200px]">販售了各種各樣的花草植物，紀念日準備禮物的首選，時不時會從島外進貨島上沒有的品種。</p>
                                             </div>
-                                            <h3 className="font-bold text-lg text-[#30B1BD]">花店</h3>
-                                            <p className="py-4 w-[200px]">販售了各種各樣的花草植物，紀念日準備禮物的首選，時不時會從島外進貨島上沒有的品種。</p>
                                         </div>
                                     </div>
                                 </div>
@@ -113,20 +116,23 @@ function WorldViewBody() {
                                         />
                                     </div>
                                     {/*For Moblie to display */}
-                                    <div className="flex flex-row justify-around md:justify-start w-[60%] md:w-[250px] my-5 md:mb-10">
+
+                                    <div className="flex flex-col justify-center md:justify-start md:items-start w-[100%] mb-5">
+                                        <p className="text-bold text-[40px] mx-3 ">{thumbnails[current].title}</p>
+                                    </div>
+                                    <div className="flex flex-row justify-around md:justify-start w-[60%] md:w-[250px] my-5 ">
                                         {thumbnails.map((item, index) => (
                                             <img
                                                 key={index}
                                                 src={item.src}
                                                 alt="縮圖"
                                                 onClick={() => setCurrent(index)}
-                                                className={`w-[40%] cursor-pointer md:mr-5 border-4 ${current === index ? "frame" : "textframe"
+                                                className={`w-[40%] cursor-pointer md:mr-5 ${current === index ? "frame" : "textframe"
                                                     } transition`}
                                             />
                                         ))}
                                     </div>
                                     <div className="flex flex-col justify-center md:justify-start md:items-start w-[100%] border-3 md:border-5 textframe">
-                                        <p className="hcontent-sectitle mx-3 mt-3">{thumbnails[current].title}</p>
                                         <p className="md:w-[227px] m-4 text-left">{thumbnails[current].desc}</p>
                                     </div>
                                 </div>
@@ -141,6 +147,7 @@ function WorldViewBody() {
                             </div>
                         </div>
                     </div>
+                    <Corseral />
                     <div className="flex flex-col justify-center items-center mb-[20%]">
                         <div className="mt-[10%] border-1 w-[80%] line" />
                     </div>
