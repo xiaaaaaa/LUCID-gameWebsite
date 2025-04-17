@@ -1,10 +1,16 @@
 import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react"; 
 import { Sun, Moon } from "lucide-react";
 import { selectLightMode, setColorMode } from "../redux/colorSlice";
 
 export default function SetColorMode() {
    const lightMode = useSelector(selectLightMode);
    const dispatch = useDispatch();
+
+   useEffect(() => {
+      dispatch(setColorMode(false));
+      document.documentElement.setAttribute('data-theme', 'dark');
+   }, []); 
 
    const toggleColor = () => {
       dispatch(setColorMode(!lightMode))
