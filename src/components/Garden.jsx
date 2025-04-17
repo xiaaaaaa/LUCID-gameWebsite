@@ -23,8 +23,15 @@ function Garden({ isStuck }) {
                             <img className="w-[180px] h-auto object-contain" src="/images/garden.png" alt="flowerShopIcon" />
                         </>
                     ) : (
-                        <div className="tooltip" data-tip="這裡好像可以插花？">
-                            <img className="w-[180px] h-auto object-contain" src="/images/garden.png" alt="flowerShopIcon" />
+                        <div className="tooltip">
+                            <div className="tooltip-content npc-tooltip">
+                                <div className="font-black">
+                                    這裡好像可以插花？
+                                </div>
+                            </div>
+                            <div >
+                                <img className="w-[180px] h-auto object-contain bg-transparent" src="/images/garden.png" alt="flowerShopIcon" />
+                            </div>
                         </div>
                     )}
                 </div>

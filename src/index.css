@@ -1,9 +1,11 @@
 @import "tailwindcss" source(none);
 @source "./pages";
 @source "./components";
+
 @plugin "daisyui" {
   themes: light, dark;
 }
+
 @plugin "daisyui/theme" {
   name: "dark";
   default: true;
@@ -20,110 +22,186 @@
     background-color: #FFDADB;
     color: black;
   }
+
   .navbar {
     background-color: #E93969;
     color: white;
   }
+
   .mobile-nav {
     background-color: #E93969;
     color: white;
   }
+
   .drop {
     background-color: #E93969;
-    color:black;
+    color: black;
   }
+
   .spanbg {
     background-color: white;
     border-radius: 10px;
   }
+
   .mainContent {
     background-color: #fff;
     color: black;
   }
+
   .line {
-    border-color: #E93969; 
+    border-color: #E93969;
     border-radius: 10px;
   }
 
-  .frame{
+  .frame {
     border-color: #E93969;
   }
-  .textframe{
+
+  .textframe {
     border-color: black;
   }
-  .color{
+
+  .color {
     color: #E93969;
   }
+
   .footer {
     background-color: #E93969;
     color: white
   }
+
   .homeContent {
     background-color: #fff;
     color: black;
     border-radius: 0.5rem;
   }
-  
+
   .hcontent-title {
     font-family: var(--font-sans);
     font-size: 30px;
-    color:#E93969;
+    color: #E93969;
     font-weight: bold;
     margin-bottom: 1rem;
   }
 
+  .npc-diolog {
+    background-color: #fff;
+    border: 2px solid #FFDADB;
+  }
+
+  .npc-choose {
+    background-color: #fff;
+    border: 2px solid #FFDADB;
+
+    &:hover {
+      background-color: #FFDADB;
+      color: black;
+    }
+  }
+
+  .npc-tooltip {
+    background-color: #E93969;
+    color: white; 
+  }
+
+  .npc-tooltip:before {
+    background-color: #E93969 !important;
+  }
+
+  .npc-tooltip:after {
+    background-color: #E93969 !important;
+    color: white;
+    animation: tooltipShow 0.3s ease-in-out;
+  }
+
+  @keyframes tooltipShow {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .tooltip:before {
+    background-color: #E93969 !important;
+    color: white;
+  }
+  
+  .tooltip:after {
+    background-color: #E93969 !important;
+    font-weight: 900;
+  }
+
 }
+
+
 
 [data-theme="dark"] {
   body {
     background-color: #0C3C41;
     color: white;
   }
+
   .navbar {
     background-color: #30B1BD;
     color: white;
   }
+
   .mobile-nav {
     background-color: #30B1BD;
     color: white;
   }
+
   .drawer-bg {
     background-color: black;
   }
+
   .spanbg {
     background-color: #fff;
     border-radius: 10px;
   }
+
   .drop {
     background-color: black;
-    color:white;
+    color: white;
   }
+
   .mainContent {
     background-color: #141414;
     color: white;
   }
-  .frame{
+
+  .frame {
     border-color: #30B1BD;
   }
-  .textframe{
+
+  .textframe {
     border-color: white;
   }
+
   .line {
-    border-color: #30B1BD; 
+    border-color: #30B1BD;
     border-radius: 10px;
   }
-  .color{
+
+  .color {
     color: #30B1BD;
   }
+
   .homeContent {
     background-color: transparent;
     color: white;
     border-radius: 0.5rem;
   }
+
   .hcontent-title {
     font-family: var(--font-sans);
     font-size: 30px;
-    color:#30B1BD;
+    color: #30B1BD;
     font-weight: bold;
     margin-bottom: 1rem;
   }
@@ -132,7 +210,60 @@
     background-color: black;
     color: white
   }
+
+  .npc-diolog {
+    background-color: #141414;
+    border: 2px solid #B4B4B4;
+  }
+
+  .npc-choose {
+    background-color: #141414;
+    border: 2px solid #30B1BD;
+
+    &:hover {
+      background-color: #30B1BD;
+      color: white;
+    }
+  }
+
+  .npc-tooltip {
+    background-color: #0C3C41;
+    color: white; 
+  }
+
+  .npc-tooltip:before {
+    background-color: #0C3C41 !important;
+  }
+
+  .npc-tooltip:after {
+    background-color: #0C3C41 !important;
+    color: white;
+    animation: tooltipShow 0.3s ease-in-out;
+  }
+
+  @keyframes tooltipShow {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .tooltip:before {
+    background-color: #0C3C41 !important;
+    color: white;
+  }
+  
+  .tooltip:after {
+    background-color: #0C3C41 !important;
+    font-weight: 900;
+  }
 }
+
 html,
 body {
   font-size: 16px;
@@ -144,7 +275,7 @@ body {
 .main-layout {
   display: grid;
   min-height: 100vh;
-  grid-template-areas: 
+  grid-template-areas:
     'header'
     'content'
     'footer'
@@ -162,12 +293,13 @@ body {
   color: white;
 }
 
-.hcontent-sectitle{
+.hcontent-sectitle {
   font-family: var(--font-sans);
-  color:#B4B4B4;
+  color: #B4B4B4;
   font-weight: bold;
   text-align: left;
 }
+
 .content {
   grid-area: content;
 }
@@ -175,4 +307,3 @@ body {
 .footer {
   grid-area: footer;
 }
-

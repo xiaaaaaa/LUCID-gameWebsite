@@ -15,18 +15,18 @@ function Npc2() {
 
     const addToNpc = (flowerName, e) => {
         dispatch(addGetFlowerLists({
-            name: "police",
+            name: "警察",
             flower: flowerName,
         }))
     }
 
     return (
         <>
-            {getFlowerPeople.some(item => item.name === "police") ? (
+            {getFlowerPeople.some(item => item.name === "警察") ? (
                 <div className="tooltip tooltip-left">
-                    <div className="tooltip-content">
-                        <div className="animate-bounce text-red-400 -rotate-0 text-2xl font-black">
-                            謝謝你送我{getFlowerPeople.find(item => item.name === "police")?.flower}!
+                    <div className="tooltip-content npc-tooltip">
+                        <div className="animate-bounce -rotate-0 text-2xl font-black ">
+                            謝謝你送我{getFlowerPeople.find(item => item.name === "警察")?.flower}!
                         </div>
                     </div>
                     <button
@@ -36,7 +36,7 @@ function Npc2() {
                         <img
                             className="h-[70px] w-[50px] md:h-full md:w-full object-cover "
                             src="/images/npc-police.png"
-                            alt="police"
+                            alt="警察"
                         />
                     </button>
                 </div>
@@ -49,27 +49,27 @@ function Npc2() {
                         <img
                             className="h-[70px] w-[50px] md:h-full md:w-full object-cover "
                             src="/images/npc-police.png"
-                            alt="police"
+                            alt="警察"
                         />
                     </button>
 
                     {isOpen && (
-                        <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                        <ul className="dropdown-content menu z-1 w-52 p-2 ">
                             {/* <li><button className="btn" onClick={() => { toggleDropdown() }}>買一朵</button></li> */}
-                            {cartItems.length === 0 && <p>哪裡有花可以送?</p>}
+                            {cartItems.length === 0 && <p className='npc-diolog py-3'>哪裡有花可以送?</p>}
                             {cartItems.length > 0 &&
                                 <>
                                     {cartItems.map((item, index) => (
                                         <li key={index}>
                                             <button
-                                                className="btn"
+                                                className="btn npc-choose mb-1.5"
                                                 onClick={() => { dispatch(reduceCartItems(item.id)); addToNpc(item.name); toggleDropdown() }}
                                             >
                                                 送一朵{item.name}
                                             </button>
                                         </li>
                                     ))}
-                                    <li><button className="btn" onClick={toggleDropdown}>不送了</button></li>
+                                    <li><button className="btn npc-choose " onClick={toggleDropdown}>不送了</button></li>
                                 </>
                             }
                         </ul>

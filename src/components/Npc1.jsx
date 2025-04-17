@@ -24,13 +24,13 @@ function Npc1() {
         <>
             {getFlowerPeople.some(item => item.name === "lucid") ? (
                 <div className="tooltip tooltip-right">
-                    <div className="tooltip-content">
-                        <div className="animate-bounce text-red-400 -rotate-0 text-2xl font-black">
+                    <div className="tooltip-content npc-tooltip">
+                        <div className="animate-bounce -rotate-0 text-2xl font-black ">
                             謝謝你送我{getFlowerPeople.find(item => item.name === "lucid")?.flower}!
                         </div>
                     </div>
                     <button
-                        className=" h-[60px] w-[50px] md:h-[100px] md:w-[90px]"
+                        className="h-[60px] w-[50px] md:h-[100px] md:w-[90px]"
                         onClick={toggleDropdown}
                     >
                         <img
@@ -54,21 +54,21 @@ function Npc1() {
                     </button>
 
                     {isOpen && (
-                        <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm ">
-                            {cartItems.length === 0 && <p>哪裡有花可以送?</p>}
+                        <ul className="dropdown-content menu z-1 w-52 p-2 ">
+                            {cartItems.length === 0 && <p className='npc-diolog py-3'>哪裡有花可以送?</p>}
                             {cartItems.length > 0 &&
                                 <>
                                     {cartItems.map((item, index) => (
                                         <li key={index}>
                                             <button
-                                                className="btn"
+                                                className="btn npc-choose mb-1.5"
                                                 onClick={() => { dispatch(reduceCartItems(item.id)); addToNpc(item.name); toggleDropdown() }}
                                             >
                                                 送一朵{item.name}
                                             </button>
                                         </li>
                                     ))}
-                                    <li><button className="btn" onClick={toggleDropdown}>不送了</button></li>
+                                    <li><button className="btn npc-choose " onClick={toggleDropdown}>不送了</button></li>
                                 </>
                             }
                         </ul>
