@@ -20,10 +20,10 @@ function FlowerItems({ product }) {
             image: product.image,
             qty: qty + 1,
         }))
-        // 2 秒後自動關閉 toast
+        // 4 秒後自動關閉 toast
         setTimeout(() => {
             setShowToast(false);
-        }, 2000);
+        }, 4000);
     };
 
     const toggleDropdown = () => {

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { selectCartItems, reduceCartItems } from "../redux/cartSlice";
 import { selectGetFlowerPeople, addGetFlowerLists } from "../redux/getFlowerSlice";
-import { Flower } from 'lucide-react';
 
 function Npc1() {
     const dispatch = useDispatch();
@@ -55,7 +54,7 @@ function Npc1() {
                     </button>
 
                     {isOpen && (
-                        <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm -mt-5">
+                        <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm ">
                             {cartItems.length === 0 && <p>哪裡有花可以送?</p>}
                             {cartItems.length > 0 &&
                                 <>
