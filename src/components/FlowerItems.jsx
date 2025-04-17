@@ -31,15 +31,16 @@ function FlowerItems({ product }) {
     };
 
     return (
-        <div className="dropdown">
-            <button className="h-[90px] sm:h-[130px] md:h-[150px] lg:h-[170px]" onClick={toggleDropdown}>
-                <img src={product.image} alt={product.name} className="h-[90px] sm:h-[130px] md:h-[150px] lg:h-[170px] object-cover" />
+        <div className="dropdown dropdown-center sm:dropdown-start ">
+            <button className=" h-[130px] sm:h-[130px] md:h-[150px] lg:h-[170px]" onClick={toggleDropdown}>
+                <img src={product.image} alt={product.name} className="h-[130px] sm:h-[130px] md:h-[150px] lg:h-[170px] object-cover" />
             </button>
 
             {isOpen && (
-                <ul className="dropdown-content menu z-1 w-52 p-2">
-                    <li><button className="btn npc-choose mb-1.5" onClick={() => { addToCart(); toggleDropdown() }}>買一朵{product.name}</button></li>
-                    <li><button className="btn npc-choose" onClick={toggleDropdown}>不買</button></li>
+                
+                <ul className={`dropdown-content menu z-1 m-0 w-52 p-2 sm:-ml-22`}>
+                    <li><button className={`btn npc-choose mb-1.5 w-[130px] ${product.id === "1" ? 'ml-15 sm:ml-0' : 'sm:ml-0'}`} onClick={() => { addToCart(); toggleDropdown() }}>買一朵{product.name}</button></li>
+                    <li><button className={`btn npc-choose w-[130px] ${product.id === "1" ? 'ml-15 sm:ml-0' : 'sm:ml-0'}`} onClick={toggleDropdown}>不買</button></li>
                 </ul>
             )}
             {showToast && (
