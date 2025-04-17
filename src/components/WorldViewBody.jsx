@@ -67,7 +67,7 @@ function WorldViewBody() {
                                         {/*Right Intro*/}
                                         <div className="flex flex-col  w-[80vw]">
                                             {/*Button to FlowerShop*/}
-                                            <button className="btn w-[50px] shadow-none">
+                                            <button className="w-[50px]">
                                                 <Link to="/world/flowershop">
                                                     <img src="/images/flowerShopIcon.png" alt="flowerShopIcon" />
                                                 </Link>
