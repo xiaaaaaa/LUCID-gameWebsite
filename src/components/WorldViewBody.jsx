@@ -60,11 +60,11 @@ function WorldViewBody() {
                                 <dialog id="my_modal_4" className="modal flex justify-center items-center bg-transparent shadow-none">
                                     <div className="flex flex-col md:flex-row modal-box w-11/12 max-w-5xl bg-transparent">
                                         {/*Left picture*/}
-                                        <div className="flex justify-center items-center">
+                                        <div className="flex justify-center items-center md:-ml-27">
                                             <img className="flex md:w-[60%] mb-[20px] sm:mb-0 min-w-[150px] border-3 frame md:mr-10" src="/images/shop_Map.png" alt="地圖" />
                                         </div>
                                         {/*Right Intro*/}
-                                        <div className="flex flex-col  w-[80vw]">
+                                        <div className="flex flex-col  w-[80vw] md:-ml-5">
                                             {/*Button to FlowerShop*/}
                                             <button className="w-[50px]">
                                                 <Link to="/world/flowershop">
@@ -72,7 +72,7 @@ function WorldViewBody() {
                                                 </Link>
                                             </button>
                                             {/*Right content*/}
-                                            <div className="flex flex-col justify-center items-center bg-[#30B1BD] border-3 border-white">
+                                            <div className="flex flex-col justify-center items-center mobile-nav border-3 border-white sm:-ml-15">
                                                 <div className="flex flex-row justify-between items-center w-[90%]">
                                                     <h3 className="font-bold text-lg  py-5">商店街</h3>
                                                     <div className="modal-action flex justify-center items-center">
@@ -81,12 +81,12 @@ function WorldViewBody() {
                                                         </form>
                                                     </div>
                                                 </div>
-                                                <div className="flex flex-col justify-center items-center bg-white text-black w-[90%] mb-5">
-                                                    <div className="flex justify-center items-center">
-                                                        <img className="flex w-[160px] sm:w-[] mb-[20px] sm:mb-0  frame" src="/images/flowerShop_Map.png" alt="地圖" />
+                                                <div className="flex flex-col justify-center items-start bg-white text-black w-[90%] mb-5 sm:pl-13 pl-5 ">
+                                                    <div className="flex justify-center items-center sm:ml-16 my-5">
+                                                        <img className="flex w-[70px] sm:w-[130px] ml-20 sm:ml-0 mb-[20px] sm:mb-0  frame" src="/images/flowerShop_Map.png" alt="地圖" />
                                                     </div>
-                                                    <h3 className="font-bold text-lg text-[#30B1BD]">花店</h3>
-                                                    <p className="py-4 w-[200px]">販售了各種各樣的花草植物，紀念日準備禮物的首選，時不時會從島外進貨島上沒有的品種。</p>
+                                                    <h3 className="font-bold text-lg color text-left">花店</h3>
+                                                    <p className="py-4 md:w-[20vw] text-left">販售了各種各樣的花草植物，紀念日準備禮物的首選，時不時會從島外進貨島上沒有的品種。</p>
                                                 </div>
                                             </div>
                                         </div>
