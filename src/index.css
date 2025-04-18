@@ -221,7 +221,7 @@
   }
 
   .npc-diolog {
-    background-color: #0C3C41;
+    background-color: #575757;
     border: 2px solid #B4B4B4;
   }
 
@@ -236,16 +236,16 @@
   }
 
   .npc-tooltip {
-    background-color: #0C3C41;
+    background-color: #30B1BD;
     color: white; 
   }
 
   .npc-tooltip:before {
-    background-color: #0C3C41 !important;
+    background-color: #30B1BD !important;
   }
 
   .npc-tooltip:after {
-    background-color: #0C3C41 !important;
+    background-color: #30B1BD !important;
     color: white;
     animation: tooltipShow 0.3s ease-in-out;
   }
@@ -263,12 +263,12 @@
   }
 
   .tooltip:before {
-    background-color: #0C3C41 !important;
+    background-color: #30B1BD !important;
     color: white;
   }
   
   .tooltip:after {
-    background-color: #0C3C41 !important;
+    background-color: #30B1BD !important;
     font-weight: 900;
   }
 

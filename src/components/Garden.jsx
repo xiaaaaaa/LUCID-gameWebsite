@@ -26,7 +26,7 @@ function Garden({ isStuck }) {
                         <div className="tooltip">
                             <div className="tooltip-content npc-tooltip">
                                 <div className="font-black">
-                                    這裡好像可以插花？
+                                    這裡好像可以獻花？
                                 </div>
                             </div>
                             <div >
