@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { Provider } from "react-redux";
 import { useState, useEffect } from 'react';
 import { useDispatch } from "react-redux";
+import { PersistGate } from 'redux-persist/integration/react';
 import './App.css';
 import HomePage from './pages/HomePage'
 import WorldviewPage from './pages/WorldviewPage'
@@ -13,7 +14,7 @@ import TeamPage from './pages/TeamPage';
 import Garden from "./components/Garden";
 import { useGardenPosition } from './hooks/useGardenPosition';
 import { selectLightMode, setColorMode } from "./redux/colorSlice";
-import store from "./redux/store";
+import {persistor, store} from "./redux/store";
 
 
 function AppContent() {
@@ -46,13 +47,14 @@ function AppContent() {
 
 
 function App() {
-  
 
   return (
     <Provider store={store}>
-      <BrowserRouter>
-        <AppContent />
-      </BrowserRouter>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter>
+          <AppContent />
+        </BrowserRouter>
+      </PersistGate>
     </Provider>
   );
 }
