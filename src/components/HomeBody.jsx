@@ -34,6 +34,7 @@ function HomeBody() {
                 ) : (
                     <img className="hero w-[1125px] h-full object-cover" src="/images/MainVisual.png" alt="MainVisual" />
                 )}
+               
             </div>
             {/*Main Content*/}
             <div className="flex  justify-center items-center">

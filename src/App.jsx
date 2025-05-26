@@ -23,6 +23,7 @@ function AppContent() {
   const isStuck = useGardenPosition();
   const dispatch = useDispatch();
   const getLightMode = useSelector(selectLightMode);
+  const [showGardenElement, setShowGardenElement] = useState(false);
 
   useEffect(() => {
     // 根據 redux store 中的 lightMode 狀態來設置主題
@@ -31,6 +32,19 @@ function AppContent() {
       getLightMode ? 'light' : 'dark'
     );
   }, [getLightMode]); // 依賴於 getLightMode
+
+  useEffect(() => {
+      const handleScroll = () => {
+          if (window.scrollY > window.innerHeight * 0.1) {
+              setShowGardenElement(true);
+          } else {
+              setShowGardenElement(false);
+          }
+      };
+
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div className="relative min-h-screen">
@@ -44,7 +58,7 @@ function AppContent() {
         <Route path="/fanclub" element={<FanClubPage />} />
         <Route path="/team" element={<TeamPage />} />
       </Routes>
-      {showGarden && <Garden isStuck={isStuck} />}
+      {showGarden && showGardenElement && <Garden isStuck={isStuck} />}
     </div>
   );
 }
