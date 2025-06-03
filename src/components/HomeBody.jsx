@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { selectLightMode } from "../redux/colorSlice";
 import CameraLineHome from "./CameraLineHome";
@@ -22,6 +22,20 @@ function HomeBody() {
     ];
 
     const [current, setCurrent] = useState(0);
+    const [selectedImage, setSelectedImage] = useState(null);
+
+    useEffect(() => {
+        if (selectedImage) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [selectedImage]);
+
     return (
         <div className="mt-20 sm:home-body sm:mt-0">
             {/*Main Visual and Logo*/}
@@ -48,6 +62,73 @@ function HomeBody() {
                         <div className="flex flex-col justify-center items-center mt-5">
                             <div className="line mt-[10%] mb-[10%] border-1 w-[55vw]" />
                         </div>
+
+                        {/*Game Picture*/}
+                        <div className="flex justify-center items-center">
+                            <div className="relative -mx-60 w-[200%] min-h-[600px]  flex items-center justify-center sm:min-h-[1200px] ">
+                               {[
+                                    { num: 1, style: { top: '10%', left: '15%', transform: 'rotate(0deg)' }},
+                                    { num: 2, style: { top: '18%', left: '72%', transform: 'rotate(0deg)' }},
+                                    { num: 3, style: { top: '55%', left: '12%', transform: 'rotate(-0deg)' }},
+                                    { num: 5, style: { top: '60%', left: '75%', transform: 'rotate(0deg)' }},
+                                    { num: 6, style: { top: '75%', left: '45%', transform: 'rotate(-0deg)' }},
+                                    { num: 4, style: { top: '30%', left: '40%', transform: 'rotate(-3deg)' }}
+                                ].map(({ num, style }) => (
+                                    <div 
+                                        key={num}
+                                        className="absolute w-[250px] cursor-pointer transition-all duration-300 hover:z-50"
+                                        style={style}
+                                    >
+                                        <img
+                                            src={`/images/homeGamePic/homePic${num}-rotation.png`}
+                                            alt={`遊戲照片${num}`}
+                                            className="w-full transition-all duration-300 scale-220 hover:scale-240"
+                                            onClick={() => setSelectedImage(num)}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Modal */}
+                            {selectedImage && (
+                                <div 
+                                    className="fixed inset-0 bg-black/70 flex justify-center items-center z-[100]"
+                                    onClick={() => setSelectedImage(null)}
+                                    style={{ 
+                                        position: 'fixed',
+                                        top: 0,
+                                        left: 0,
+                                        right: 0,
+                                        bottom: 0,
+                                        backdropFilter: 'blur(2px)'
+                                    }}
+                                >
+                                    <div 
+                                        className="relative" 
+                                        onClick={e => e.stopPropagation()}
+                                    >
+                                        <img
+                                            src={`/images/homeGamePic/homePic${selectedImage}.png`}
+                                            alt={`遊戲照片${selectedImage}`}
+                                            className="max-w-[90vw] max-h-[90vh] object-contain"
+                                        />
+                                        <button 
+                                            className="absolute top-0 -right-10 text-gray-300 text-3xl hover:text-gray-200 transition-colors"
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                setSelectedImage(null);
+                                            }}
+                                        >
+                                            ×
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                        <div className="flex flex-col justify-center items-center mt-5">
+                            <div className="line mt-[10%] mb-[10%] border-1 w-[55vw]" />
+                        </div>
+
                         {/*Game Introduction*/}
                         <div className="flex justify-center items-center">
                             <div className="homeContent flex justify-center items-center flex-col lg:flex-row w-[80%] h-[90%]">
