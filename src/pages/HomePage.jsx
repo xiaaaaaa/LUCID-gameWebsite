@@ -53,18 +53,9 @@ function HomePage() {
                     muted 
                     playsInline
                 >
-                    <source src="/videos/main-video.mp4" type="video/mp4" />
+                    <source src="/videos/cover.mp4" type="video/mp4" />
                 </video>
             </div>
-            {/* <video 
-                className="w-full h-screen object-cover object-center fixed top-0 left-0" 
-                autoPlay 
-                loop 
-                muted 
-                playsInline
-            >
-                <source src="/videos/main-video.mp4" type="video/mp4" />
-            </video> */}
 
             <div className="content-container relative z-0">
                 <HomeBody />

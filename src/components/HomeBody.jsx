@@ -9,13 +9,13 @@ function HomeBody() {
     const thumbnails = [
         {
             src: "/images/gameMech1.png",
-            big: "/images/gameMechanic1.png",
+            big: "/videos/mechanism1.mp4",
             title: "【雙層遮罩】",
             desc: "在特殊遮罩區塊中可以看見隱藏於現實畫面之下的資訊。",
         },
         {
             src: "/images/gameMech2.png",
-            big: "/images/gameMech2.png",
+            big: "/videos/mechanism2.mp4",
             title: "【黑白彩色】",
             desc: "黑白彩色藏有細節，玩家需觀察出其中的規律。",
         },
@@ -109,11 +109,21 @@ function HomeBody() {
                                     <div className="flex flex-col justify-center items-center lg:items-start lg:ml-10">
                                         <div className="lg:hidden flex flex-col justify-center items-start md:relative">
                                             <p className="lg:hidden flex font-semibold color mb-[5px] md:mt-5">＜ Playing... ＞</p>
-                                            <img
+                                            {/* <img
                                                 className="w-[370px] border-2 sm:border-4 frame"
                                                 src={thumbnails[current].big}
                                                 alt="解謎機制大圖"
-                                            />
+                                            /> */}
+                                            <video
+                                                key={current}
+                                                className="w-[370px] border-2 sm:border-4 frame"
+                                                autoPlay
+                                                loop
+                                                muted
+                                                playsInline
+                                            >
+                                                <source src={thumbnails[current].big} type="video/mp4" />
+                                            </video>
                                         </div>
                                         {/*For Moblie to display */}
                                         <div className="flex flex-row justify-around lg:justify-start w-[60%] lg:w-[250px] my-5 lg:mb-10">
@@ -134,11 +144,21 @@ function HomeBody() {
                                         </div>
                                     </div>
                                     <div className="hidden lg:flex justify-center items-center md:relative">
-                                        <img
+                                        {/* <img
                                             className="w-[370px] border-4 frame md:relative md:ml-10 md:mb-40"
                                             src={thumbnails[current].big}
                                             alt="解謎機制大圖"
-                                        />
+                                        /> */}
+                                        <video
+                                            key={current}
+                                            className="w-[370px] border-4 frame md:relative md:ml-10 md:mb-40"
+                                            autoPlay
+                                            loop
+                                            muted
+                                            playsInline
+                                        >
+                                            <source src={thumbnails[current].big} type="video/mp4" />
+                                        </video>
                                         <p className="hidden md:flex font-semibold color absolute pt-80 pl-40">＜ Playing... ＞</p>
                                     </div>
                                 </div>
