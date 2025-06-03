@@ -65,12 +65,12 @@ function HomeBody() {
 
                         {/*Game Picture*/}
                         <div className="flex justify-center items-center">
-                            <div className="relative -mx-60 w-[200%] min-h-[600px]  flex items-center justify-center sm:min-h-[1200px] ">
+                            <div className="hidden sm:flex relative -mx-60 w-[200%] min-h-[600px]   items-center justify-center sm:min-h-[1200px] ">
                                {[
                                     { num: 1, style: { top: '10%', left: '15%', transform: 'rotate(0deg)' }},
                                     { num: 2, style: { top: '18%', left: '72%', transform: 'rotate(0deg)' }},
                                     { num: 3, style: { top: '55%', left: '12%', transform: 'rotate(-0deg)' }},
-                                    { num: 5, style: { top: '60%', left: '75%', transform: 'rotate(0deg)' }},
+                                    { num: 5, style: { top: '55%', left: '65%', transform: 'rotate(0deg)' }},
                                     { num: 6, style: { top: '75%', left: '45%', transform: 'rotate(-0deg)' }},
                                     { num: 4, style: { top: '30%', left: '40%', transform: 'rotate(-3deg)' }}
                                 ].map(({ num, style }) => (
@@ -82,7 +82,31 @@ function HomeBody() {
                                         <img
                                             src={`/images/homeGamePic/homePic${num}-rotation.png`}
                                             alt={`遊戲照片${num}`}
-                                            className="w-full transition-all duration-300 scale-220 hover:scale-240"
+                                            className="w-full transition-all duration-300 scale-200 hover:scale-220"
+                                            onClick={() => setSelectedImage(num)}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div className="flex relative -mx-60 w-[200%] min-h-[600px]  items-center justify-center sm:min-h-[1200px] sm:hidden  ">
+                               {[
+                                    { num: 1, style: { top: '0%', left: '12%', transform: 'rotate(0deg)' }},
+                                    { num: 2, style: { top: '8%', left: '52%', transform: 'rotate(0deg)' }},
+                                    { num: 3, style: { top: '45%', left: '12%', transform: 'rotate(-0deg)' }},
+                                    { num: 5, style: { top: '50%', left: '55%', transform: 'rotate(0deg)' }},
+                                    { num: 6, style: { top: '65%', left: '35%', transform: 'rotate(-0deg)' }},
+                                    { num: 4, style: { top: '20%', left: '35%', transform: 'rotate(-3deg)' }}
+                                ].map(({ num, style }) => (
+                                    <div 
+                                        key={num}
+                                        className="absolute w-[250px] cursor-pointer transition-all duration-300 hover:z-50"
+                                        style={style}
+                                    >
+                                        <img
+                                            src={`/images/homeGamePic/homePic${num}-rotation.png`}
+                                            alt={`遊戲照片${num}`}
+                                            className="w-full transition-all duration-300 scale-100 hover:scale-120"
                                             onClick={() => setSelectedImage(num)}
                                         />
                                     </div>

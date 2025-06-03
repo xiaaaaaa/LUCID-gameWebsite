@@ -29,18 +29,18 @@ function HomePage() {
 
             <div className={`transition-opacity duration-300 ${showElements ? 'opacity-100' : 'opacity-0'}`}>
                 <div className="hidden md:flex">
-                    <div className="absolute top-300 left-3 z-10">
+                    <div className="absolute top-600 left-3 z-10">
                         <Npc1 />
                     </div>
-                    <div className="absolute top-450 right-3 z-10">
+                    <div className="absolute top-950 right-3 z-10">
                         <Npc2 />
                     </div>
                 </div>
                 <div className="md:hidden">
-                    <div className="absolute top-100 left-10 z-10">
+                    <div className="absolute top-750 left-10 z-10">
                         <Npc1 />
                     </div>
-                    <div className="absolute top-350 right-8 z-10">
+                    <div className="absolute top-850 right-8 z-10">
                         <Npc2 />
                     </div>
                 </div>
