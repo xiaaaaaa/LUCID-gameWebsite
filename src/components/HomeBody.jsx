@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
-import { motion, useScroll, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { selectLightMode } from "../redux/colorSlice";
 import CameraLineHome from "./CameraLineHome";
 import { Camera } from "lucide-react";
@@ -8,10 +8,6 @@ import MotionDiv from "../motion/MotionDiv";
 
 function HomeBody() {
     const mainVisualRef = useRef(null)
-    const { scrollYProgress } = useScroll({
-        target: mainVisualRef,
-        offset: ["start end", "start start"] 
-    })
 
     const lightMode = useSelector(selectLightMode);
     const thumbnails = [
@@ -38,15 +34,7 @@ function HomeBody() {
             opacity: 1,
             x: 0,
             transition: {
-                duration: 1.0,
-                ease: "easeInOut",
-            },
-        },
-        exit: {
-            x: 500,
-            opacity: 0,
-            transition: {
-                duration: 0.5,
+                duration: 0.8,
                 ease: "easeInOut",
             },
         }
@@ -58,15 +46,7 @@ function HomeBody() {
             opacity: 1,
             x: 0,
             transition: {
-                duration: 1.0,
-                ease: "easeInOut",
-            },
-        },
-        exit: {
-            x: -500,
-            opacity: 0,
-            transition: {
-                duration: 0.5,
+                duration: 0.8,
                 ease: "easeInOut",
             },
         }
@@ -93,12 +73,11 @@ function HomeBody() {
             {/*Main Visual and Logo*/}
             <AnimatePresence>
                 <motion.div
+                    key="main-logo"
                     className="z-50"
                     variants={LeftfadeInEffect}
                     initial="hidden"
                     whileInView="visible"
-                    exit="exit"
-                    viewport={{ once: false }} 
                 >
                     <div className="flex justify-center items-center relative z-50">
                         <img className="hero w-[35vw] max-w-[500px] h-auto object-cover" src="/images/Mainlogo.png" alt="LUCID_MainLogo" />
@@ -108,12 +87,11 @@ function HomeBody() {
 
             <AnimatePresence>
                 <motion.div
+                    key="main-visual"
                     className="z-49"
                     variants={RightfadeInEffect}
                     initial="hidden"
                     whileInView="visible"
-                    exit="exit"
-                    viewport={{ once: false }} 
                 >
                     <div className="flex justify-center items-center -mt-[max(10vh,10px)] relative z-49 sm:-mt-28">
                         {lightMode === true ? (
