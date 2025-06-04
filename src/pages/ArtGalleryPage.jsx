@@ -2,28 +2,17 @@ import Nav from "../components/Nav"
 import Footer from "../components/Footer";
 
 function ArtGalleryPage() {
+    
     return (
         <div className="relative">
             <Nav />
             <div className="content-container">
-                <div className="flex justify-center  h-screen">
-                    <div className="mt-50 sm:mt-25">
-                        <p className="text-[10px] sm:text-sm">----------------------------------------------------</p>
-                        <p className="text-[10px] sm:text-sm">----------------------------------------------------</p>
-                        <p className="text-[10px] sm:text-sm">----------------------------------------------------</p>
-                        <p className="text-[10px] sm:text-sm">----------------------------------------------------</p>
-                        <p className="text-[10px] sm:text-sm">------ 🚧🚧 供你看畫的「藝廊」 施工中 🚧🚧 --------</p>
-                        <p className="text-[10px] sm:text-sm">----------------------------------------------------</p>
-                        <p className="text-[10px] sm:text-sm">----------------------------------------------------</p>
-                        <p className="text-[10px] sm:text-sm">----------------------------------------------------</p>
-                        <p className="text-[10px] sm:text-sm">----------------------------------------------------</p>
-                        <p className="text-[10px] sm:text-sm">----------------------------------------------------</p>
-                        <p className="text-[10px] sm:text-sm">--------------</p>
-                        <p className="text-[10px] sm:text-sm">--------------</p>
-                        <p className="text-[10px] sm:text-sm">--------------</p>
-                        <p className="text-[10px] sm:text-sm">--------------</p>
-                        <p className="text-[10px] sm:text-sm">--------------</p>
-                    </div>
+                <div className="flex justify-center items-center">
+                    <img 
+                        className="flex h-[280px] w-[220px] mb-[20px] border-t-[10px] border-b-[60px] border-x-[10px] border-solid border-[#051D21] object-cover" 
+                        src="/images/gameStory.jpg" 
+                        alt="簡介" 
+                    />
                 </div>
             </div>
             <Footer />
