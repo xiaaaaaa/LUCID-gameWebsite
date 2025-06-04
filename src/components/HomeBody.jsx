@@ -1,10 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
+import { motion, useScroll, AnimatePresence } from "framer-motion";
 import { selectLightMode } from "../redux/colorSlice";
 import CameraLineHome from "./CameraLineHome";
 import { Camera } from "lucide-react";
+import MotionDiv from "../motion/MotionDiv";
 
 function HomeBody() {
+    const mainVisualRef = useRef(null)
+    const { scrollYProgress } = useScroll({
+        target: mainVisualRef,
+        offset: ["start end", "start start"] 
+    })
+
     const lightMode = useSelector(selectLightMode);
     const thumbnails = [
         {
@@ -24,6 +32,48 @@ function HomeBody() {
     const [current, setCurrent] = useState(0);
     const [selectedImage, setSelectedImage] = useState(null);
 
+    const LeftfadeInEffect = {
+        hidden: { x: -500, opacity: 0 },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 1.0,
+                ease: "easeInOut",
+            },
+        },
+        exit: {
+            x: 500,
+            opacity: 0,
+            transition: {
+                duration: 0.5,
+                ease: "easeInOut",
+            },
+        }
+    }
+
+    const RightfadeInEffect = {
+        hidden: { x: 500, opacity: 0 },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 1.0,
+                ease: "easeInOut",
+            },
+        },
+        exit: {
+            x: -500,
+            opacity: 0,
+            transition: {
+                duration: 0.5,
+                ease: "easeInOut",
+            },
+        }
+    }
+
+    
+
     useEffect(() => {
         if (selectedImage) {
             document.body.style.overflow = 'hidden';
@@ -36,20 +86,46 @@ function HomeBody() {
         };
     }, [selectedImage]);
 
+    
+
     return (
-        <div className="mt-20 sm:home-body sm:mt-0">
+        <div className="mt-20 sm:home-body sm:mt-0" ref={mainVisualRef}>
             {/*Main Visual and Logo*/}
-            <div className="flex justify-center items-center relative z-50">
-                <img className="hero w-[35vw] max-w-[500px] h-auto object-cover" src="/images/Mainlogo.png" alt="LUCID_MainLogo" />
-            </div>
-            <div className="flex justify-center items-center -mt-[max(10vh,10px)] relative z-49 sm:-mt-28">
-                {lightMode === true ? (
-                    <img className="hero w-[1125px] h-full object-cover" src="/images/MainVisual_light.png" alt="MainVisual" />
-                ) : (
-                    <img className="hero w-[1125px] h-full object-cover" src="/images/MainVisual.png" alt="MainVisual" />
-                )}
-               
-            </div>
+            <AnimatePresence>
+                <motion.div
+                    className="z-50"
+                    variants={LeftfadeInEffect}
+                    initial="hidden"
+                    whileInView="visible"
+                    exit="exit"
+                    viewport={{ once: false }} 
+                >
+                    <div className="flex justify-center items-center relative z-50">
+                        <img className="hero w-[35vw] max-w-[500px] h-auto object-cover" src="/images/Mainlogo.png" alt="LUCID_MainLogo" />
+                    </div>
+                </motion.div>
+            </AnimatePresence>
+
+            <AnimatePresence>
+                <motion.div
+                    className="z-49"
+                    variants={RightfadeInEffect}
+                    initial="hidden"
+                    whileInView="visible"
+                    exit="exit"
+                    viewport={{ once: false }} 
+                >
+                    <div className="flex justify-center items-center -mt-[max(10vh,10px)] relative z-49 sm:-mt-28">
+                        {lightMode === true ? (
+                            <img className="hero w-[1125px] h-full object-cover" src="/images/MainVisual_light.png" alt="MainVisual" />
+                        ) : (
+                            <img className="hero w-[1125px] h-full object-cover" src="/images/MainVisual.png" alt="MainVisual" />
+                        )}
+                    
+                    </div>
+                </motion.div>
+            </AnimatePresence>
+
             {/*Main Content*/}
             <div className="flex  justify-center items-center">
 
@@ -65,7 +141,7 @@ function HomeBody() {
 
                         {/*Game Picture*/}
                         <div className="flex justify-center items-center">
-                            <div className="hidden sm:flex relative -mx-60 w-[200%] min-h-[600px]   items-center justify-center sm:min-h-[1200px] ">
+                            <MotionDiv className="hidden sm:flex relative -mx-60 w-[200%] min-h-[600px]   items-center justify-center sm:min-h-[1200px] ">
                                {[
                                     { num: 1, style: { top: '10%', left: '15%', transform: 'rotate(0deg)' }},
                                     { num: 2, style: { top: '18%', left: '72%', transform: 'rotate(0deg)' }},
@@ -87,7 +163,7 @@ function HomeBody() {
                                         />
                                     </div>
                                 ))}
-                            </div>
+                            </MotionDiv>
 
                             <div className="flex relative -mx-60 w-[200%] min-h-[600px]  items-center justify-center sm:min-h-[1200px] sm:hidden  ">
                                {[
