@@ -1,13 +1,13 @@
 import { motion, AnimatePresence } from "framer-motion";
 
-const MotionDiv = ({ children, className}) => {
+const FadeInMotionDiv = ({ children, className}) => {
     return (
         <AnimatePresence>
             <motion.div
                 className={className}
                 initial={{ opacity: 0}}
                 whileInView={{ opacity: 1 }}
-                transition={{ duration: 1.5, ease: "easeInOut" }}
+                transition={{ duration: 2.0, ease: "easeInOut" }}
             >
                 {children}
             </motion.div>
@@ -15,4 +15,4 @@ const MotionDiv = ({ children, className}) => {
     )
 }
 
-export default MotionDiv;
+export default FadeInMotionDiv;

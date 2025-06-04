@@ -4,7 +4,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { selectLightMode } from "../redux/colorSlice";
 import CameraLineHome from "./CameraLineHome";
 import { Camera } from "lucide-react";
-import MotionDiv from "../motion/MotionDiv";
+import FadeInMotionDiv from "../motion/FadeInMotionDiv";
+import DownfadeInDiv from "../motion/DownfadeInDiv";
+import RightfadeInDiv from "../motion/RightfadeInDiv";
+import LeftfadeInDiv from "../motion/LeftfadeInDiv";
 
 function HomeBody() {
     const mainVisualRef = useRef(null)
@@ -27,33 +30,7 @@ function HomeBody() {
 
     const [current, setCurrent] = useState(0);
     const [selectedImage, setSelectedImage] = useState(null);
-
-    const LeftfadeInEffect = {
-        hidden: { x: -500, opacity: 0 },
-        visible: {
-            opacity: 1,
-            x: 0,
-            transition: {
-                duration: 0.8,
-                ease: "easeInOut",
-            },
-        }
-    }
-
-    const RightfadeInEffect = {
-        hidden: { x: 500, opacity: 0 },
-        visible: {
-            opacity: 1,
-            x: 0,
-            transition: {
-                duration: 0.8,
-                ease: "easeInOut",
-            },
-        }
-    }
-
     
-
     useEffect(() => {
         if (selectedImage) {
             document.body.style.overflow = 'hidden';
@@ -66,43 +43,21 @@ function HomeBody() {
         };
     }, [selectedImage]);
 
-    
 
     return (
         <div className="mt-20 sm:home-body sm:mt-0" ref={mainVisualRef}>
             {/*Main Visual and Logo*/}
-            <AnimatePresence>
-                <motion.div
-                    key="main-logo"
-                    className="z-50"
-                    variants={LeftfadeInEffect}
-                    initial="hidden"
-                    whileInView="visible"
-                >
-                    <div className="flex justify-center items-center relative z-50">
-                        <img className="hero w-[35vw] max-w-[500px] h-auto object-cover" src="/images/Mainlogo.png" alt="LUCID_MainLogo" />
-                    </div>
-                </motion.div>
-            </AnimatePresence>
+            <RightfadeInDiv className="flex justify-center items-center relative z-50">
+                <img className="hero w-[35vw] max-w-[500px] h-auto object-cover" src="/images/Mainlogo.png" alt="LUCID_MainLogo" />
+            </RightfadeInDiv>
 
-            <AnimatePresence>
-                <motion.div
-                    key="main-visual"
-                    className="z-49"
-                    variants={RightfadeInEffect}
-                    initial="hidden"
-                    whileInView="visible"
-                >
-                    <div className="flex justify-center items-center -mt-[max(10vh,10px)] relative z-49 sm:-mt-28">
-                        {lightMode === true ? (
-                            <img className="hero w-[1125px] h-full object-cover" src="/images/MainVisual_light.png" alt="MainVisual" />
-                        ) : (
-                            <img className="hero w-[1125px] h-full object-cover" src="/images/MainVisual.png" alt="MainVisual" />
-                        )}
-                    
-                    </div>
-                </motion.div>
-            </AnimatePresence>
+            <LeftfadeInDiv className="flex justify-center items-center -mt-[max(10vh,10px)] relative z-49 sm:-mt-28">
+                {lightMode === true ? (
+                    <img className="hero w-[1125px] h-full object-cover" src="/images/MainVisual_light.png" alt="MainVisual" />
+                ) : (
+                    <img className="hero w-[1125px] h-full object-cover" src="/images/MainVisual.png" alt="MainVisual" />
+                )}
+            </LeftfadeInDiv>
 
             {/*Main Content*/}
             <div className="flex  justify-center items-center">
@@ -119,7 +74,7 @@ function HomeBody() {
 
                         {/*Game Picture*/}
                         <div className="flex justify-center items-center">
-                            <MotionDiv className="hidden sm:flex relative -mx-60 w-[200%] min-h-[600px]   items-center justify-center sm:min-h-[1200px] ">
+                            <div className="hidden sm:flex relative -mx-60 w-[200%] min-h-[600px]   items-center justify-center sm:min-h-[1200px] ">
                                {[
                                     { num: 1, style: { top: '10%', left: '15%', transform: 'rotate(0deg)' }},
                                     { num: 2, style: { top: '18%', left: '72%', transform: 'rotate(0deg)' }},
@@ -133,15 +88,17 @@ function HomeBody() {
                                         className="absolute w-[250px] cursor-pointer transition-all duration-300 hover:z-50"
                                         style={style}
                                     >
-                                        <img
-                                            src={`/images/homeGamePic/homePic${num}-rotation.png`}
-                                            alt={`遊戲照片${num}`}
-                                            className="w-full transition-all duration-300 scale-200 hover:scale-220"
-                                            onClick={() => setSelectedImage(num)}
-                                        />
+                                        <FadeInMotionDiv>
+                                            <img
+                                                src={`/images/homeGamePic/homePic${num}-rotation.png`}
+                                                alt={`遊戲照片${num}`}
+                                                className="w-full transition-all duration-300 scale-200 hover:scale-220"
+                                                onClick={() => setSelectedImage(num)}
+                                            />
+                                        </FadeInMotionDiv>
                                     </div>
                                 ))}
-                            </MotionDiv>
+                            </div>
 
                             <div className="flex relative -mx-60 w-[200%] min-h-[600px]  items-center justify-center sm:min-h-[1200px] sm:hidden  ">
                                {[
@@ -157,12 +114,14 @@ function HomeBody() {
                                         className="absolute w-[250px] cursor-pointer transition-all duration-300 hover:z-50"
                                         style={style}
                                     >
-                                        <img
-                                            src={`/images/homeGamePic/homePic${num}-rotation.png`}
-                                            alt={`遊戲照片${num}`}
-                                            className="w-full transition-all duration-300 scale-100 hover:scale-120"
-                                            onClick={() => setSelectedImage(num)}
-                                        />
+                                        <FadeInMotionDiv>
+                                            <img
+                                                src={`/images/homeGamePic/homePic${num}-rotation.png`}
+                                                alt={`遊戲照片${num}`}
+                                                className="w-full transition-all duration-300 scale-100 hover:scale-120"
+                                                onClick={() => setSelectedImage(num)}
+                                            />
+                                        </FadeInMotionDiv>
                                     </div>
                                 ))}
                             </div>
@@ -209,7 +168,7 @@ function HomeBody() {
 
                         {/*Game Introduction*/}
                         <div className="flex justify-center items-center">
-                            <div className="homeContent flex justify-center items-center flex-col lg:flex-row w-[80%] h-[90%]">
+                            <DownfadeInDiv className="homeContent flex justify-center items-center flex-col lg:flex-row w-[80%] h-[90%]">
                                 {/*For Moblie to display*/}
                                 <div className="flex flex-row justify-center">
                                     <h2 className="sm:hidden hcontent-title flex ">遊戲介紹</h2>
@@ -226,7 +185,7 @@ function HomeBody() {
                                     <p className="hcontent-sectitle mb-[1%]]">2D解謎RPG</p>
                                     <p className="sm:max-w-[375px] sm:mb-0 text-left">玩家扮演主角路西安找尋失蹤朋友芙洛爾的下落，在居住的小島上搜索、調查關鍵線索、解謎突破過程中遇到的阻礙，深入記憶與超現實世界中一步步了解事件的真相......</p>
                                 </div>
-                            </div>
+                            </DownfadeInDiv>
                         </div>
                         <div className="flex flex-col justify-center items-center">
                             <div className="mt-[10%] mb-[10%] border-1 w-[55vw] line" />
@@ -234,7 +193,7 @@ function HomeBody() {
 
                         {/*Game Story*/}
                         <div className="flex justify-center">
-                            <div className="homeContent flex flex-col justify-around items-center w-[80%] lg:flex-row">
+                            <DownfadeInDiv className="homeContent flex flex-col justify-around items-center w-[80%] lg:flex-row">
                                 <div className="flex justify-center ml-0 sm:ml-10">
                                     <h2 className="hcontent-title flex justify-center">遊戲故事</h2>
                                 </div>
@@ -247,7 +206,7 @@ function HomeBody() {
                                     <p className="hcontent-sectitle mb-[1%]">劇情大綱</p>
                                     <p className="sm:max-w-[375px] sm:mb-0 text-left">路西安是居住在小島國上的14歲小孩，在像平常一樣要找摯友芙洛爾玩耍時，得知朋友在島上下落不明？！擔心的路西安展開了調查，希望能找到失蹤的芙洛爾。</p>
                                 </div>
-                            </div>
+                            </DownfadeInDiv>
                         </div>
                         <div className="flex flex-col justify-center items-center">
                             <div className="mt-[10%] mb-[10%] border-1 w-[55vw] line" />
@@ -255,10 +214,10 @@ function HomeBody() {
 
                         {/*Game Mechanic*/}
                         <div className="flex flex-col justify-center items-center">
-                            <div className="flex md:justify-start md:items-start md:mb-10 md:mr-[62%]">
+                            <DownfadeInDiv className="flex md:justify-start md:items-start md:mb-10 md:mr-[62%]">
                                 <h2 className="hcontent-title flex md:text-left">解謎機制</h2>
-                            </div>
-                            <div className="homeContent flex flex-col justify-around md:justify-center items-center w-[80%]">
+                            </DownfadeInDiv>
+                            <DownfadeInDiv className="homeContent flex flex-col justify-around md:justify-center items-center w-[80%]">
 
                                 {/*For Moblie to display */}
                                 <div className="md:hidden flex flex-col justify-center items-center">
@@ -321,7 +280,7 @@ function HomeBody() {
                                         <p className="hidden md:flex font-semibold color absolute pt-80 pl-40">＜ Playing... ＞</p>
                                     </div>
                                 </div>
-                            </div>
+                            </DownfadeInDiv>
                         </div>
                         <div className="flex flex-col justify-center items-center mb-[50%] sm:mb-[20%]">
                             <div className="mt-[10%] border-1 w-[55vw] line" />
