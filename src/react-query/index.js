@@ -1,7 +1,8 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { 
     getGlobalHearts, getGlobalHeartById, updateGlobalHeartQty,
-    getFanQuestionVotes, updateFanQuestionVote
+    getFanQuestionVotes, updateFanQuestionVote,
+    getCharacterVotes, updateCharacterVote
 } from "@/api/fireStore";
 
 // useGlobalHearts: React Query hook 用於獲取所有 globalHeart 資料
@@ -48,6 +49,25 @@ export const useUpdateFanQuestionVote = () => {
     mutationFn: updateFanQuestionVote,
     onSuccess: () => {
       queryClient.invalidateQueries('fanQuestionVotes');
+    }
+  });
+};
+
+
+export const useCharacterVotes = () => {
+  return useQuery({
+    queryKey: ['characterVotes'],
+    queryFn: getCharacterVotes
+  });
+};
+
+export const useUpdateCharacterVote = () => {
+  const queryClient = useQueryClient();
+  
+  return useMutation({
+    mutationFn: updateCharacterVote,
+    onSuccess: () => {
+      queryClient.invalidateQueries('characterVotes');
     }
   });
 };

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useCharacterVotes, useUpdateCharacterVote } from '../react-query';
 
 const characters = [
     { id: "lucian", name: "路西安", image: "/images/LucidOshi.png" },
@@ -8,48 +9,45 @@ const characters = [
 ];
 
 export default function OshiVote() {
-    const [votes, setVotes] = useState({});
     const [selectedId, setSelectedId] = useState(null);
+    const { data: votes = {}, isLoading } = useCharacterVotes();
+    const { mutate: updateVote } = useUpdateCharacterVote();
+
 
     useEffect(() => {
-        const storedVotes = JSON.parse(localStorage.getItem("votes")) || {};
         const votedId = localStorage.getItem("votedId");
-        const updatedVotes = { ...storedVotes };
-
-        characters.forEach((char) => {
-            if (updatedVotes[char.id] === undefined) {
-                updatedVotes[char.id] = 0;
-            }
-        });
-
-        localStorage.setItem("votes", JSON.stringify(updatedVotes));
-        setVotes(updatedVotes);
         if (votedId) {
             setSelectedId(votedId);
         }
     }, []);
 
     const handleVote = (id) => {
-        const newVotes = { ...votes };
-        
-        // 如果已經選過其他角色，先把之前選的票數減一
-        if (selectedId && selectedId !== id) {
-            newVotes[selectedId] = newVotes[selectedId] - 1;
-        }
-        
-        // 如果點擊的是同一個角色，不做任何改變
+        // 如果點擊同一個角色，不做任何改變
         if (selectedId === id) {
             return;
         }
-        
-        // 替新選擇的角色加一票
-        newVotes[id] = newVotes[id] + 1;
-        
-        // 更新 localStorage 和狀態
-        localStorage.setItem("votes", JSON.stringify(newVotes));
-        localStorage.setItem("votedId", id);
-        setVotes(newVotes);
-        setSelectedId(id);
+
+        try {
+            // 如果之前有選擇其他角色，先減少該角色的票數
+            if (selectedId) {
+                updateVote({
+                    roleName: selectedId,
+                    newVoteNum: votes[selectedId] - 1
+                });
+            }
+
+            // 增加新選擇角色的票數
+            updateVote({
+                roleName: id,
+                newVoteNum: (votes[id] || 0) + 1
+            });
+
+            // 更新本地存儲和狀態
+            localStorage.setItem("votedId", id);
+            setSelectedId(id);
+        } catch (error) {
+            console.error('投票失敗:', error);
+        }
     };
 
     return (
@@ -73,10 +71,11 @@ export default function OshiVote() {
                                         alt="heart"
                                         className="w-[30px] h-[30px]"
                                     />
-                                    <p className={`${selectedId === char.id
-                                        ? " text-[#30B1BD]"
-                                        : " text-white"
-                                        }`}>{votes[char.id] ?? 0}</p>
+                                    <p className={`${selectedId === char.id 
+                                        ? " text-[#30B1BD]" 
+                                        : " text-white"}`}>
+                                        {isLoading ? '...' : (votes[char.id] || 0)}
+                                    </p>
                                 </div>
                             </div>
                             <button

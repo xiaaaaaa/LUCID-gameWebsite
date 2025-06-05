@@ -14,7 +14,9 @@ import { db } from "@/api/firebaseConfig";
 // REFERENCE COLLECTION
 const globalHeartCollection = collection(db, "globalHeart");
 const fanQuestionVoteCollection = collection(db, "fanQuestionVote-breakfast");
+const characterVoteCollection = collection(db, "characterVote");
 
+// 藝廊愛心
 // APIs
 export const testFirebaseConnection = async () => {
   try {
@@ -99,7 +101,7 @@ export const updateGlobalHeartQty = async ({ picId, newQty }) => {
 };
 
 
-
+// 粉絲問答投票
 export const getFanQuestionVotes = async () => {
   try {
     const querySnapshot = await getDocs(fanQuestionVoteCollection);
@@ -151,6 +153,49 @@ export const updateFanQuestionVote = async ({ way }) => {
   } catch (error) {
     console.error('更新投票數量時發生錯誤:', error);
     console.error('錯誤詳情:', error.code, error.message);
+    throw error;
+  }
+};
+
+
+// 角色投票
+export const getCharacterVotes = async () => {
+  try {
+    const querySnapshot = await getDocs(characterVoteCollection);
+    let result = {};
+    
+    querySnapshot.forEach((doc) => {
+      const data = doc.data();
+      result[data.roleName] = data.loveVoteNum;
+    });
+    
+    console.log('取得角色投票數據:', result);
+    return result;
+  } catch (error) {
+    console.error('取得角色投票數據時發生錯誤:', error);
+    throw error;
+  }
+};
+
+export const updateCharacterVote = async ({ roleName, newVoteNum }) => {
+  try {
+    const q = query(characterVoteCollection, where("roleName", "==", roleName));
+    const querySnapshot = await getDocs(q);
+    
+    if (querySnapshot.empty) {
+      console.error('找不到要更新的角色投票文件');
+      return false;
+    }
+
+    const docRef = doc(characterVoteCollection, querySnapshot.docs[0].id);
+    await updateDoc(docRef, {
+      loveVoteNum: newVoteNum
+    });
+    
+    console.log(`成功更新 ${roleName} 的投票數為 ${newVoteNum}`);
+    return true;
+  } catch (error) {
+    console.error('更新角色投票數量時發生錯誤:', error);
     throw error;
   }
 };
