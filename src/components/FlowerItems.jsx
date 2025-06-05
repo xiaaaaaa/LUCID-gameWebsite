@@ -32,7 +32,7 @@ function FlowerItems({ product }) {
 
     return (
         <div className="dropdown dropdown-center sm:dropdown-start ">
-            <button className=" h-[130px] sm:h-[130px] md:h-[150px] lg:h-[170px]" onClick={toggleDropdown}>
+            <button className=" h-[130px] transition-all duration-100 scale-100 hover:scale-115 sm:h-[130px] md:h-[150px] lg:h-[170px]" onClick={toggleDropdown}>
                 <img src={product.image} alt={product.name} className="h-[130px] sm:h-[130px] md:h-[150px] lg:h-[170px] object-cover" />
             </button>
 
