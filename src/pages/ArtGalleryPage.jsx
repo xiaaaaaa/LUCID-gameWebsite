@@ -6,14 +6,14 @@ import artData from "../json/art.json";
 import ArtPic from "../components/ArtPic";
 import DownfadeInDiv from "../motion/DownfadeInDiv";
 import { selectLightMode } from '../redux/colorSlice';
-import { selectCartItems } from '../redux/userHeartSlice';
+import { selectUserHeart } from '../redux/userHeartSlice';
 
 function ArtGalleryPage() {
     const [artworks, setArtworks] = useState(artData); 
     const sortedArtworks = [...artworks].sort((a, b) => b.getHeartQty - a.getHeartQty);
     const [activeTab, setActiveTab] = useState('all');
     const lightMode = useSelector(selectLightMode);
-    const userLovePic = useSelector(selectCartItems);
+    const userLovePic = useSelector(selectUserHeart);
     
 
     return (

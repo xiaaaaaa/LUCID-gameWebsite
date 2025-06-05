@@ -31,7 +31,7 @@ const userHeartSlice = createSlice({
 });
 
 // export state to global
-export const selectCartItems = (state) => state.userHeart.userLovePic;
+export const selectUserHeart = (state) => state.userHeart.userLovePic;
 
 // export actions to global
 export const { addUserHeart, reduceCUserHeart } = userHeartSlice.actions;
