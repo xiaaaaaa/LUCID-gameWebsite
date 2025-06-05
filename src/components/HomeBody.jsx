@@ -8,7 +8,7 @@ import FadeInMotionDiv from "../motion/FadeInMotionDiv";
 import DownfadeInDiv from "../motion/DownfadeInDiv";
 import RightfadeInDiv from "../motion/RightfadeInDiv";
 import LeftfadeInDiv from "../motion/LeftfadeInDiv";
-import ZoomMotionDiv from "../motion/zoomMotionDiv";
+import ZoomMotionDiv from "../motion/ZoomMotionDiv";
 
 function HomeBody() {
     const mainVisualRef = useRef(null)

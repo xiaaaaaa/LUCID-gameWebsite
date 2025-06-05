@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DownfadeInDiv from "../motion/DownfadeInDiv";
-import ZoomMotionDiv from "../motion/zoomMotionDiv";
+import ZoomMotionDiv from "../motion/ZoomMotionDiv";
 import { addUserHeart, reduceCUserHeart, selectUserHeart } from '../redux/userHeartSlice'; 
 import { selectWorldHeart, reduceWorldHeart, addworldHeart } from '../redux/worldHeartSlice';
 
