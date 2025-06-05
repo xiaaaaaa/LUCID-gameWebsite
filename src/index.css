@@ -35,7 +35,7 @@
 
   .drop {
     background-color: #F691AC;
-    color:black;
+    color: black;
   }
 
   .spanbg {
@@ -101,7 +101,7 @@
 
   .npc-tooltip {
     background-color: #E93969;
-    color: white; 
+    color: white;
   }
 
   .npc-tooltip:before {
@@ -130,21 +130,40 @@
     background-color: #E93969 !important;
     color: white;
   }
-  
+
   .tooltip:after {
     background-color: #E93969 !important;
     font-weight: 900;
   }
 
-  .flowerShop-bg{
+  .flowerShop-bg {
     background-color: #FFDADB !important;
   }
 
-  .flowerShop-toast{
+  .flowerShop-toast {
     background-color: white !important;
     border: 3px solid #FFDADB;
   }
 
+  .itemPicFrame {
+    background-image: url('/images/itemPicFrame_white.png');
+  }
+
+  .itemTextFrame {
+    width: 870px;
+    margin-left: -1px;
+    padding-left: 45px;
+    background-image: url('/images/itemTextFrame_white.png');
+  }
+  .memberLink {
+    color: #E93969;
+  }
+  .memberLink:hover {
+    text-decoration-line: underline;
+  }
+  .memberPic{
+    filter: invert(1);
+  }
 }
 
 
@@ -176,7 +195,7 @@
 
   .drop {
     background-color: #34878F;
-    color:white;
+    color: white;
   }
 
   .mainContent {
@@ -237,7 +256,7 @@
 
   .npc-tooltip {
     background-color: #30B1BD;
-    color: white; 
+    color: white;
   }
 
   .npc-tooltip:before {
@@ -266,19 +285,36 @@
     background-color: #30B1BD !important;
     color: white;
   }
-  
+
   .tooltip:after {
     background-color: #30B1BD !important;
     font-weight: 900;
   }
 
-  .flowerShop-bg{
+  .flowerShop-bg {
     background-color: #30B1BD !important;
   }
 
-  .flowerShop-toast{
+  .flowerShop-toast {
     background-color: #0C3C41 !important;
     border: 3px solid #30B1BD;
+  }
+
+  .itemPicFrame {
+    background-image: url('/images/itemPicFrame.png');
+  }
+
+  .itemTextFrame {
+    width: 890px;
+    margin-left: -18px;
+    padding-left: 60px;
+    background-image: url('/images/itemTextFrame.png');
+  }
+  .memberLink {
+    color: #30B1BD;
+  }
+  .memberLink:hover {
+    text-decoration-line: underline;
   }
 }
 
