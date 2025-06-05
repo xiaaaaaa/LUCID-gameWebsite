@@ -203,7 +203,7 @@ function HomeBody() {
                                     <div className="mt-[10%] mb-[10%] border-1 w-[55vw] line" />
                                 </div>
                                 {/*Normal*/}
-                                <div className="flex flex-col justify-start lg:border-[5px] border-white lg:p-10">
+                                <div className="flex flex-col justify-start lg:border-[5px] textframe lg:p-10">
                                     <p className="hcontent-sectitle mb-[1%]">劇情大綱</p>
                                     <p className="sm:max-w-[375px] sm:mb-0 text-left">路西安是居住在小島國上的14歲小孩，在像平常一樣要找摯友芙洛爾玩耍時，得知朋友在島上下落不明？！擔心的路西安展開了調查，希望能找到失蹤的芙洛爾。</p>
                                 </div>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import DownfadeInDiv from "../motion/DownfadeInDiv";
 import RightfadeInDiv from "../motion/RightfadeInDiv";
 import LeftfadeInDiv from "../motion/LeftfadeInDiv";
+import OshiVote from "./OshiVote";
 
 function FanClubBody() {
     const [voted, setVoted] = useState(false);
@@ -103,81 +104,7 @@ function FanClubBody() {
                         <div className="flex flex-col justify-center mt-20 mb-50">
                             <h1 className="font-bold text-3xl mb-3 text-left">最愛角色票選｜Vote your Oshi</h1>
                             <div className="h-[2.5px] w-[1250px] bg-white"></div>
-
-                            <div className="flex flex-row text-left items-center justify-center">
-                                <div className="flex justify-center items-center mt-7 mr-[20px]">
-                                    <div className="bg-[url('/images/LucidOshi.png')] h-[600px] pt-[440px]">
-                                        <div className="flex flex-col justify-between items-start w-[250px] bg-[#020E10] rounded-b-[20px] p-5">
-                                            <div className="flex flex-row justify-between items-start w-[200px]">
-                                                <h1 className="text-xl font-bold text-white">路西安</h1>
-                                                <div className="flex flex-col">
-                                                    <img
-                                                        src="/images/art-heartIcon.png"
-                                                        alt="heart"
-                                                        className="w-[20px] h-[20px] "
-                                                    />
-                                                    <p className="flex justify-end items-end text-white">44</p>
-                                                </div>
-                                            </div>
-                                            <button className="btn btn-outline btn-accent w-[200px] mt-[30px] rounded-[10px]">選擇他！</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="flex justify-center items-center mt-7 mr-[20px]">
-                                    <div className="bg-[url('/images/FlourOshi.png')] h-[600px] pt-[440px]">
-                                        <div className="flex flex-col justify-between items-start w-[250px] bg-[#020E10] rounded-b-[20px] p-5">
-                                            <div className="flex flex-row justify-between items-start w-[200px]">
-                                                <h1 className="text-xl font-bold text-white">芙洛爾</h1>
-                                                <div className="flex flex-col">
-                                                    <img
-                                                        src="/images/art-heartIcon.png"
-                                                        alt="heart"
-                                                        className="w-[20px] h-[20px] "
-                                                    />
-                                                    <p className="flex justify-end items-end text-white">44</p>
-                                                </div>
-                                            </div>
-                                            <button className="btn btn-outline btn-accent w-[200px] mt-[30px] rounded-[10px]">選擇他！</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="flex justify-center items-center mt-7 mr-[20px]">
-                                    <div className="bg-[url('/images/BossOshi.png')] h-[600px] pt-[440px]">
-                                        <div className="flex flex-col justify-between items-start w-[250px] bg-[#020E10] rounded-b-[20px] p-5">
-                                            <div className="flex flex-row justify-between items-start w-[200px]">
-                                                <h1 className="text-xl font-bold text-white">花店老闆</h1>
-                                                <div className="flex flex-col">
-                                                    <img
-                                                        src="/images/art-heartIcon.png"
-                                                        alt="heart"
-                                                        className="w-[20px] h-[20px] "
-                                                    />
-                                                    <p className="flex justify-end items-end text-white">44</p>
-                                                </div>
-                                            </div>
-                                            <button className="btn btn-outline btn-accent w-[200px] mt-[30px] rounded-[10px]">選擇他！</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="flex justify-center items-center mt-7 mr-[20px]">
-                                    <div className="bg-[url('/images/AjinOshi.png')] h-[600px] pt-[440px]">
-                                        <div className="flex flex-col justify-between items-start w-[250px] bg-[#020E10] rounded-b-[20px] p-5">
-                                            <div className="flex flex-row justify-between items-start w-[200px]">
-                                                <h1 className="text-xl font-bold text-white">阿鯨船長</h1>
-                                                <div className="flex flex-col">
-                                                    <img
-                                                        src="/images/art-heartIcon.png"
-                                                        alt="heart"
-                                                        className="w-[20px] h-[20px] "
-                                                    />
-                                                    <p className="flex justify-end items-end text-white">44</p>
-                                                </div>
-                                            </div>
-                                            <button className="btn btn-outline btn-accent w-[200px] mt-[30px] rounded-[10px]">選擇他！</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <OshiVote />
                         </div>
                     </div>
                 </div>
