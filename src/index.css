@@ -144,7 +144,9 @@
     background-color: white !important;
     border: 3px solid #FFDADB;
   }
-
+  .fanClubbg{
+    background-color: #ffffff;
+  }
   .itemPicFrame {
     background-image: url('/images/itemPicFrame_white.png');
   }
@@ -299,7 +301,9 @@
     background-color: #0C3C41 !important;
     border: 3px solid #30B1BD;
   }
-
+  .fanClubbg{
+    background-color: #020E10;
+  }
   .itemPicFrame {
     background-image: url('/images/itemPicFrame.png');
   }
