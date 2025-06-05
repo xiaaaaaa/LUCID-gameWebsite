@@ -1,27 +1,38 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useGlobalHeartById, useUpdateGlobalHeart } from '../react-query'; 
 import DownfadeInDiv from "../motion/DownfadeInDiv";
 import ZoomMotionDiv from "../motion/ZoomMotionDiv";
 import { addUserHeart, reduceCUserHeart, selectUserHeart } from '../redux/userHeartSlice'; 
-import { selectWorldHeart, reduceWorldHeart, addworldHeart } from '../redux/worldHeartSlice';
+//import { selectWorldHeart, reduceWorldHeart, addworldHeart } from '../redux/worldHeartSlice';
 
 function ArtPic({ art }) {
     const dispatch = useDispatch();
     const [showModal, setShowModal] = useState(false);
     const userLovePic = useSelector(selectUserHeart);
     const isLoved = userLovePic.some(item => Number(item.id) === Number(art.id));
-    const worldLovePic = useSelector(selectWorldHeart);
+    //const worldLovePic = useSelector(selectWorldHeart);
+    const { data: heartData, isLoading } = useGlobalHeartById(art.id);
+    const { mutate: updateHeart } = useUpdateGlobalHeart();
 
     const handleHeartClick = (e) => {
         e.stopPropagation();
         if (isLoved) {
             dispatch(reduceCUserHeart(art.id));
-            dispatch(reduceWorldHeart(art.id));
+            //dispatch(reduceWorldHeart(art.id));
+            updateHeart({ 
+                picId: art.id, 
+                newQty: (heartData?.getHeartQty || 0) - 1 
+            });
         } else {
             dispatch(addUserHeart({
                 id: art.id,
             }));
-            dispatch(addworldHeart(art.id));
+            //dispatch(addworldHeart(art.id));
+            updateHeart({ 
+                picId: art.id, 
+                newQty: (heartData?.getHeartQty || 0) + 1 
+            });
         }
     };
 
@@ -61,7 +72,7 @@ function ArtPic({ art }) {
                                 className="w-[15px] h-[15px] opacity-50"
                             />
                             <p className="text-gray-500 text-[12px] -mt-[2px]">
-                                {worldLovePic.find(item => item.id === art.id)?.getHeartQty || 0}
+                                {isLoading ? '...' : (heartData?.getHeartQty || 0)}
                             </p>
                         </div>
                     </div>
@@ -126,7 +137,7 @@ function ArtPic({ art }) {
                                             className="w-8 h-8"
                                         />
                                         <span className="text-gray-400 text-[12px]">
-                                            {worldLovePic.find(item => item.id === art.id)?.getHeartQty || 0}
+                                            {isLoading ? '...' : (heartData?.getHeartQty || 0)}
                                         </span>
                                     </button>
                                 </div>

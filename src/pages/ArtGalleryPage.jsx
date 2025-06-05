@@ -5,12 +5,12 @@ import Footer from "../components/Footer";
 import ArtGalleryBody from "../components/ArtGalleryBody";
 import artData from "../json/art.json";
 import { selectWorldHeart } from '../redux/worldHeartSlice';
-import { useGlobalHeartById } from '../react-query'; 
+//import { useGlobalHeartById } from '../react-query'; 
 
 function ArtGalleryPage() {
     const [artworks] = useState(artData);
     const worldHeartData = useSelector(selectWorldHeart);
-     const { data: heart, isLoading, error } = useGlobalHeartById("6"); 
+    //const { data: heart, isLoading, error } = useGlobalHeartById("6"); 
     const sortedArtworks = [...artworks].sort((a, b) => {
         const aHearts = worldHeartData.find(w => w.id === a.id)?.getHeartQty || 0;
         const bHearts = worldHeartData.find(w => w.id === b.id)?.getHeartQty || 0;
@@ -18,10 +18,6 @@ function ArtGalleryPage() {
     });
     
 
-    console.log('Heart data:', heart);
-    console.log('Loading:', isLoading);
-    console.log('Error:', error);
-    console.log('完整的愛心資料:', heart);
 
     return (
         <div className="relative min-h-screen flex flex-col">
@@ -30,7 +26,9 @@ function ArtGalleryPage() {
             </div>
             
             <ArtGalleryBody sortedArtworks={sortedArtworks} />
-              <p>
+
+            {/* 測試取得 firebase 資料 */}
+            {/* <p>
                 ID 6 的愛心數量: {isLoading 
                     ? '載入中...' 
                     : heart 
@@ -38,7 +36,8 @@ function ArtGalleryPage() {
                         : '無資料'
                 }
             </p>
-            <p>原始資料: {JSON.stringify(heart, null, 2)}</p>
+            <p>原始資料: {JSON.stringify(heart, null, 2)}</p> */}
+
             <div className='mt-auto'>
                 <Footer />
             </div>
