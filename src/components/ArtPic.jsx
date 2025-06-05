@@ -7,7 +7,7 @@ function ArtPic({ art, onHeartClick }) {
 
     return (
         <>
-            <DownfadeInDiv className="relative duration-100 scale-100 hover:scale-105 z-50">
+            <DownfadeInDiv className="relative duration-100 scale-100 hover:scale-105 z-10">
                 <div
                     className="bg-[#051D21] pt-[10px] pb-[60px] px-[10px] cursor-pointer"
                     onClick={() => setShowModal(true)}

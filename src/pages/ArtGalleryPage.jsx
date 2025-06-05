@@ -34,11 +34,15 @@ function ArtGalleryPage() {
 
     return (
         <div className="relative">
-            <Nav />
-            <div className="pt-10 flex justify-center">
+            <div className="fixed top-0 left-0 right-0 z-50 transition-opacity duration-300">
+                <Nav />
+            </div>
+            <div className="pt-30 flex justify-center">
                 <img className="hero w-[35vw] max-w-[500px] h-auto object-cover" src="/images/Mainlogo.png" alt="LUCID_MainLogo" />
             </div>
-            <div className="mx-20 my-20 mb-58">
+
+
+            <div className="m-10 mb-8 sm:m-20">
                 <div className="flex gap-2">
                     <div className="w-1/2">
                         <button
@@ -93,7 +97,9 @@ function ArtGalleryPage() {
                     </div>
                 </div>
             </div>
-            <Footer />
+            <div className='mt-60'>
+                <Footer />
+            </div>
         </div>
     );
 }

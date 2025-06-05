@@ -29,7 +29,7 @@ function WorldViewBody() {
     return (
         <div className="home-body">
             {/*Logo*/}
-            <div className="flex justify-center items-center mt-25 mb-5 md:relative z-50">
+            <div className="flex justify-center items-center mt-25 mb-5 md:relative z-10">
                 <img className="hero w-[35vw] max-w-[500px] h-auto object-cover" src="/images/Mainlogo.png" alt="LUCID_MainLogo" />
             </div>
             <div className="flex flex-row justify-center lg:-mt-30 md:relative z-0">
