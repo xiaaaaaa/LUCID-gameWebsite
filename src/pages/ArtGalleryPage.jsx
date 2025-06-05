@@ -1,21 +1,27 @@
 import { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { useSelector } from 'react-redux';
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import ArtGalleryBody from "../components/ArtGalleryBody";
 import artData from "../json/art.json";
-import { selectWorldHeart } from '../redux/worldHeartSlice';
-//import { useGlobalHeartById } from '../react-query'; 
+import { useGlobalHearts } from '../react-query';
 
 function ArtGalleryPage() {
     const [artworks] = useState(artData);
-    const worldHeartData = useSelector(selectWorldHeart);
-    //const { data: heart, isLoading, error } = useGlobalHeartById("6"); 
+    const { data: heartData, isLoading } = useGlobalHearts();
+
+    // 使用 Firebase 的愛心數量進行排序
     const sortedArtworks = [...artworks].sort((a, b) => {
-        const aHearts = worldHeartData.find(w => w.id === a.id)?.getHeartQty || 0;
-        const bHearts = worldHeartData.find(w => w.id === b.id)?.getHeartQty || 0;
-        return bHearts - aHearts;
+        // 從 heartData 中找到對應的愛心數量
+        const aHearts = heartData?.find(h => h.picId === a.id)?.getHeartQty || 0;
+        const bHearts = heartData?.find(h => h.picId === b.id)?.getHeartQty || 0;
+        return bHearts - aHearts;  // 由大到小排序
     });
+
+    if (isLoading) {
+        return <div>載入中...</div>;
+    }
     
 
 
