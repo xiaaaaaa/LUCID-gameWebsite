@@ -1,9 +1,24 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import DownfadeInDiv from "../motion/DownfadeInDiv";
+import { addUserHeart, reduceCUserHeart, selectCartItems } from '../redux/userHeartSlice'; 
 
-function ArtPic({ art, onHeartClick }) {
+function ArtPic({ art }) {
+    const dispatch = useDispatch();
     const [showModal, setShowModal] = useState(false);
+    const userLovePic = useSelector(selectCartItems);
+    const isLoved = userLovePic.some(item => Number(item.id) === Number(art.id));
 
+    const handleHeartClick = (e) => {
+        e.stopPropagation();
+        if (isLoved) {
+            dispatch(reduceCUserHeart(art.id));
+        } else {
+            dispatch(addUserHeart({
+                id: art.id,
+            }));
+        }
+    };
 
     return (
         <>
@@ -22,7 +37,7 @@ function ArtPic({ art, onHeartClick }) {
                     </div>
 
                     {/* 愛心圖示 - 只在 getHeart 為 true 時顯示 */}
-                    {art.getHeart && (
+                    {isLoved && (
                         <div className="absolute bottom-[15px] right-[4px]">
                             <img
                                 src="/images/art-heartIcon-fill.png"
@@ -95,15 +110,15 @@ function ArtPic({ art, onHeartClick }) {
                                         className="flex items-center gap-0 flex-col"
                                         onClick={(e) => {
                                             e.stopPropagation();
-                                            onHeartClick(art.id);
+                                            handleHeartClick(e);
                                         }}
                                     >
                                         <img
-                                            src={art.getHeart ? "/images/art-heartIcon-fill.png" : "/images/art-heartIcon.png"}
+                                            src={isLoved ? "/images/art-heartIcon-fill.png" : "/images/art-heartIcon.png"}
                                             alt="heart"
                                             className="w-8 h-8"
                                         />
-                                        <span className="text-gray-300 text-[12px]">{art.getHeartQty}</span>
+                                        <span className="text-gray-400 text-[12px]">{art.getHeartQty}</span>
                                     </button>
                                 </div>
                             </div>

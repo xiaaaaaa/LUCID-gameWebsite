@@ -2,26 +2,22 @@
     {
         "id":"1",
         "name":"鬱金香",
-        "image": "/images/flower-tulipa.png",
-        "qty":0
+        "image": "/images/flower-tulipa.png"
     },
     {
         "id":"2",
         "name":"雛菊",
-        "image": "/images/flower-perennis.png",
-        "qty":0
+        "image": "/images/flower-perennis.png"
     },
     {
         "id":"3",
         "name":"風鈴草",
-        "image": "/images/flower-campanula.png",
-        "qty":0
+        "image": "/images/flower-campanula.png"
     },
     {
         "id":"4",
         "name":"玫瑰",
-        "image": "/images/flower-rosa.png",
-        "qty":0
+        "image": "/images/flower-rosa.png"
     }
 ]
 

@@ -6,31 +6,15 @@ import artData from "../json/art.json";
 import ArtPic from "../components/ArtPic";
 import DownfadeInDiv from "../motion/DownfadeInDiv";
 import { selectLightMode } from '../redux/colorSlice';
+import { selectCartItems } from '../redux/userHeartSlice';
 
 function ArtGalleryPage() {
     const [artworks, setArtworks] = useState(artData); 
     const sortedArtworks = [...artworks].sort((a, b) => b.getHeartQty - a.getHeartQty);
     const [activeTab, setActiveTab] = useState('all');
     const lightMode = useSelector(selectLightMode);
+    const userLovePic = useSelector(selectCartItems);
     
-
-    const handleHeartClick = (artId) => {
-        setArtworks(prevArtworks => 
-            prevArtworks.map(artwork => {
-                if (artwork.id === artId) {
-                    return {
-                        ...artwork,
-                        getHeart: !artwork.getHeart,
-                        getHeartQty: artwork.getHeart 
-                            ? artwork.getHeartQty - 1 
-                            : artwork.getHeartQty + 1
-                    };
-                }
-                return artwork;
-            })
-        );
-    };
-
 
     return (
         <div className="relative">
@@ -86,12 +70,12 @@ function ArtGalleryPage() {
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                         {activeTab === 'all'
                             ? sortedArtworks.map((art) => (
-                                <ArtPic key={art.id} art={art} onHeartClick={handleHeartClick}/>
+                                <ArtPic key={art.id} art={art}/>
                             ))
                             : sortedArtworks
-                                .filter(art => art.getHeart === true)
+                                .filter(art => userLovePic.some(item => item.id === art.id))
                                 .map((art) => (
-                                    <ArtPic key={art.id} art={art} onHeartClick={handleHeartClick}/>
+                                    <ArtPic key={art.id} art={art}/>
                                 ))
                         }
                     </div>
