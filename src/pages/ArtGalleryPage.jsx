@@ -8,16 +8,36 @@ import DownfadeInDiv from "../motion/DownfadeInDiv";
 import { selectLightMode } from '../redux/colorSlice';
 
 function ArtGalleryPage() {
-    const sortedArtData = [...artData].sort((a, b) => b.getHeartQty - a.getHeartQty);
+    const [artworks, setArtworks] = useState(artData); 
+    const sortedArtworks = [...artworks].sort((a, b) => b.getHeartQty - a.getHeartQty);
     const [activeTab, setActiveTab] = useState('all');
     const lightMode = useSelector(selectLightMode);
+    
+
+    const handleHeartClick = (artId) => {
+        setArtworks(prevArtworks => 
+            prevArtworks.map(artwork => {
+                if (artwork.id === artId) {
+                    return {
+                        ...artwork,
+                        getHeart: !artwork.getHeart,
+                        getHeartQty: artwork.getHeart 
+                            ? artwork.getHeartQty - 1 
+                            : artwork.getHeartQty + 1
+                    };
+                }
+                return artwork;
+            })
+        );
+    };
+
 
     return (
         <div className="relative">
             <Nav />
-            <DownfadeInDiv className="pt-10 flex justify-center">
+            <div className="pt-10 flex justify-center">
                 <img className="hero w-[35vw] max-w-[500px] h-auto object-cover" src="/images/Mainlogo.png" alt="LUCID_MainLogo" />
-            </DownfadeInDiv>
+            </div>
             <div className="mx-20 my-20 mb-58">
                 <div className="flex gap-2">
                     <div className="w-1/2">
@@ -61,13 +81,13 @@ function ArtGalleryPage() {
                 <div className="bg-white p-8 min-h-[600px] rounded-b-[20px]">
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                         {activeTab === 'all'
-                            ? sortedArtData.map((art) => (
-                                <ArtPic key={art.id} art={art} />
+                            ? sortedArtworks.map((art) => (
+                                <ArtPic key={art.id} art={art} onHeartClick={handleHeartClick}/>
                             ))
-                            : sortedArtData
+                            : sortedArtworks
                                 .filter(art => art.getHeart === true)
                                 .map((art) => (
-                                    <ArtPic key={art.id} art={art} />
+                                    <ArtPic key={art.id} art={art} onHeartClick={handleHeartClick}/>
                                 ))
                         }
                     </div>
