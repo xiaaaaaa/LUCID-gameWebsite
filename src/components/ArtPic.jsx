@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DownfadeInDiv from "../motion/DownfadeInDiv";
 
 function ArtPic({ art, onHeartClick }) {
     const [showModal, setShowModal] = useState(false);
+
 
     return (
         <>
@@ -48,7 +49,10 @@ function ArtPic({ art, onHeartClick }) {
             {showModal && (
                 <div
                     className="fixed inset-0 bg-black/70 flex justify-center items-center z-[100]"
-                    onClick={() => setShowModal(false)}
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        setShowModal(false);
+                    }}
                     style={{
                         position: 'fixed',
                         top: 0,
@@ -60,12 +64,15 @@ function ArtPic({ art, onHeartClick }) {
                 >
                     <div
                         className="relative max-w-[90vw] max-h-[90vh] overflow-hidden"
-                        onClick={() => setShowModal(false)}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setShowModal(false);
+                        }}
                     >
                        
                         <div className="flex flex-col md:flex-row">
                             {/* 左側圖片 */}
-                            <div className="w-full flex items-center justify-center md:w-2/3 md:mr-4">
+                            <div className="w-full flex items-center justify-center mb-4 md:w-2/3 md:mr-4 md:mb-0">
                                 <img
                                     src={art.image}
                                     alt={art.name}
@@ -75,24 +82,17 @@ function ArtPic({ art, onHeartClick }) {
 
                             {/* 右側資訊 */}
                             <div className="w-full md:w-1/3 md:min-w-[100px] p-4 border-3 border-white my-0 md:my-40">
-                                {/* 關閉按鈕 */}
-                                <button
-                                    className="absolute top-4 right-4 text-3xl text-white hover:text-gray-400 md:my-38"
-                                    onClick={() => setShowModal(false)}
-                                >
-                                    ×
-                                </button>
                                 
                                 {/* 標題和日期 */}
-                                <div className="mb-20 mr-10 flex flex-col items-start">
-                                    <p className="text-[14px] text-gray-400 mb-2">{art.date}</p>
+                                <div className="mb-20 flex flex-col items-start">
+                                    <p className="text-[14px] text-gray-300 mb-2">{art.date}</p>
                                     <h3 className="text-[16px] font-bold text-white mb-2 text-left">{art.name}</h3>
                                 </div>
 
                                 {/* 愛心按鈕 */}
-                                <div className="absolute bottom-4 right-4  md:my-40">
+                                <div className="absolute bottom-4 right-4 md:my-40">
                                     <button
-                                        className="flex items-center gap-2"
+                                        className="flex items-center gap-0 flex-col"
                                         onClick={(e) => {
                                             e.stopPropagation();
                                             onHeartClick(art.id);
@@ -103,7 +103,7 @@ function ArtPic({ art, onHeartClick }) {
                                             alt="heart"
                                             className="w-8 h-8"
                                         />
-                                        <span className="text-white">{art.getHeartQty}</span>
+                                        <span className="text-gray-300 text-[12px]">{art.getHeartQty}</span>
                                     </button>
                                 </div>
                             </div>
