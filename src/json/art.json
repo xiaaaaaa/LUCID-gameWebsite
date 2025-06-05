@@ -11,7 +11,7 @@
         "id":"2",
         "name":"彩色畫",
         "date":"2025.4.13",
-        "image": "/images/art/LucidRainbowPaint.png",
+        "image": "/images/art/LucidRainbowPaint.jpg",
         "getHeart": false,
         "getHeartQty": 110
     },
@@ -35,7 +35,7 @@
         "id":"5",
         "name":"主角 Lucid 設定",
         "date":"2025.4.13",
-        "image": "/images/art/LucidSetting.png",
+        "image": "/images/art/LucidSetting.jpg",
         "getHeart": false,
         "getHeartQty": 130
     },
@@ -59,7 +59,7 @@
         "id":"8",
         "name":"漁夫設定",
         "date":"2025.4.13",
-        "image": "/images/art/fishmanSetting.png",
+        "image": "/images/art/fishmanSetting.jpg",
         "getHeart": false,
         "getHeartQty": 70
     }
