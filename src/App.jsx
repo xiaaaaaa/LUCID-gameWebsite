@@ -3,6 +3,10 @@ import { Provider } from "react-redux";
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { PersistGate } from 'redux-persist/integration/react';
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 import './App.css';
 import HomePage from './pages/HomePage'
 import WorldviewPage from './pages/WorldviewPage'
@@ -15,6 +19,8 @@ import Garden from "./components/Garden";
 import { useGardenPosition } from './hooks/useGardenPosition';
 import { selectLightMode, setColorMode } from "./redux/colorSlice";
 import { persistor, store } from "./redux/store";
+const queryClient = new QueryClient()
+
 
 
 function AppContent() {
@@ -67,13 +73,15 @@ function AppContent() {
 function App() {
 
   return (
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter>
-          <AppContent />
-        </BrowserRouter>
-      </PersistGate>
-    </Provider>
+    <QueryClientProvider client={queryClient}>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <BrowserRouter>
+            <AppContent />
+          </BrowserRouter>
+        </PersistGate>
+      </Provider>
+    </QueryClientProvider>
   );
 }
 
