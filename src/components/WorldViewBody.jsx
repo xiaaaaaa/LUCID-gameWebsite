@@ -48,9 +48,23 @@ function WorldViewBody() {
                                     <div className=" border-1 w-[60vw] mb-[10%] mt-[10%] lg:mb-0 line" />
                                 </div>
                                 {/*Map Intro*/}
-                                <button className="btn h-[100px] lg:h-0 bg-transparent border-0 my-20 lg:my-0 cursor-pointer shadow-none" onClick={() => document.getElementById('my_modal_4').showModal()}>
+                                <button
+                                    className="relative group btn h-[100px] lg:h-0 bg-transparent border-0 my-20 lg:my-0 cursor-pointer shadow-none"
+                                    onClick={() => document.getElementById('my_modal_4').showModal()}
+                                >
                                     <div className="flex justify-center items-center">
-                                        <img className="flex w-[370px] lg:h-[90%] lg:w-[305px] mb-5 lg:mb-0 frame" src="/images/gameMap.png" alt="地圖" />
+                                        {/* 原圖 */}
+                                        <img
+                                            className="absolute w-[540px]"
+                                            src="/images/AllMap.png"
+                                            alt="地圖"
+                                        />
+                                        {/* hover圖 */}
+                                        <img
+                                            className="w-[540px]  transition-opacity duration-500 opacity-0 group-hover:opacity-100"
+                                            src="/images/Map_Shop.png"
+                                            alt="地圖hover"
+                                        />
                                     </div>
                                 </button>
                                 {/*Modal for Map*/}
@@ -153,7 +167,7 @@ function WorldViewBody() {
                         {/*下方輪播小圖*/}
                         <div className="sm:max-w-xl sm:mx-auto mb-10">
                             <div className="flex justify-center items-center mt-4 space-x-2">
-                                
+
                                 {images.slice(thumbIndex, thumbIndex + showCount).map((img, index) => {
                                     const realIndex = thumbIndex + index;
                                     return (
