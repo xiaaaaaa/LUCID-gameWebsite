@@ -10,10 +10,7 @@ function WorldViewBody() {
     const images = [
         "/images/lucidLogo.png",
         "/images/npc-lucid.png",
-        "/images/npc-police.png",
-        "/images/lucidLogo.png",
-        "/images/npc-lucid.png",
-        "/images/npc-police.png",
+        "/images/npc-police.png"
     ];
     const next = () => {
         if (thumbIndex + showCount < images.length) {
@@ -147,7 +144,7 @@ function WorldViewBody() {
                                                 className="w-[370px] border-2 lg:border-4 frame lg:relative lg:ml-10 lg:mb-40"
                                             />
                                         </div>
-                                        <p className="hidden lg:flex font-semibold color absolute pt-80 pl-40">＜Lucian’s File＞</p>
+                                        <p className="hidden xl:flex font-semibold color absolute pt-80 pl-40">＜Lucian’s File＞</p>
                                     </div>
                                 </div>
                             </div>
@@ -156,12 +153,7 @@ function WorldViewBody() {
                         {/*下方輪播小圖*/}
                         <div className="sm:max-w-xl sm:mx-auto mb-10">
                             <div className="flex justify-center items-center mt-4 space-x-2">
-                                <button
-                                    onClick={prev}
-                                    className="btn btn-sm color bg-transparent border-none shadow-none"
-                                >
-                                    ◀
-                                </button>
+                                
                                 {images.slice(thumbIndex, thumbIndex + showCount).map((img, index) => {
                                     const realIndex = thumbIndex + index;
                                     return (
@@ -176,12 +168,7 @@ function WorldViewBody() {
                                         />
                                     );
                                 })}
-                                <button
-                                    onClick={next}
-                                    className="btn btn-sm  bg-transparent border-none shadow-none"
-                                >
-                                    ▶
-                                </button>
+
                             </div>
                         </div>
 
