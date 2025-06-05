@@ -1,23 +1,89 @@
 import { useState } from "react";
+import { useFanQuestionVotes, useUpdateFanQuestionVote } from '../react-query';
+import { useQueryClient } from '@tanstack/react-query'; 
 import DownfadeInDiv from "../motion/DownfadeInDiv";
 import RightfadeInDiv from "../motion/RightfadeInDiv";
 import LeftfadeInDiv from "../motion/LeftfadeInDiv";
 import OshiVote from "./OshiVote";
 
 function FanClubBody() {
+    // const [voted, setVoted] = useState(false);
+    // const [selected, setSelected] = useState(null); // "left" or "right"
+    // const [result, setResult] = useState({ left: 100, right: 0 }); // 模擬結果
     const [voted, setVoted] = useState(false);
-    const [selected, setSelected] = useState(null); // "left" or "right"
-    const [result, setResult] = useState({ left: 100, right: 0 }); // 模擬結果
+    const [selected, setSelected] = useState(null);
+    const queryClient = useQueryClient(); 
+    const { data: voteResult = { left: 0, right: 0 }, isLoading } = useFanQuestionVotes();
+    const { mutate: updateVote } = useUpdateFanQuestionVote();
 
-    const handleVote = (side) => {
-        if (voted) return;
+    const totalVotes = (voteResult?.left || 0) + (voteResult?.right || 0);
+    const leftPercentage = totalVotes === 0 ? 50 : Math.round((voteResult.left / totalVotes) * 100);
+    const rightPercentage = totalVotes === 0 ? 50 : Math.round((voteResult.right / totalVotes) * 100);
 
-        // 模擬結果：左邊 70%，右邊 30%
-        const mockResult = side === "left" ? { left: 70, right: 30 } : { left: 40, right: 60 };
-        setSelected(side);
-        setResult(mockResult);
-        setVoted(true);
+    // const handleVote = (side) => {
+    //     if (voted) return;
+
+    //     // 模擬結果：左邊 70%，右邊 30%
+    //     const mockResult = side === "left" ? { left: 70, right: 30 } : { left: 40, right: 60 };
+    //     setSelected(side);
+    //     setResult(mockResult);
+    //     setVoted(true);
+    // };
+
+    // const handleVote = async (side) => {
+    //     if (voted || isLoading) return;
+
+    //     try {
+    //         console.log('準備投票給:', side);
+    //         // 計算新的票數
+    //         const newVoteCount = {
+    //             ...voteResult,
+    //             [side]: (voteResult[side] || 0) + 1
+    //         };
+            
+    //         // 更新投票
+    //         await updateVote({ 
+    //             way: side, 
+    //             voteNum: newVoteCount[side]
+    //         });
+            
+    //         setSelected(side);
+    //         setVoted(true);
+    //         // 強制重新獲取投票數據
+    //         await queryClient.invalidateQueries('fanQuestionVotes');
+    //     } catch (error) {
+    //         console.error('投票失敗:', error);
+    //         alert('投票失敗，請稍後再試');
+    //     }
+    // };
+    const handleVote = async (side) => {
+        if (voted || isLoading) return;
+
+        try {
+            console.log('準備投票給:', side);
+            
+            // 使用 mutate 更新投票
+            updateVote({ 
+            way: side 
+            }, {
+            onSuccess: () => {
+                setSelected(side);
+                setVoted(true);
+                queryClient.invalidateQueries('fanQuestionVotes');
+            },
+            onError: (error) => {
+                console.error('投票失敗:', error);
+                alert('投票失敗，請稍後再試');
+            }
+            });
+        } catch (error) {
+            console.error('投票處理發生錯誤:', error);
+            alert('投票失敗，請稍後再試');
+        }
     };
+
+    console.log('當前投票數據:', { voteResult, totalVotes, leftPercentage, rightPercentage });
+
     return (
         <div className="relative">
             <div className="content-container">
@@ -30,25 +96,26 @@ function FanClubBody() {
                         <h1 className="font-bold text-3xl mb-3 text-left">殘酷二選一｜Pick a Side</h1>
                         <div className="h-[2.5px] w-[1250px] bg-white"></div>
                         <div className="flex flex-col items-center">
-                            <div className="flex flex-col justify-center items-center h-[160px] w-[1200px] fanClubbg rounded-[20px] mt-7">
+                            <div className="flex flex-col justify-center items-center h-[180px] w-[1200px] fanClubbg rounded-[20px] mt-7">
                                 <h1 className="text-2xl">每當開啟新的一天，你更常選擇哪種早餐口味？</h1>
                                 <div className="flex flex-col w-270 mt-5">
                                     <div className="flex justify-between">
-                                        <span>{voted ? `${result.left}%` : "???"}</span>
-                                        <span>{voted ? `${result.right}%` : "???"}</span>
+                                        <span>{voted ? `${leftPercentage}%` : "???"}</span>
+                                        <span>{voted ? `${rightPercentage}%` : "???"}</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                        <span>{voted ? `${voteResult.left}` : "???"}</span>
+                                        <span>{voted ? `${voteResult.right}` : "???"}</span>
                                     </div>
                                     {/* 進度條 */}
                                     <div className="relative w-full h-5 mt-2 bg-[#E93969] rounded-full overflow-hidden">
                                         <div
                                             className="absolute top-0 left-0 h-full transition-all duration-700"
                                             style={{
-                                                width: `${voted ? result.left : 100}%`,
-                                                background: voted
-                                                    ? "#30B1BD"
-                                                    : "linear-gradient(to right, #30B1BD, #E93969)",
+                                                width: `${voted ? leftPercentage : 0}%`,
+                                                background: voted ? "#30B1BD" : "linear-gradient(to right, #30B1BD, #E93969)",
                                             }}
                                         />
-                                        {/*<progress className="progress bg-amber-300 progress-[#30B1BD] w-270 h-5 justify-center" value={50} max="100"></progress>*/}
                                     </div>
                                 </div>
 

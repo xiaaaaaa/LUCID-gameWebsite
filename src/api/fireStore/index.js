@@ -4,13 +4,16 @@ import {
   setDoc,
   getDoc,
   getDocs,
-  query, 
-  where 
+  query,
+  where,
+  increment, 
+  updateDoc,
 } from "firebase/firestore";
 import { db } from "@/api/firebaseConfig";
 
 // REFERENCE COLLECTION
 const globalHeartCollection = collection(db, "globalHeart");
+const fanQuestionVoteCollection = collection(db, "fanQuestionVote-breakfast");
 
 // APIs
 export const testFirebaseConnection = async () => {
@@ -91,6 +94,79 @@ export const updateGlobalHeartQty = async ({ picId, newQty }) => {
     return true;
   } catch (error) {
     console.error('更新愛心數量時發生錯誤:', error);
+    throw error;
+  }
+};
+
+
+
+export const getFanQuestionVotes = async () => {
+  try {
+    const querySnapshot = await getDocs(fanQuestionVoteCollection);
+    let result = {
+      left: 0,
+      right: 0
+    };
+    
+    querySnapshot.forEach((doc) => {
+      const data = doc.data();
+      result[data.way] += data.voteNum; 
+    });
+    
+    console.log('目前投票結果:', result); 
+    return result;
+  } catch (error) {
+    console.error('取得投票資料時發生錯誤:', error);
+    throw error;
+  }
+};
+
+// export const updateFanQuestionVote = async ({ way, voteNum }) => {
+//   try {
+//     const docRef = doc(fanQuestionVoteCollection, way);
+//     await setDoc(docRef, {
+//       way,
+//       voteNum: voteNum,
+//       timestamp: new Date().toISOString()
+//     }, { merge: true });
+    
+//     console.log(`成功更新 ${way} 的票數為 ${voteNum}`);
+//     return true;
+//   } catch (error) {
+//     console.error('更新投票數量時發生錯誤:', error);
+//     throw error;
+//   }
+// };
+
+export const updateFanQuestionVote = async ({ way }) => {
+  try {
+    console.log('開始更新投票, way:', way);
+    
+    // 使用 where 查詢找到對應的文件
+    const q = query(fanQuestionVoteCollection, where("way", "==", way));
+    const querySnapshot = await getDocs(q);
+    
+    if (querySnapshot.empty) {
+      console.error('找不到要更新的投票文件');
+      return false;
+    }
+
+    // 取得文件參考
+    const docRef = doc(fanQuestionVoteCollection, querySnapshot.docs[0].id);
+    const currentDoc = querySnapshot.docs[0].data();
+    const currentVoteNum = currentDoc.voteNum || 0;
+
+    // 更新文件
+    await updateDoc(docRef, {
+      voteNum: currentVoteNum + 1,
+      timestamp: new Date().toISOString()
+    });
+    
+    console.log(`成功更新 ${way} 的票數為 ${currentVoteNum + 1}`);
+    return true;
+  } catch (error) {
+    console.error('更新投票數量時發生錯誤:', error);
+    console.error('錯誤詳情:', error.code, error.message);
     throw error;
   }
 };
