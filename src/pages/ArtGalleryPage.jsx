@@ -56,7 +56,7 @@ function ArtGalleryPage() {
                                         <span>{name}</span>
                                         {activeTab === label && (
                                             <motion.div
-                                                className={`absolute -bottom-6 left-[-200%] h-[3px] w-[500%] rounded-[6px] 
+                                                className={`absolute -bottom-6 left-0 h-[3px] w-[100%] rounded-[6px] 
                                                 ${lightMode ? 'bg-[#E93969]' : 'bg-[#30B1BD]'}`}
                                                 layoutId="tabUnderline"
                                                 transition={{

@@ -19,6 +19,7 @@
 
 [data-theme="light"] {
   body {
+    overflow-x: hidden;
     background-color: #FFDADB;
     color: black;
   }
@@ -172,6 +173,7 @@
 
 [data-theme="dark"] {
   body {
+    overflow-x: hidden;
     background-color: #0C3C41;
     color: white;
   }

@@ -7,6 +7,8 @@ import Npc2 from "../components/Npc2";
 
 function HomePage() {
     const [showElements, setShowElements] = useState(false);
+    const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+    
     useEffect(() => {
         const handleScroll = () => {
             // 當滾動超過視窗高度的 10% 時顯示元素
@@ -46,15 +48,19 @@ function HomePage() {
                 </div>
             </div>
             <div className="h-screen w-full content-center bg-[#2D2D2D]">
-                <video 
-                    className="hero w-screen object-cover object-center" 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline
-                >
-                    <source src="/videos/cover.mp4" type="video/mp4" />
-                </video>
+                {!isVideoLoaded? (
+                    <video 
+                        className="hero w-screen object-cover object-center" 
+                        autoPlay 
+                        loop 
+                        muted 
+                        playsInline
+                    >
+                        <source src="/videos/cover.mp4" type="video/mp4" />
+                    </video>
+                ) : (
+                    <div className="skeleton hero w-screen object-cover object-center" > </div>
+                )}
             </div>
 
             <div className="content-container relative z-0">
