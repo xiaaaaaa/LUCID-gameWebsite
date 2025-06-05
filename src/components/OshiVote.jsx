@@ -30,9 +30,24 @@ export default function OshiVote() {
     }, []);
 
     const handleVote = (id) => {
-        const newVotes = { ...votes, [id]: votes[id] + 1 };
+        const newVotes = { ...votes };
+        
+        // 如果已經選過其他角色，先把之前選的票數減一
+        if (selectedId && selectedId !== id) {
+            newVotes[selectedId] = newVotes[selectedId] - 1;
+        }
+        
+        // 如果點擊的是同一個角色，不做任何改變
+        if (selectedId === id) {
+            return;
+        }
+        
+        // 替新選擇的角色加一票
+        newVotes[id] = newVotes[id] + 1;
+        
+        // 更新 localStorage 和狀態
         localStorage.setItem("votes", JSON.stringify(newVotes));
-        localStorage.setItem("votedId", id); // 記住選了誰
+        localStorage.setItem("votedId", id);
         setVotes(newVotes);
         setSelectedId(id);
     };
