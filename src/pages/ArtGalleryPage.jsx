@@ -16,14 +16,14 @@ function ArtGalleryPage() {
     });
 
     return (
-        <div className="relative">
+        <div className="relative min-h-screen flex flex-col">
             <div className="fixed top-0 left-0 right-0 z-50 transition-opacity duration-300">
                 <Nav />
             </div>
             
             <ArtGalleryBody sortedArtworks={sortedArtworks} />
 
-            <div className='mt-60 bottom-0'>
+            <div className='mt-auto'>
                 <Footer />
             </div>
         </div>
