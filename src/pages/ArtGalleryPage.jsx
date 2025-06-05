@@ -89,7 +89,7 @@ function ArtGalleryPage() {
                     </div>
                 </div>
             </div>
-            <div className='mt-60'>
+            <div className='mt-60 bottom-0'>
                 <Footer />
             </div>
         </div>

@@ -55,6 +55,7 @@ function HomePage() {
                         loop 
                         muted 
                         playsInline
+                        onLoadedData={() => setIsVideoLoaded(true)}
                     >
                         <source src="/videos/cover.mp4" type="video/mp4" />
                     </video>
