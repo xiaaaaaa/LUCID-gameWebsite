@@ -1,6 +1,8 @@
+import DownfadeInDiv from "../motion/DownfadeInDiv";
+
 function ArtPic({ art }) {
     return(
-        <div className="relative">
+        <DownfadeInDiv className="relative">
             {/* 圖片卡片 */}
             <div className="bg-[#051D21] pt-[10px] pb-[60px] px-[10px]">
                 <img 
@@ -32,8 +34,7 @@ function ArtPic({ art }) {
                 <p className="text-gray-500 text-[12px] -mt-[2px]">{art.getHeartQty}</p>
                 </div>
             </div>
-
-        </div>
+        </DownfadeInDiv>
     )
 }
 
