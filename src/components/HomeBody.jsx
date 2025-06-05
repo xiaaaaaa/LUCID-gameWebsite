@@ -8,6 +8,7 @@ import FadeInMotionDiv from "../motion/FadeInMotionDiv";
 import DownfadeInDiv from "../motion/DownfadeInDiv";
 import RightfadeInDiv from "../motion/RightfadeInDiv";
 import LeftfadeInDiv from "../motion/LeftfadeInDiv";
+import ZoomMotionDiv from "../motion/zoomMotionDiv";
 
 function HomeBody() {
     const mainVisualRef = useRef(null)
@@ -140,7 +141,7 @@ function HomeBody() {
                                         backdropFilter: 'blur(2px)'
                                     }}
                                 >
-                                    <div 
+                                    <ZoomMotionDiv 
                                         className="relative" 
                                         onClick={e => e.stopPropagation()}
                                     >
@@ -158,7 +159,7 @@ function HomeBody() {
                                         >
                                             ×
                                         </button>
-                                    </div>
+                                    </ZoomMotionDiv>
                                 </div>
                             )}
                         </div>

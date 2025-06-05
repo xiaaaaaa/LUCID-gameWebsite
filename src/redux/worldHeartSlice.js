@@ -9,7 +9,7 @@ const initialState = { worldLovePic: [
   {id:'5', getHeartQty:131}, 
   {id:'6', getHeartQty:87}, 
   {id:'7', getHeartQty:140}, 
-  {id:'8', getHeartQty:72}, 
+  {id:'8', getHeartQty:87}, 
 ] };
 
 const worldHeartSlice = createSlice({
