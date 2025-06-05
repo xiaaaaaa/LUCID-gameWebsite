@@ -55,13 +55,13 @@ function WorldViewBody() {
                                     <div className="flex justify-center items-center">
                                         {/* 原圖 */}
                                         <img
-                                            className="absolute w-[540px]"
+                                            className="absolute w-[500px]"
                                             src="/images/AllMap.png"
                                             alt="地圖"
                                         />
                                         {/* hover圖 */}
                                         <img
-                                            className="w-[540px]  transition-opacity duration-500 opacity-0 group-hover:opacity-100"
+                                            className="w-[500px]  transition-opacity duration-500 opacity-0 group-hover:opacity-100"
                                             src="/images/Map_Shop.png"
                                             alt="地圖hover"
                                         />
@@ -71,11 +71,11 @@ function WorldViewBody() {
                                 <dialog id="my_modal_4" className="modal flex justify-center items-center bg-transparent shadow-none">
                                     <div className="flex flex-col md:flex-row modal-box w-11/12 max-w-5xl bg-transparent">
                                         {/*Left picture*/}
-                                        <div className="flex justify-center items-center md:-ml-27">
-                                            <img className="flex md:w-[60%] mb-[20px] sm:mb-0 min-w-[150px] border-3 frame md:mr-10" src="/images/shop_Map.png" alt="地圖" />
+                                        <div className="flex justify-center items-center md:">
+                                            <img className="flex md:w-[100%] mb-[20px] sm:mb-0 w-[500px] md:mr-20" src="/images/ShopStreet.png" alt="地圖" />
                                         </div>
                                         {/*Right Intro*/}
-                                        <div className="flex flex-col  w-[80vw] md:-ml-5">
+                                        <div className="flex flex-col  w-[30vw] md:-ml-5">
                                             {/*Button to FlowerShop*/}
                                             <button className="w-[50px]">
                                                 <Link to="/world/flowershop">
