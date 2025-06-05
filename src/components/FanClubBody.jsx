@@ -105,10 +105,10 @@ function FanClubBody() {
                             <h1 className="font-bold text-3xl mb-3 text-left">最愛角色票選｜Vote your Oshi</h1>
                             <div className="h-[2.5px] w-[1250px] bg-white"></div>
 
+                            <OshiVote/>
                             <div className="flex flex-row text-left items-center justify-center">
-                                <OshiVote />
+                                
                             </div>
-                            
                         </div>
                     </div>
                 </div>

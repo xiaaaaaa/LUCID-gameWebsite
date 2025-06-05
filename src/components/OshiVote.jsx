@@ -41,7 +41,10 @@ export default function OshiVote() {
         <div className="flex flex-row text-left items-center justify-center mt-10">
             {characters.map((char) => (
                 <div key={char.id} className="flex justify-center items-center mr-[20px]">
-                    <div className={`bg-[url('${char.image}')] h-[600px] pt-[440px]`}>
+                    <div
+                        className="h-[600px] pt-[440px] bg-cover bg-center"
+                        style={{ backgroundImage: `url(${char.image})` }}
+                    >
                         <div className="flex flex-col justify-between items-start w-[250px] bg-[#020E10] rounded-b-[20px] p-5">
                             <div className="flex flex-row justify-between items-start w-[200px]">
                                 <h1 className="text-xl font-bold text-white">{char.name}</h1>
