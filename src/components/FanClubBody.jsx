@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useFanQuestionVotes, useUpdateFanQuestionVote } from '../react-query';
 import { useQueryClient } from '@tanstack/react-query'; 
 import DownfadeInDiv from "../motion/DownfadeInDiv";
@@ -20,42 +20,15 @@ function FanClubBody() {
     const leftPercentage = totalVotes === 0 ? 50 : Math.round((voteResult.left / totalVotes) * 100);
     const rightPercentage = totalVotes === 0 ? 50 : Math.round((voteResult.right / totalVotes) * 100);
 
-    // const handleVote = (side) => {
-    //     if (voted) return;
+    useEffect(() => {
+        const hasVoted = localStorage.getItem('breakfastVoted');
+        const previousSelection = localStorage.getItem('breakfastSelection');
+        if (hasVoted === 'true' && previousSelection) {
+            setVoted(true);
+            setSelected(previousSelection);
+        }
+    }, []);
 
-    //     // 模擬結果：左邊 70%，右邊 30%
-    //     const mockResult = side === "left" ? { left: 70, right: 30 } : { left: 40, right: 60 };
-    //     setSelected(side);
-    //     setResult(mockResult);
-    //     setVoted(true);
-    // };
-
-    // const handleVote = async (side) => {
-    //     if (voted || isLoading) return;
-
-    //     try {
-    //         console.log('準備投票給:', side);
-    //         // 計算新的票數
-    //         const newVoteCount = {
-    //             ...voteResult,
-    //             [side]: (voteResult[side] || 0) + 1
-    //         };
-            
-    //         // 更新投票
-    //         await updateVote({ 
-    //             way: side, 
-    //             voteNum: newVoteCount[side]
-    //         });
-            
-    //         setSelected(side);
-    //         setVoted(true);
-    //         // 強制重新獲取投票數據
-    //         await queryClient.invalidateQueries('fanQuestionVotes');
-    //     } catch (error) {
-    //         console.error('投票失敗:', error);
-    //         alert('投票失敗，請稍後再試');
-    //     }
-    // };
     const handleVote = async (side) => {
         if (voted || isLoading) return;
 
@@ -69,6 +42,8 @@ function FanClubBody() {
             onSuccess: () => {
                 setSelected(side);
                 setVoted(true);
+                localStorage.setItem('breakfastVoted', 'true');
+                localStorage.setItem('breakfastSelection', side);
                 queryClient.invalidateQueries('fanQuestionVotes');
             },
             onError: (error) => {
