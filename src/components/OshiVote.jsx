@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useCharacterVotes, useUpdateCharacterVote } from '../react-query';
+import { useSelector } from 'react-redux';
+import { selectLightMode } from '../redux/colorSlice';
 
 const characters = [
     { id: "lucian", name: "路西安", image: "/images/LucidOshi.png" },
@@ -9,6 +11,7 @@ const characters = [
 ];
 
 export default function OshiVote() {
+    const lightMode = useSelector(selectLightMode);
     const [selectedId, setSelectedId] = useState(null);
     const { data: votes = {}, isLoading } = useCharacterVotes();
     const { mutate: updateVote } = useUpdateCharacterVote();
@@ -65,24 +68,33 @@ export default function OshiVote() {
                                     <img
                                         src={
                                             selectedId === char.id
-                                                ? "/images/art-heartIcon-fill.png"
+                                                ? lightMode 
+                                                    ? "/images/art-heartIcon-fill-light.png"
+                                                    : "/images/art-heartIcon-fill.png"
                                                 : "/images/art-heartIcon.png"
                                         }
                                         alt="heart"
                                         className="w-[30px] h-[30px]"
                                     />
                                     <p className={`${selectedId === char.id 
-                                        ? " text-[#30B1BD]" 
+                                        ? lightMode ? " text-[#E93969]" : " text-[#30B1BD]" 
                                         : " text-white"}`}>
                                         {isLoading ? '...' : (votes[char.id] || 0)}
                                     </p>
                                 </div>
                             </div>
                             <button
-                                className={`w-[200px] mt-[30px] rounded-[10px] font-bold border pt-2 pb-2 hover:border-[#30B1BD] hover:text-[#30B1BD] ${selectedId === char.id
-                                    ? " text-[#30B1BD] border-[#30B1BD]"
-                                    : " text-white border-white"
-                                    }`}
+                                className={`w-[200px] mt-[30px] rounded-[10px] font-bold border pt-2 pb-2 ${
+                                    lightMode 
+                                        ? "hover:border-[#E93969] hover:text-[#E93969]" 
+                                        : "hover:border-[#30B1BD] hover:text-[#30B1BD]"
+                                } ${
+                                    selectedId === char.id
+                                        ? lightMode 
+                                            ? " text-[#E93969] border-[#E93969]"
+                                            : " text-[#30B1BD] border-[#30B1BD]"
+                                        : " text-white border-white"
+                                }`}
                                 onClick={() => handleVote(char.id)}
                             >
                                 {selectedId === char.id ? "你選擇了他！" : "選擇他！"}

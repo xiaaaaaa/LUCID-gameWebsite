@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useFanQuestionVotes, useUpdateFanQuestionVote } from '../react-query';
 import { useQueryClient } from '@tanstack/react-query'; 
+import { useSelector } from 'react-redux';
+import { selectLightMode } from '../redux/colorSlice';
 import DownfadeInDiv from "../motion/DownfadeInDiv";
 import RightfadeInDiv from "../motion/RightfadeInDiv";
 import LeftfadeInDiv from "../motion/LeftfadeInDiv";
@@ -10,6 +12,7 @@ function FanClubBody() {
     // const [voted, setVoted] = useState(false);
     // const [selected, setSelected] = useState(null); // "left" or "right"
     // const [result, setResult] = useState({ left: 100, right: 0 }); // 模擬結果
+    const lightMode = useSelector(selectLightMode);
     const [voted, setVoted] = useState(false);
     const [selected, setSelected] = useState(null);
     const queryClient = useQueryClient(); 
@@ -79,16 +82,20 @@ function FanClubBody() {
                                         <span>{voted ? `${rightPercentage}%` : "???"}</span>
                                     </div>
                                     <div className="flex justify-between">
-                                        <span>{voted ? `${voteResult.left}` : "???"}</span>
-                                        <span>{voted ? `${voteResult.right}` : "???"}</span>
+                                        <span>{voted ? `${voteResult.left}` : "??"}</span>
+                                        <span>{voted ? `${voteResult.right}` : "??"}</span>
                                     </div>
                                     {/* 進度條 */}
-                                    <div className="relative w-full h-5 mt-2 bg-[#E93969] rounded-full overflow-hidden">
+                                    <div className="relative w-full h-5 mt-2 rounded-full overflow-hidden"
+                                        style={{
+                                            background: voted ? "#E93969" : "linear-gradient(to right, #30B1BD, #E93969)"
+                                        }}
+                                    >
                                         <div
                                             className="absolute top-0 left-0 h-full transition-all duration-700"
                                             style={{
                                                 width: `${voted ? leftPercentage : 0}%`,
-                                                background: voted ? "#30B1BD" : "linear-gradient(to right, #30B1BD, #E93969)",
+                                                background: "#30B1BD"
                                             }}
                                         />
                                     </div>
@@ -121,22 +128,22 @@ function FanClubBody() {
                                 <div className="flex flex-col justify-center items-center w-[1148px] mt-7">
                                     <div className="collapse collapse-arrow peer fanClubbg rounded-[20px] pl-10 pr-10 mb-3 border-3 border-transparent peer-checked:border-[#30B1BD] transition-all">
                                         <input type="radio" name="my-accordion-2" className="peer" defaultChecked />
-                                        <div className="collapse-title text-xl font-bold peer-checked:text-[#30B1BD]">Q. 小島上大概多大？有多少人口？</div>
+                                        <div className={`collapse-title text-xl font-bold peer-checked:text-[${lightMode ? '#E93969' : '#30B1BD'}]`}>Q. 小島上大概多大？有多少人口？</div>
                                         <div className="collapse-content text-lg">A. 約十平方公里，其中有一半的面積是山區，易於活動的地方較小，大概住有200人左右。</div>
                                     </div>
                                     <div className="collapse collapse-arrow fanClubbg rounded-[20px] pl-10 pr-10 mb-3">
                                         <input type="radio" name="my-accordion-2" className="peer" />
-                                        <div className="collapse-title text-xl font-bold peer-checked:text-[#30B1BD]">Q. 在阿雞師開發風信子口味雞蛋糕之前，還有其他奇葩口味嗎？</div>
+                                        <div className={`collapse-title text-xl font-bold peer-checked:text-[${lightMode ? '#E93969' : '#30B1BD'}]`}>Q. 在阿雞師開發風信子口味雞蛋糕之前，還有其他奇葩口味嗎？</div>
                                         <div className="collapse-content text-lg">A. 有，多到數不清。例如：絲瓜、牛蒡、大白菜......種得出來的作物都逃不了。</div>
                                     </div>
                                     <div className="collapse collapse-arrow fanClubbg rounded-[20px] pl-10 pr-10 mb-3">
                                         <input type="radio" name="my-accordion-2" className="peer" />
-                                        <div className="collapse-title text-xl font-bold peer-checked:text-[#30B1BD]">Q. 花店老闆用什麼方法保養得以凍齡？</div>
+                                        <div className={`collapse-title text-xl font-bold peer-checked:text-[${lightMode ? '#E93969' : '#30B1BD'}]`}>Q. 花店老闆用什麼方法保養得以凍齡？</div>
                                         <div className="collapse-content text-lg">A. 據本人所說，只要和花草和平相處，它們就會祝福你青春永駐。</div>
                                     </div>
                                     <div className="collapse collapse-arrow fanClubbg rounded-[20px] pl-10 pr-10 mb-3">
                                         <input type="radio" name="my-accordion-2" className="peer" />
-                                        <div className="collapse-title text-xl font-bold peer-checked:text-[#30B1BD]">Q. 路西從什麼時候開始喜歡攝影的？</div>
+                                        <div className={`collapse-title text-xl font-bold peer-checked:text-[${lightMode ? '#E93969' : '#30B1BD'}]`}>Q. 路西從什麼時候開始喜歡攝影的？</div>
                                         <div className="collapse-content text-lg">A. 在他10歲生日的時候得到了一台相機，從那刻起就常常用它記錄生活。</div>
                                     </div>
                                 </div>
