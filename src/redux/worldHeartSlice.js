@@ -5,7 +5,7 @@ const initialState = { worldLovePic: [
   {id:'1', getHeartQty:105}, 
   {id:'2', getHeartQty:111}, 
   {id:'3', getHeartQty:208}, 
-  {id:'4', getHeartQty:92}, 
+  {id:'4', getHeartQty:99}, 
   {id:'5', getHeartQty:131}, 
   {id:'6', getHeartQty:87}, 
   {id:'7', getHeartQty:140}, 

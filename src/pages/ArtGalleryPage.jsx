@@ -7,10 +7,16 @@ import ArtPic from "../components/ArtPic";
 import DownfadeInDiv from "../motion/DownfadeInDiv";
 import { selectLightMode } from '../redux/colorSlice';
 import { selectUserHeart } from '../redux/userHeartSlice';
+import { selectWorldHeart } from '../redux/worldHeartSlice'; 
 
 function ArtGalleryPage() {
     const [artworks, setArtworks] = useState(artData); 
-    const sortedArtworks = [...artworks].sort((a, b) => b.getHeartQty - a.getHeartQty);
+    const worldHeartData = useSelector(selectWorldHeart);
+    const sortedArtworks = [...artworks].sort((a, b) => {
+        const aHearts = worldHeartData.find(w => w.id === a.id)?.getHeartQty || 0;
+        const bHearts = worldHeartData.find(w => w.id === b.id)?.getHeartQty || 0;
+        return bHearts - aHearts;
+    });
     const [activeTab, setActiveTab] = useState('all');
     const lightMode = useSelector(selectLightMode);
     const userLovePic = useSelector(selectUserHeart);
