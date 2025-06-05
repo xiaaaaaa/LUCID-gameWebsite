@@ -4,6 +4,7 @@ import { useGlobalHeartById, useUpdateGlobalHeart } from '../react-query';
 import DownfadeInDiv from "../motion/DownfadeInDiv";
 import ZoomMotionDiv from "../motion/ZoomMotionDiv";
 import { addUserHeart, reduceCUserHeart, selectUserHeart } from '../redux/userHeartSlice'; 
+import { selectLightMode } from '../redux/colorSlice'; 
 //import { selectWorldHeart, reduceWorldHeart, addworldHeart } from '../redux/worldHeartSlice';
 
 function ArtPic({ art }) {
@@ -14,6 +15,7 @@ function ArtPic({ art }) {
     //const worldLovePic = useSelector(selectWorldHeart);
     const { data: heartData, isLoading } = useGlobalHeartById(art.id);
     const { mutate: updateHeart } = useUpdateGlobalHeart();
+    const lightMode = useSelector(selectLightMode); 
 
     const handleHeartClick = (e) => {
         e.stopPropagation();
@@ -56,7 +58,7 @@ function ArtPic({ art }) {
                     {isLoved && (
                         <div className="absolute bottom-[25px] right-[10px] sm:bottom-[15px] sm:right-[4px]">
                             <img
-                                src="/images/art-heartIcon-fill.png"
+                                src={lightMode ? "/images/art-heartIcon-fill-light.png" : "/images/art-heartIcon-fill.png"}
                                 alt="heart"
                                 className="w-[50px] h-[50px] sm:w-[80px] sm:h-[80px]"
                             />
@@ -132,7 +134,10 @@ function ArtPic({ art }) {
                                         }}
                                     >
                                         <img
-                                            src={isLoved ? "/images/art-heartIcon-fill.png" : "/images/art-heartIcon.png"}
+                                            src={isLoved 
+                                                ? (lightMode ? "/images/art-heartIcon-fill-light.png" : "/images/art-heartIcon-fill.png")
+                                                : "/images/art-heartIcon.png"
+                                            }
                                             alt="heart"
                                             className="w-8 h-8"
                                         />
