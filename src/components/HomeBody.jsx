@@ -78,9 +78,9 @@ function HomeBody() {
                             <div className="hidden sm:flex relative -mx-60 w-[200%] min-h-[600px]   items-center justify-center sm:min-h-[1200px] ">
                                {[
                                     { num: 1, style: { top: '10%', left: '15%', transform: 'rotate(0deg)' }},
-                                    { num: 2, style: { top: '18%', left: '72%', transform: 'rotate(0deg)' }},
+                                    { num: 2, style: { top: '18%', left: '70%', transform: 'rotate(0deg)' }},
                                     { num: 3, style: { top: '55%', left: '12%', transform: 'rotate(-0deg)' }},
-                                    { num: 5, style: { top: '55%', left: '65%', transform: 'rotate(0deg)' }},
+                                    { num: 5, style: { top: '50%', left: '65%', transform: 'rotate(0deg)' }},
                                     { num: 6, style: { top: '75%', left: '45%', transform: 'rotate(-0deg)' }},
                                     { num: 4, style: { top: '30%', left: '40%', transform: 'rotate(-3deg)' }}
                                 ].map(({ num, style }) => (
