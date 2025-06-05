@@ -316,6 +316,13 @@
     padding-left: 60px;
     background-image: url('/images/itemTextFrame.png');
   }
+  .itemTextFrame_sm {
+    width: 349px;
+    margin-left: -18px;
+    padding-left: 20px;
+    background-image: url('/images/itemTextFrame_sm.png');
+  }
+
   .memberLink {
     color: #30B1BD;
   }
