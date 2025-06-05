@@ -31,8 +31,8 @@ const ArtGallery = ({ sortedArtworks }) => {
                                 onHoverStart={() => setSelected(index)}
                                 className={`w-full p-0 text-[25px] font-bold text-white rounded-t-[20px]
                                 ${activeTab === label
-                                    ? `bg-white ${lightMode ? '!text-[#E93969]' : '!text-[#30B1BD]'}`
-                                    : `bg-white/20 hover:bg-white/30 ${lightMode ? '!text-[#909090]' : '!text-[#ffffff]'}`}`}
+                                    ? `bg-white/0 sm:bg-white hover:scale-110 sm:hover:scale-100 ${lightMode ? '!text-[#E93969]' : '!text-[#30B1BD]'}`
+                                    : `bg-white/0 sm:bg-white/20 hover:scale-110 sm:hover:scale-100 hover:bg-white/0 sm:hover:bg-white/30 ${lightMode ? '!text-[#909090]' : '!text-[#ffffff]'}`}`}
                             >
                                 <div className="flex flex-col items-center mt-5 gap-5 mb-6">
                                     <motion.div className="relative">
@@ -57,7 +57,7 @@ const ArtGallery = ({ sortedArtworks }) => {
                     ))}
                 </motion.div>
 
-                <div className="bg-white p-8 min-h-[600px] rounded-b-[20px]">
+                <div className="bg-white/0 p-8 min-h-[600px] rounded-b-[20px] sm:bg-white">
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                         {activeTab === 'all'
                             ? sortedArtworks.map((art) => (
