@@ -58,14 +58,14 @@ function FanClubBody() {
                                     alt="LeftSideImage"
                                     onClick={() => handleVote("left")}
                                     className={`h-[430px] rounded-[20px] cursor-pointer transition-all duration-300 hover:scale-105 
-                                    ${selected === "left" ? "ring-4 ring-[#30B1BD]" : ""}`}
+                                    ${selected === "left" ? "ring-4 ring-[#30B1BD]" : "opacity-40"}`}
                                 />
                                 <img
                                     src="/images/SideRight.png"
                                     alt="RightSideImage"
                                     onClick={() => handleVote("right")}
                                     className={`h-[430px] rounded-[20px] cursor-pointer transition-all duration-300 hover:scale-105 
-                                    ${selected === "right" ? "ring-4 ring-[#E93969]" : ""}`}
+                                    ${selected === "right" ? "ring-4 ring-[#E93969]" : "opacity-40"}`}
                                 />
                             </div>
                         </div>
