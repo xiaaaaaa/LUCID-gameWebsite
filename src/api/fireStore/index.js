@@ -121,22 +121,6 @@ export const getFanQuestionVotes = async () => {
   }
 };
 
-// export const updateFanQuestionVote = async ({ way, voteNum }) => {
-//   try {
-//     const docRef = doc(fanQuestionVoteCollection, way);
-//     await setDoc(docRef, {
-//       way,
-//       voteNum: voteNum,
-//       timestamp: new Date().toISOString()
-//     }, { merge: true });
-    
-//     console.log(`成功更新 ${way} 的票數為 ${voteNum}`);
-//     return true;
-//   } catch (error) {
-//     console.error('更新投票數量時發生錯誤:', error);
-//     throw error;
-//   }
-// };
 
 export const updateFanQuestionVote = async ({ way }) => {
   try {
