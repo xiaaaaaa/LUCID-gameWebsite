@@ -48,9 +48,13 @@ function HomePage() {
                 </div>
             </div>
             <div className="h-screen w-full content-center bg-[#2D2D2D]">
-                {!isVideoLoaded? (
+                {!isVideoLoaded && (
+                    <div className="skeleton hero w-screen object-cover object-center" > </div>
+                )}
                     <video 
-                        className="hero w-screen object-cover object-center" 
+                        className={`hero w-screen object-cover object-center transition-opacity duration-300 ${
+                            isVideoLoaded ? 'opacity-100' : 'opacity-0'
+                        }`}
                         autoPlay 
                         loop 
                         muted 
@@ -59,9 +63,7 @@ function HomePage() {
                     >
                         <source src="/videos/cover.mp4" type="video/mp4" />
                     </video>
-                ) : (
-                    <div className="skeleton hero w-screen object-cover object-center" > </div>
-                )}
+                
             </div>
 
             <div className="content-container relative z-0">

@@ -43,11 +43,11 @@ function ArtPic({ art }) {
 
                     {/* 愛心圖示 - 只在 getHeart 為 true 時顯示 */}
                     {isLoved && (
-                        <div className="absolute bottom-[15px] right-[4px]">
+                        <div className="absolute bottom-[25px] right-[10px] sm:bottom-[15px] sm:right-[4px]">
                             <img
                                 src="/images/art-heartIcon-fill.png"
                                 alt="heart"
-                                className="w-[80px] h-[80px]"
+                                className="w-[50px] h-[50px] sm:w-[80px] sm:h-[80px]"
                             />
                         </div>
                     )}
