@@ -25,18 +25,18 @@ function WorldViewBody() {
             images: "/images/lucidLogo.png",
             description: "主角，喜歡攝影，時常抱著相機到處拍。個性直率，似乎沒有什麼朋友。"
         },
-        {
-            fileName: "＜Fluor's File＞",
-            name: "芙洛爾 Fluor",
-            images: "/images/npc-lucid.png",
-            description: "路西安唯一的摯友，生在音樂世家，專長是長笛。很溫柔親切的一個人，很受同儕歡迎，但本人覺得和路西相處時最開心。"
-        },
         // {
-        //     fileName: "＜owner's File＞",
-        //     name: "花店老闆",
-        //     images: "/images/npc-police.png",
-        //     description: "獨自經營著花店的帥哥，總是笑臉迎人，似乎有很多迷妹。"
+        //     fileName: "＜Fluor's File＞",
+        //     name: "芙洛爾 Fluor",
+        //     images: "/images/npc-lucid.png",
+        //     description: "路西安唯一的摯友，生在音樂世家，專長是長笛。很溫柔親切的一個人，很受同儕歡迎，但本人覺得和路西相處時最開心。"
         // },
+        {
+            fileName: "＜owner's File＞",
+            name: "花店老闆",
+            images: "/images/npc-police.png",
+            description: "獨自經營著花店的帥哥，總是笑臉迎人，似乎有很多迷妹。"
+        },
         {
             fileName: "＜Ajin's File＞",
             name: "阿鯨船長",
