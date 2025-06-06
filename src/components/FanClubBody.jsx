@@ -9,12 +9,7 @@ import LeftfadeInDiv from "../motion/LeftfadeInDiv";
 import OshiVote from "./OshiVote";
 
 function FanClubBody() {
-    const [expandedQuestions, setExpandedQuestions] = useState({
-        q1: false,
-        q2: false,
-        q3: false,
-        q4: false
-    });
+    const [expandedQuestions, setExpandedQuestions] = useState(null); 
     // const [voted, setVoted] = useState(false);
     // const [selected, setSelected] = useState(null); // "left" or "right"
     // const [result, setResult] = useState({ left: 100, right: 0 }); // 模擬結果
@@ -160,24 +155,24 @@ function FanClubBody() {
                             {questionsData.map((item) => (
                                 <div 
                                     key={item.id}
-                                    className={`fanClubbg sm:w-[90%] w-[380px] rounded-[20px] pl-10 pr-10 mb-3 ${
-                                        expandedQuestions[item.id] ? `border-[${lightMode ? '#E93969' : '#30B1BD'}] border-3` : 'border-3 border-transparent'
-                                    } transition-all`}
-                                    onClick={() => setExpandedQuestions(prev => ({...prev, [item.id]: !prev[item.id]}))}
-                                    onMouseEnter={() => setExpandedQuestions(prev => ({...prev, [item.id]: true}))}
-                                    onMouseLeave={() => setExpandedQuestions(prev => ({...prev, [item.id]: false}))}
+                                    className={`fanClubbg sm:w-[90%] w-[380px] rounded-[20px] pl-10 pr-10 mb-3 cursor-pointer ${
+                                        expandedQuestions === item.id ? `border-[${lightMode ? '#E93969' : '#30B1BD'}] border-3` : 'border-3 border-transparent'
+                                    } transition-all hover:border-[${lightMode ? '#E93969' : '#30B1BD'}] hover:border-3`}
+                                    onClick={() => setExpandedQuestions(prev => prev === item.id ? null : item.id)}
+                                    onMouseEnter={() => setExpandedQuestions(item.id)}
+                                    onMouseLeave={() => setExpandedQuestions(null)}
                                 >
-                                    <div className={`text-xl font-bold py-4 flex justify-between items-center cursor-pointer`}>
-                                        <div className={`${expandedQuestions[item.id] ? `text-[${lightMode ? '#E93969' : '#30B1BD'}]` : ''}`}>
+                                    <div className={`text-xl font-bold py-4 flex justify-between items-center`}>
+                                        <div className={`${expandedQuestions === item.id ? `text-[${lightMode ? '#E93969' : '#30B1BD'}]` : ''}`}>
                                             Q. {item.question}
                                         </div>
                                         <span className={`transform transition-transform duration-300 ${
-                                            expandedQuestions[item.id] ? 'rotate-180' : ''
+                                            expandedQuestions === item.id ? 'rotate-180' : ''
                                         }`}>▼</span>
                                     </div>
                                     
                                     <div className={`overflow-hidden transition-all duration-300 ${
-                                        expandedQuestions[item.id] ? "max-h-[100px]" : "max-h-0"
+                                        expandedQuestions === item.id ? "max-h-[100px]" : "max-h-0"
                                     }`}>
                                         <div className="pb-4 text-lg">
                                             A. {item.answer}
