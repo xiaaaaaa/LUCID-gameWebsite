@@ -15,18 +15,18 @@ function Npc2() {
 
     const addToNpc = (flowerName, e) => {
         dispatch(addGetFlowerLists({
-            name: "警察",
+            name: "阿鯨船長",
             flower: flowerName,
         }))
     }
 
     return (
         <>
-            {getFlowerPeople.some(item => item.name === "警察") ? (
+            {getFlowerPeople.some(item => item.name === "阿鯨船長") ? (
                 <div className="tooltip tooltip-left">
                     <div className="tooltip-content npc-tooltip">
                         <div className="animate-bounce -rotate-0 text-2xl font-black ">
-                            謝謝你送我{getFlowerPeople.find(item => item.name === "警察")?.flower}!
+                            謝謝你送我{getFlowerPeople.find(item => item.name === "阿鯨船長")?.flower}!
                         </div>
                     </div>
                     <button
@@ -36,7 +36,7 @@ function Npc2() {
                         <img
                             className="h-[70px] w-[50px] md:h-full md:w-full object-cover "
                             src="/images/npc-police.png"
-                            alt="警察"
+                            alt="阿鯨船長"
                         />
                     </button>
                 </div>
@@ -49,7 +49,7 @@ function Npc2() {
                         <img
                             className="h-[70px] w-[50px] md:h-full md:w-full object-cover "
                             src="/images/npc-police.png"
-                            alt="警察"
+                            alt="阿鯨船長"
                         />
                     </button>
 
