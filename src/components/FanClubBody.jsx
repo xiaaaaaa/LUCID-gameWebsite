@@ -9,6 +9,12 @@ import LeftfadeInDiv from "../motion/LeftfadeInDiv";
 import OshiVote from "./OshiVote";
 
 function FanClubBody() {
+    const [expandedQuestions, setExpandedQuestions] = useState({
+        q1: false,
+        q2: false,
+        q3: false,
+        q4: false
+    });
     // const [voted, setVoted] = useState(false);
     // const [selected, setSelected] = useState(null); // "left" or "right"
     // const [result, setResult] = useState({ left: 100, right: 0 }); // 模擬結果
@@ -126,7 +132,7 @@ function FanClubBody() {
                                 <div className="h-[2.5px] w-full bg-white mb-5"></div>
                             </div>
 
-                            <div className={`group fanClubbg sm:w-[90%] w-[380px] rounded-[20px] pl-10 pr-10 mb-3 hover:border-[${lightMode ? '#E93969' : '#30B1BD'}] border-3 border-transparent transition-all`}>
+                            {/* <div className={`group fanClubbg sm:w-[90%] w-[380px] rounded-[20px] pl-10 pr-10 mb-3 hover:border-[${lightMode ? '#E93969' : '#30B1BD'}] border-3 border-transparent transition-all`}>
                                  <div className={`text-xl font-bold py-4 flex justify-between items-center`}>
                                     <div className={`group-hover:text-[${lightMode ? '#E93969' : '#30B1BD'}]`}>
                                         Q. 小島上大概多大？有多少人口？
@@ -136,6 +142,31 @@ function FanClubBody() {
                                 
                                 <div className={`overflow-hidden transition-all duration-300 ${
                                     "max-h-0 group-hover:max-h-[100px]"
+                                }`}>
+                                    <div className="pb-4 text-lg">
+                                        A. 約十平方公里，其中有一半的面積是山區，易於活動的地方較小，大概住有200人左右。
+                                    </div>
+                                </div>
+                            </div> */}
+                            <div 
+                                className={`fanClubbg sm:w-[90%] w-[380px] rounded-[20px] pl-10 pr-10 mb-3 ${
+                                    expandedQuestions.q1 ? `border-[${lightMode ? '#E93969' : '#30B1BD'}] border-3` : 'border-3 border-transparent'
+                                } transition-all group`}
+                                onClick={() => setExpandedQuestions(prev => ({...prev, q1: !prev.q1}))}
+                                onMouseEnter={() => setExpandedQuestions(prev => ({...prev, q1: true}))}
+                                onMouseLeave={() => setExpandedQuestions(prev => ({...prev, q1: false}))}
+                            >
+                                <div className={`text-xl font-bold py-4 flex justify-between items-center cursor-pointer`}>
+                                    <div className={`${expandedQuestions.q1 ? `text-[${lightMode ? '#E93969' : '#30B1BD'}]` : ''}`}>
+                                        Q. 小島上大概多大？有多少人口？
+                                    </div>
+                                    <span className={`transform transition-transform duration-300 ${
+                                        expandedQuestions.q1 ? 'rotate-180' : ''
+                                    }`}>▼</span>
+                                </div>
+                                
+                                <div className={`overflow-hidden transition-all duration-300 ${
+                                    expandedQuestions.q1 ? "max-h-[100px]" : "max-h-0"
                                 }`}>
                                     <div className="pb-4 text-lg">
                                         A. 約十平方公里，其中有一半的面積是山區，易於活動的地方較小，大概住有200人左右。
