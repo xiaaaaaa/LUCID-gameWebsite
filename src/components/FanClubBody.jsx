@@ -71,12 +71,12 @@ function FanClubBody() {
                     </DownfadeInDiv>
                     {/* 殘酷二選一｜Pick a Side< */}
                     <div className="flex flex-col justify-center mt-10">
-                        <h1 className="font-bold text-3xl mb-3 sm:text-left ">殘酷二選一｜Pick a Side</h1>
+                        <h1 className="font-bold sm:text-3xl text-2xl mb-3 sm:text-left ml-5">殘酷二選一｜Pick a Side</h1>
                         <div className="h-[2.5px] sm:w-[1250px]  bg-white m-5"></div>
                         <div className="flex flex-col items-center">
-                            <div className="flex flex-col justify-center items-center h-[180px] sm:w-[1200px] w-[480px] fanClubbg rounded-[20px] mt-7">
+                            <div className="flex flex-col justify-center items-center h-[180px] sm:w-[1200px] w-[400px] fanClubbg rounded-[20px] mt-7">
                                 <h1 className="sm:text-2xl text-lg">每當開啟新的一天，你更常選擇哪種早餐口味？</h1>
-                                <div className="flex flex-col sm:w-570 w-100 jusitfy-center mt-5">
+                                <div className="flex flex-col sm:w-270 w-100 jusitfy-center mt-5">
                                     <div className="flex justify-between">
                                         <span>{voted ? `${leftPercentage}%` : "???"}</span>
                                         <span>{voted ? `${rightPercentage}%` : "???"}</span>
@@ -122,11 +122,11 @@ function FanClubBody() {
                         {/* 趣味問答｜Fun Fact */}
                         <div className="flex flex-col text-left items-center mt-30">
                             <div className="w-[1250px]"> 
-                                <h1 className="font-bold text-3xl mb-3 sm:text-left text-center">趣味問答｜Fun Fact</h1>
+                                <h1 className="font-bold sm:text-3xl text-2xl mb-3 sm:text-left text-center">趣味問答｜Fun Fact</h1>
                                 <div className="h-[2.5px] w-full bg-white mb-5"></div>
                             </div>
 
-                            <div className={`group fanClubbg sm:w-[90%] w-[490px] rounded-[20px] pl-10 pr-10 mb-3 hover:border-[${lightMode ? '#E93969' : '#30B1BD'}] border-3 border-transparent transition-all`}>
+                            <div className={`group fanClubbg sm:w-[90%] w-[380px] rounded-[20px] pl-10 pr-10 mb-3 hover:border-[${lightMode ? '#E93969' : '#30B1BD'}] border-3 border-transparent transition-all`}>
                                  <div className={`text-xl font-bold py-4 flex justify-between items-center`}>
                                     <div className={`group-hover:text-[${lightMode ? '#E93969' : '#30B1BD'}]`}>
                                         Q. 小島上大概多大？有多少人口？
@@ -144,7 +144,7 @@ function FanClubBody() {
                             </div>
 
                             {/* 第二個問題 */}
-                            <div className={`group fanClubbg sm:w-[90%] w-[490px] rounded-[20px] pl-10 pr-10 mb-3 hover:border-[${lightMode ? '#E93969' : '#30B1BD'}] border-3 border-transparent transition-all`}>
+                            <div className={`group fanClubbg sm:w-[90%] w-[380px] rounded-[20px] pl-10 pr-10 mb-3 hover:border-[${lightMode ? '#E93969' : '#30B1BD'}] border-3 border-transparent transition-all`}>
                                 <div className={`text-xl font-bold group-hover:text-[${lightMode ? '#E93969' : '#30B1BD'}] py-4 flex justify-between items-center`}>
                                     <div>Q. 在阿雞師開發風信子口味雞蛋糕之前，還有其他奇葩口味嗎？</div>
                                     <span className="transform transition-transform duration-300 group-hover:rotate-180 inline-block">▼</span>
@@ -159,7 +159,7 @@ function FanClubBody() {
                             </div>
 
                             {/* 第三個問題 */}
-                            <div className={`group fanClubbg sm:w-[90%] w-[490px] rounded-[20px] pl-10 pr-10 mb-3 hover:border-[${lightMode ? '#E93969' : '#30B1BD'}] border-3 border-transparent transition-all`}>
+                            <div className={`group fanClubbg sm:w-[90%] w-[380px] rounded-[20px] pl-10 pr-10 mb-3 hover:border-[${lightMode ? '#E93969' : '#30B1BD'}] border-3 border-transparent transition-all`}>
                                 <div className={`text-xl font-bold group-hover:text-[${lightMode ? '#E93969' : '#30B1BD'}] py-4 flex justify-between items-center`}>
                                     <div>Q. 花店老闆用什麼方法保養得以凍齡？</div>
                                     <span className="transform transition-transform duration-300 group-hover:rotate-180 inline-block">▼</span>
@@ -174,7 +174,7 @@ function FanClubBody() {
                             </div>
 
                             {/* 第四個問題 */}
-                            <div className={`group fanClubbg sm:w-[90%] w-[490px] rounded-[20px] pl-10 pr-10 mb-3 hover:border-[${lightMode ? '#E93969' : '#30B1BD'}] border-3 border-transparent transition-all`}>
+                            <div className={`group fanClubbg sm:w-[90%] w-[380px] rounded-[20px] pl-10 pr-10 mb-3 hover:border-[${lightMode ? '#E93969' : '#30B1BD'}] border-3 border-transparent transition-all`}>
                                 <div className={`text-xl font-bold group-hover:text-[${lightMode ? '#E93969' : '#30B1BD'}] py-4 flex justify-between items-center`}>
                                     <div>Q. 路西從什麼時候開始喜歡攝影的？</div>
                                     <span className="transform transition-transform duration-300 group-hover:rotate-180 inline-block">▼</span>
@@ -191,7 +191,7 @@ function FanClubBody() {
                         
                         {/* 最愛角色票選｜Vote your Oshi */}
                         <div className="flex flex-col justify-center mt-20 mb-50">
-                            <h1 className="font-bold text-3xl mb-3 sm:text-left">最愛角色票選｜Vote your Oshi</h1>
+                            <h1 className="font-bold sm:text-3xl text-2xl mb-3 sm:text-left">最愛角色票選｜Vote your Oshi</h1>
                             <div className="h-[2.5px] w-[1250px] bg-white"></div>
 
                             <OshiVote/>
