@@ -30,12 +30,12 @@ function Npc1() {
                         </div>
                     </div>
                     <button
-                        className="h-[60px] w-[50px] md:h-[100px] md:w-[90px]"
+                        className="h-[60px] w-[50px] md:h-[100px] md:w-[90px] hover:scale-110"
                         onClick={toggleDropdown}
                     >
                         <img
                             className="h-[60px] w-[50px] md:h-full md:w-full object-cover "
-                            src="/images/npc-lucid.png"
+                            src="/images/npc-owner.png"
                             alt="花店老闆"
                         />
                     </button>
@@ -48,7 +48,7 @@ function Npc1() {
                     >
                         <img
                             className="h-[60px] w-[50px] md:h-full md:w-full object-cover "
-                            src="/images/npc-lucid.png"
+                            src="/images/npc-owner.png"
                             alt="花店老闆"
                         />
                     </button>

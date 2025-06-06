@@ -30,12 +30,12 @@ function Npc2() {
                         </div>
                     </div>
                     <button
-                        className="h-[70px] w-[70px] md:h-[110px] md:w-[80px]"
+                        className="h-[70px] w-[70px] md:h-[110px] md:w-[80px] hover:scale-110"
                         onClick={toggleDropdown}
                     >
                         <img
                             className="h-[70px] w-[50px] md:h-full md:w-full object-cover "
-                            src="/images/npc-police.png"
+                            src="/images/npc-ajin.png"
                             alt="阿鯨船長"
                         />
                     </button>
@@ -43,12 +43,12 @@ function Npc2() {
             ) : (
                 <div className="dropdown dropdown-end">
                     <button
-                        className=" h-[70px] w-[70px] md:h-[110px] md:w-[80px]"
+                        className=" h-[70px] w-[70px] md:h-[110px] md:w-[80px] hover:scale-110"
                         onClick={toggleDropdown}
                     >
                         <img
                             className="h-[70px] w-[50px] md:h-full md:w-full object-cover "
-                            src="/images/npc-police.png"
+                            src="/images/npc-ajin.png"
                             alt="阿鯨船長"
                         />
                     </button>
