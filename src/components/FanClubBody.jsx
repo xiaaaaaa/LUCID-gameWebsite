@@ -76,7 +76,7 @@ function FanClubBody() {
                         <div className="flex flex-col items-center">
                             <div className="flex flex-col justify-center items-center h-[180px] sm:w-[1200px] w-[400px] fanClubbg rounded-[20px] mt-7">
                                 <h1 className="sm:text-2xl text-lg">每當開啟新的一天，你更常選擇哪種早餐口味？</h1>
-                                <div className="flex flex-col sm:w-270 w-100 jusitfy-center mt-5">
+                                <div className="flex flex-col sm:w-270 w-80 jusitfy-center mt-5">
                                     <div className="flex justify-between">
                                         <span>{voted ? `${leftPercentage}%` : "???"}</span>
                                         <span>{voted ? `${rightPercentage}%` : "???"}</span>
