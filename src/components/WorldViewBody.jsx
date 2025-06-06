@@ -10,13 +10,42 @@ function WorldViewBody() {
     const [thumbIndex, setThumbIndex] = useState(0);
     const showCount = 5;
 
-    const images = [
-        "/images/lucidLogo.png",
-        "/images/npc-lucid.png",
-        "/images/npc-police.png"
+    // const images = [
+    //     "/images/lucidLogo.png",
+    //     "/images/npc-lucid.png",
+    //     "/images/npc-police.png",
+    //     "/images/npc-police.png"
+    // ];
+
+    const characters = [
+        {
+            fileName: "＜Lucian's File＞",
+            name: "路西安 Lucian",
+            images: "/images/lucidLogo.png",
+            description: "主角，喜歡攝影，時常抱著相機到處拍。個性直率，似乎沒有什麼朋友。"
+        },
+        {
+            fileName: "＜Fluor's File＞",
+            name: "芙洛爾 Fluor",
+            images: "/images/npc-lucid.png",
+            description: "路西安唯一的摯友，生在音樂世家，專長是長笛。很溫柔親切的一個人，很受同儕歡迎，但本人覺得和路西相處時最開心。"
+        },
+        {
+            fileName: "＜owner's File＞",
+            name: "花店老闆",
+            images: "/images/npc-police.png",
+            description: "獨自經營著花店的帥哥，總是笑臉迎人，似乎有很多迷妹。"
+        },
+        {
+            fileName: "＜Ajin's File＞",
+            name: "阿鯨船長",
+            images: "/images/npc-police.png",
+            description: "體型壯碩、聲音很大的大鬍子魚販，路西覺得他拿著屠刀時看起來有點可怕。"
+        }
     ];
+
     const next = () => {
-        if (thumbIndex + showCount < images.length) {
+        if (thumbIndex + showCount < characters.length) {
             setThumbIndex(thumbIndex + 1);
         }
     };
@@ -139,18 +168,20 @@ function WorldViewBody() {
                                 <div className="flex flex-row justify-between items-center lg:w-[90%] lg:h-[374px] lg:border-5 textframe -mt-2">
                                     <div className="flex flex-col justify-center items-center md:items-start lg:ml-10">
                                         <div className="lg:hidden flex flex-col justify-center items-start md:relative">
-                                            <p className="lg:hidden flex font-semibold color mb-[5px]">＜Lucian’s File＞</p>
+                                            <p className="lg:hidden flex font-semibold color mb-[5px]">{characters[current].fileName}</p>
 
                                         </div>
                                         <div className="flex flex-row lg:flex-col">
                                             <div className="flex flex-col justify-center lg:justify-start lg:items-start w-[100%] mb-5">
-                                                <p className="text-bold text-[30px] ">路西安</p>
+                                                <p className="text-bold text-[26px] sm:text-[30px]">{characters[current].name}</p>
                                             </div>
                                             <div className="flex flex-row justify-around lg:justify-start w-[60%] lg:w-[250px] mb-5">
-                                                <img
-                                                    src={images[current]}
-                                                    className="w-[60%] lg:w-[40%] object-cover rounded shadow-none"
-                                                />
+                                                <div className="w-[80px] h-[80px] flex items-center justify-center">
+                                                    <img
+                                                        src={characters[current].images}
+                                                        className="max-w-[80px] max-h-[80px] w-auto h-auto object-contain rounded shadow-none"
+                                                    />
+                                                </div>
                                             </div>
                                         </div>
                                         <div className="lg:hidden flex relative sm:ml-15 sm:mb-5">
@@ -160,7 +191,7 @@ function WorldViewBody() {
                                             />
                                         </div>
                                         <div className="flex flex-col justify-center lg:justify-start lg:items-start w-[100%] border-0 md:border-5 textframe">
-                                            <p className="lg:w-[227px] m-4 text-left">喜歡攝影，時常抱著相機到處拍。個性直率，似乎沒有什麼朋友。</p>
+                                            <p className="lg:w-[227px] m-4 text-left">{characters[current].description}</p>
                                         </div>
                                     </div>
                                     <div className="hidden lg:flex justify-center items-center md:relative">
@@ -170,7 +201,7 @@ function WorldViewBody() {
                                                 className="w-[370px] border-2 lg:border-4 frame lg:relative lg:ml-10 lg:mb-40"
                                             />
                                         </div>
-                                        <p className="hidden xl:flex font-semibold color absolute pt-80 pl-40">＜Lucian’s File＞</p>
+                                        <p className="hidden xl:flex font-semibold color absolute pt-80 pl-40">{characters[current].fileName}</p>
                                     </div>
                                 </div>
                             </div>
@@ -180,14 +211,14 @@ function WorldViewBody() {
                         <div className="sm:max-w-xl sm:mx-auto mb-10">
                             <div className="flex justify-center items-center mt-4 space-x-2">
 
-                                {images.slice(thumbIndex, thumbIndex + showCount).map((img, index) => {
+                                {characters.slice(thumbIndex, thumbIndex + showCount).map((character, index) => {
                                     const realIndex = thumbIndex + index;
                                     return (
                                         <img
                                             key={realIndex}
-                                            src={img}
+                                            src={character.images}
                                             onClick={() => setCurrent(realIndex)}
-                                            className={`w-10 h-10 sm:w-20 sm:h-20 object-cover cursor-pointer border-2 md:border-4  ${current === realIndex
+                                            className={`w-15 h-15 sm:w-20 sm:h-20 object-cover cursor-pointer border-2 md:border-4  ${current === realIndex
                                                 ? "color"
                                                 : "text-frame"
                                                 }`}
