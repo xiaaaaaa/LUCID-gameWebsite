@@ -108,8 +108,12 @@ function WorldViewBody() {
                                 
                                 
                                 {/*Modal for Map*/}
-                                <dialog id="my_modal_4" className="modal flex justify-center items-center bg-transparent shadow-none">
-                                    <div className="flex flex-col md:flex-row modal-box w-11/12 max-w-5xl bg-transparent">
+                               <dialog id="my_modal_4" className="modal flex justify-center items-center bg-transparent shadow-none" onClick={(e) => {
+                                    if (e.target.id === 'my_modal_4') {
+                                        e.target.close();
+                                    }
+                                }}>
+                                    <div className="flex flex-col md:flex-row modal-box w-11/12 max-w-5xl bg-transparent shadow-none">
                                         {/*Left picture*/}
                                         <div className="flex justify-center items-center md:">
                                             <img className="flex md:w-[100%] mb-[20px] sm:mb-0 w-[500px] md:mr-20" src="/images/ShopStreet.png" alt="地圖" />
