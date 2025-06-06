@@ -35,14 +35,14 @@ function WorldViewBody() {
         {
             fileName: "＜owner's File＞",
             name: "花店老闆",
-            images: "/images/npc-police.png",
+            images: "/images/npc-owner.png",
             imagesBig: "/images/BossCharacter.png",
             description: "獨自經營著花店的帥哥，總是笑臉迎人，似乎有很多迷妹。"
         },
         {
             fileName: "＜Ajin's File＞",
             name: "阿鯨船長",
-            images: "/images/npc-police.png",
+            images: "/images/npc-ajin.png",
             imagesBig: "/images/AjinCharacter.png",
             description: "體型壯碩、聲音很大的大鬍子魚販，路西覺得他拿著屠刀時看起來有點可怕。"
         }
