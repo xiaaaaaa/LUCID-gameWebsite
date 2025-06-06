@@ -31,12 +31,12 @@ function WorldViewBody() {
             images: "/images/npc-lucid.png",
             description: "路西安唯一的摯友，生在音樂世家，專長是長笛。很溫柔親切的一個人，很受同儕歡迎，但本人覺得和路西相處時最開心。"
         },
-        {
-            fileName: "＜owner's File＞",
-            name: "花店老闆",
-            images: "/images/npc-police.png",
-            description: "獨自經營著花店的帥哥，總是笑臉迎人，似乎有很多迷妹。"
-        },
+        // {
+        //     fileName: "＜owner's File＞",
+        //     name: "花店老闆",
+        //     images: "/images/npc-police.png",
+        //     description: "獨自經營著花店的帥哥，總是笑臉迎人，似乎有很多迷妹。"
+        // },
         {
             fileName: "＜Ajin's File＞",
             name: "阿鯨船長",
@@ -117,10 +117,10 @@ function WorldViewBody() {
                                     <div className="flex flex-col md:flex-row modal-box w-11/12 max-w-5xl bg-transparent shadow-none">
                                         {/*Left picture*/}
                                         <div className="flex justify-center items-center md:">
-                                            <img className="flex md:w-[100%] mb-[20px] sm:mb-0 w-[500px] md:mr-20" src="/images/ShopStreet.png" alt="地圖" />
+                                            <img className="flex md:w-[100%] mb-[20px] sm:mb-0 w-[300px] md:mr-20" src="/images/ShopStreet.png" alt="地圖" />
                                         </div>
                                         {/*Right Intro*/}
-                                        <div className="flex flex-col  w-[30vw] md:-ml-5">
+                                        <div className="flex flex-col w-[90vw] md:w-[30vw] md:-ml-5">
                                             {/*Button to FlowerShop*/}
                                             <button className="w-[50px]">
                                                 <Link to="/world/flowershop">
@@ -128,7 +128,7 @@ function WorldViewBody() {
                                                 </Link>
                                             </button>
                                             {/*Right content*/}
-                                            <div className="flex flex-col justify-center items-center mobile-nav border-3 border-white sm:-ml-15">
+                                            <div className="flex flex-col w-full md:w-[30vw] md:-ml-5 justify-center items-center mobile-nav border-3 border-white">
                                                 <div className="flex flex-row justify-between items-center w-[90%]">
                                                     <h3 className="font-bold text-lg  py-5">商店街</h3>
                                                     <div className="modal-action flex justify-center items-center">
@@ -139,7 +139,7 @@ function WorldViewBody() {
                                                 </div>
                                                 <div className="flex flex-col justify-center items-start bg-white text-black w-[90%] mb-5 lg:pl-13 md:pl-5 pl-5 ">
                                                     <div className="flex justify-center items-center lg:ml-16 md:ml-5 my-5">
-                                                        <img className="flex w-[70px] sm:w-[130px] ml-20 sm:ml-0 mb-[20px] sm:mb-0  frame" src="/images/flowerShop_Map.png" alt="地圖" />
+                                                        <img className="flex w-[100px] sm:w-[130px] ml-20 sm:ml-0  sm:mb-0  frame" src="/images/flowerShop_Map.png" alt="地圖" />
                                                     </div>
                                                     <h3 className="font-bold text-lg color text-left">花店</h3>
                                                     <p className="py-4 md:w-[20vw] text-left">販售了各種各樣的花草植物，紀念日準備禮物的首選，時不時會從島外進貨島上沒有的品種。</p>
