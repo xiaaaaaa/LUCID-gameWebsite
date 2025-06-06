@@ -23,6 +23,7 @@ function WorldViewBody() {
             fileName: "＜Lucian's File＞",
             name: "路西安 Lucian",
             images: "/images/lucidLogo.png",
+            imagesBig: "/images/lucidCharacter.png",
             description: "主角，喜歡攝影，時常抱著相機到處拍。個性直率，似乎沒有什麼朋友。"
         },
         // {
@@ -35,12 +36,14 @@ function WorldViewBody() {
             fileName: "＜owner's File＞",
             name: "花店老闆",
             images: "/images/npc-police.png",
+            imagesBig: "/images/BossCharacter.png",
             description: "獨自經營著花店的帥哥，總是笑臉迎人，似乎有很多迷妹。"
         },
         {
             fileName: "＜Ajin's File＞",
             name: "阿鯨船長",
             images: "/images/npc-police.png",
+            imagesBig: "/images/AjinCharacter.png",
             description: "體型壯碩、聲音很大的大鬍子魚販，路西覺得他拿著屠刀時看起來有點可怕。"
         }
     ];
@@ -192,7 +195,7 @@ function WorldViewBody() {
                                         </div>
                                         <div className="lg:hidden flex relative sm:ml-15 sm:mb-5">
                                             <img
-                                                src={"/images/lucidCharacter.png"}
+                                                src={characters[current].imagesBig}
                                                 className="w-[370px] border-2 sm:border-4 frame lg:relative lg:ml-30 lg:mb-30"
                                             />
                                         </div>
@@ -203,7 +206,7 @@ function WorldViewBody() {
                                     <div className="hidden lg:flex justify-center items-center md:relative">
                                         <div className="relative">
                                             <img
-                                                src={"/images/lucidCharacter.png"}
+                                                src={characters[current].imagesBig}
                                                 className="w-[370px] border-2 lg:border-4 frame lg:relative lg:ml-10 lg:mb-40"
                                             />
                                         </div>

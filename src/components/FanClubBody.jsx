@@ -200,7 +200,7 @@ function FanClubBody() {
                         
                         {/* 最愛角色票選｜Vote your Oshi */}
                         <div className="flex flex-col justify-center mt-20 mb-50">
-                            <h1 className="font-bold sm:text-3xl text-2xl mb-3 sm:text-left">最愛角色票選｜Vote your Oshi</h1>
+                            <h1 className="font-bold sm:text-3xl text-2xl mb-3 sm:text-left sm:ml-2">最愛角色票選｜Vote your Oshi</h1>
                             <div className="h-[2.5px] w-[1250px] bg-white"></div>
 
                             <OshiVote/>
