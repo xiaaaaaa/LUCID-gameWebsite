@@ -76,7 +76,7 @@ function FanClubBody() {
                         <div className="flex flex-col items-center">
                             <div className="flex flex-col justify-center items-center h-[180px] sm:w-[1200px] w-[480px] fanClubbg rounded-[20px] mt-7">
                                 <h1 className="sm:text-2xl text-lg">每當開啟新的一天，你更常選擇哪種早餐口味？</h1>
-                                <div className="flex flex-col sm:w-270 w-100 jusitfy-center mt-5">
+                                <div className="flex flex-col sm:w-570 w-100 jusitfy-center mt-5">
                                     <div className="flex justify-between">
                                         <span>{voted ? `${leftPercentage}%` : "???"}</span>
                                         <span>{voted ? `${rightPercentage}%` : "???"}</span>
@@ -102,19 +102,19 @@ function FanClubBody() {
                                 </div>
 
                             </div>
-                            <div className="flex sm:flex-row flex-col justify-around items-center mt-10 sm:w-[1200px] w-[490px]">
+                            <div className="flex sm:flex-row flex-col justify-around items-center mt-10 sm:w-[1200px] w-[400px]">
                                 <img
                                     src="/images/SideLeft.png"
                                     alt="LeftSideImage"
                                     onClick={() => handleVote("left")}
-                                    className={`h-[430px] rounded-[20px] sm:mb-0 mb-[20px] cursor-pointer transition-all duration-300 hover:scale-105 
+                                    className={`sm:h-[430px] h-[239px] rounded-[20px] sm:mb-0 mb-[20px] cursor-pointer transition-all duration-300 hover:scale-105 
                                     ${selected === "left" ? "ring-4 ring-[#30B1BD]" : ""}${voted && selected !== "left" ? "opacity-40" : ""}`}
                                 />
                                 <img
                                     src="/images/SideRight.png"
                                     alt="RightSideImage"
                                     onClick={() => handleVote("right")}
-                                    className={`h-[430px] rounded-[20px] cursor-pointer transition-all duration-300 hover:scale-105 
+                                    className={`sm:h-[430px] h-[239px] rounded-[20px] cursor-pointer transition-all duration-300 hover:scale-105 
                                     ${selected === "right" ? "ring-4 ring-[#E93969]" : ""}${voted && selected !== "right" ? "opacity-40" : ""}`}
                                 />
                             </div>
