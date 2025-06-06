@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
+import { selectLightMode } from '../redux/colorSlice';
 import CameraLine from "./CameraLine";
 
 function WorldViewBody() {
+    const lightMode = useSelector(selectLightMode);
     const [current, setCurrent] = useState(0);
     const [thumbIndex, setThumbIndex] = useState(0);
     const showCount = 5;
@@ -48,25 +51,33 @@ function WorldViewBody() {
                                     <div className=" border-1 w-[60vw] mb-[10%] mt-[10%] lg:mb-0 line" />
                                 </div>
                                 {/*Map Intro*/}
-                                <button
-                                    className="relative group btn h-[100px] lg:h-0 bg-transparent border-0 my-20 lg:my-0 cursor-pointer shadow-none"
-                                    onClick={() => document.getElementById('my_modal_4').showModal()}
-                                >
-                                    <div className="flex justify-center items-center">
-                                        {/* 原圖 */}
-                                        <img
-                                            className="absolute w-[500px]"
-                                            src="/images/AllMap.png"
-                                            alt="地圖"
-                                        />
-                                        {/* hover圖 */}
-                                        <img
-                                            className="w-[500px]  transition-opacity duration-500 opacity-0 group-hover:opacity-100"
-                                            src="/images/Map_Shop.png"
-                                            alt="地圖hover"
-                                        />
-                                    </div>
-                                </button>
+                                <div className="relative flex justify-center items-center">
+                                    {/* 基礎地圖圖片 */}
+                                    <img 
+                                        id="baseMap" 
+                                        src="/images/AllMap.png" 
+                                        alt="完整地圖" 
+                                        className="w-[500px]"
+                                    />
+                                    
+                                    {/* 商店街偵測區 */}
+                                    <div 
+                                        className="absolute top-[60%] left-[18%] w-[30%] h-[25%] cursor-pointer border-0"
+                                        onMouseEnter={() => {
+                                            const baseMap = document.querySelector('#baseMap');
+                                            baseMap.src = lightMode 
+                                                ? "/images/AllMap-shopStreet-light.png"
+                                                : "/images/AllMap-shopStreet.png";
+                                        }}
+                                        onMouseLeave={() => {
+                                            const baseMap = document.querySelector('#baseMap');
+                                            baseMap.src = "/images/AllMap.png";
+                                        }}
+                                        onClick={() => document.getElementById('my_modal_4').showModal()}
+                                    />
+                                </div>
+                                
+                                
                                 {/*Modal for Map*/}
                                 <dialog id="my_modal_4" className="modal flex justify-center items-center bg-transparent shadow-none">
                                     <div className="flex flex-col md:flex-row modal-box w-11/12 max-w-5xl bg-transparent">
@@ -107,6 +118,7 @@ function WorldViewBody() {
                                     <h2 className="hidden hcontent-title lg:flex text-left">地圖介紹</h2>
                                     <p className="hcontent-sectitle mb-[1%] mt-5">【小島】</p>
                                     <p className="lg:max-w-[375px] lg:mb-0 text-left">四面環海的小島，由主要中央廣場連接著不同區塊。 島上人數不多、科技程度不算發達，有著生活樸實食衣住行多自給自足的一群住民。</p>
+                                    <p className="hcontent-sectitle mb-[1%] mt-5 text-[12px]">*試著點擊地圖地區</p>
                                 </div>
                             </div>
                         </div>
@@ -199,3 +211,25 @@ function WorldViewBody() {
 }
 
 export default WorldViewBody;
+
+
+
+// <button
+//     className="relative group btn h-[100px] lg:h-0 bg-transparent border-0 my-20 lg:my-0 cursor-pointer shadow-none"
+//     onClick={() => document.getElementById('my_modal_4').showModal()}
+// >
+//     <div className="flex justify-center items-center">
+//         {/* 原圖 */}
+//         <img
+//             className="absolute w-[500px] border-2 border-amber-200"
+//             src="/images/AllMap.png"
+//             alt="地圖"
+//         />
+//         {/* hover圖 */}
+//         <img
+//             className="w-[500px]  transition-opacity duration-500 opacity-0 group-hover:opacity-100 border-2"
+//             src="/images/Map_Shop.png"
+//             alt="地圖hover"
+//         />
+//     </div>
+// </button>
