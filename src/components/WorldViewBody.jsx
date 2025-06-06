@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import { selectLightMode } from '../redux/colorSlice';
 import CameraLine from "./CameraLine";
+import DownfadeInDiv from "../motion/DownfadeInDiv";
 
 function WorldViewBody() {
     const lightMode = useSelector(selectLightMode);
@@ -70,7 +71,7 @@ function WorldViewBody() {
                             <div className="line mt-[10%] mb-[10%] border-1 w-[60vw]" />
                         </div>
                         {/*Map Introduction*/}
-                        <div className="flex justify-center items-center relative z-49">
+                        <DownfadeInDiv className="flex justify-center items-center relative z-49">
                             <div className="homeContent flex justify-center items-center flex-col lg:flex-row w-[100%] h-[100%]">
                                 {/*For Moblie to display*/}
                                 <div className="flex flex-row justify-center">
@@ -154,11 +155,12 @@ function WorldViewBody() {
                                     <p className="hcontent-sectitle mb-[1%] mt-5 text-[12px]">*試著點擊地圖地區</p>
                                 </div>
                             </div>
-                        </div>
+                        </DownfadeInDiv>
                         <div className="flex flex-col justify-center items-center">
                             <div className="mt-[10%] mb-[10%] border-1 w-[60vw] line" />
                         </div>
-
+                        
+                        <DownfadeInDiv>
                         {/*Game Character*/}
                         <div className="flex flex-col justify-center items-center">
                             <div className="flex lg:justify-start lg:items-start lg:mb-10 lg:mr-[62%]">
@@ -222,7 +224,7 @@ function WorldViewBody() {
                                             key={realIndex}
                                             src={character.images}
                                             onClick={() => setCurrent(realIndex)}
-                                            className={`w-15 h-15 sm:w-20 sm:h-20 object-cover cursor-pointer border-2 md:border-4  ${current === realIndex
+                                            className={`w-15 h-15 sm:w-20 sm:h-20 object-cover cursor-pointer border-2 md:border-4  hover:scale-110  ${current === realIndex
                                                 ? "color"
                                                 : "text-frame"
                                                 }`}
@@ -232,6 +234,7 @@ function WorldViewBody() {
 
                             </div>
                         </div>
+                        </DownfadeInDiv>
 
                         <div className="flex flex-col justify-center items-center mb-[70%] md:mb-[20%]">
                             <div className="mt-[10%] border-1 w-[60vw] line" />
