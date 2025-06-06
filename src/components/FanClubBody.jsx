@@ -9,6 +9,8 @@ import LeftfadeInDiv from "../motion/LeftfadeInDiv";
 import OshiVote from "./OshiVote";
 
 function FanClubBody() {
+    const [expandedQuestions, setExpandedQuestions] = useState(null); 
+    const [hoveredQuestion, setHoveredQuestion] = useState(null);
     // const [voted, setVoted] = useState(false);
     // const [selected, setSelected] = useState(null); // "left" or "right"
     // const [result, setResult] = useState({ left: 100, right: 0 }); // 模擬結果
@@ -22,6 +24,30 @@ function FanClubBody() {
     const totalVotes = (voteResult?.left || 0) + (voteResult?.right || 0);
     const leftPercentage = totalVotes === 0 ? 50 : Math.round((voteResult.left / totalVotes) * 100);
     const rightPercentage = totalVotes === 0 ? 50 : Math.round((voteResult.right / totalVotes) * 100);
+
+    // 在組件頂部加入此陣列
+    const questionsData = [
+        {
+            id: 'q1',
+            question: '小島上大概多大？有多少人口？',
+            answer: '約十平方公里，其中有一半的面積是山區，易於活動的地方較小，大概住有200人左右。'
+        },
+        {
+            id: 'q2',
+            question: '在阿雞師開發風信子口味雞蛋糕之前，還有其他奇葩口味嗎？',
+            answer: '有，多到數不清。例如：絲瓜、牛蒡、大白菜......種得出來的作物都逃不了。'
+        },
+        {
+            id: 'q3',
+            question: '花店老闆用什麼方法保養得以凍齡？',
+            answer: '據本人所說，只要和花草和平相處，它們就會祝福你青春永駐。'
+        },
+        {
+            id: 'q4',
+            question: '路西從什麼時候開始喜歡攝影的？',
+            answer: '在他10歲生日的時候得到了一台相機，從那刻起就常常用它記錄生活。'
+        }
+    ];
 
     useEffect(() => {
         const hasVoted = localStorage.getItem('breakfastVoted');
@@ -126,67 +152,50 @@ function FanClubBody() {
                                 <div className="h-[2.5px] w-full bg-white mb-5"></div>
                             </div>
 
-                            <div className={`group fanClubbg sm:w-[90%] w-[380px] rounded-[20px] pl-10 pr-10 mb-3 hover:border-[${lightMode ? '#E93969' : '#30B1BD'}] border-3 border-transparent transition-all`}>
-                                 <div className={`text-xl font-bold py-4 flex justify-between items-center`}>
-                                    <div className={`group-hover:text-[${lightMode ? '#E93969' : '#30B1BD'}]`}>
-                                        Q. 小島上大概多大？有多少人口？
+                            
+                            {questionsData.map((item) => (
+                                <div 
+                                    key={item.id}
+                                    className={`fanClubbg sm:w-[90%] w-[380px] rounded-[20px] pl-10 pr-10 mb-3 cursor-pointer ${
+                                        (expandedQuestions === item.id || hoveredQuestion === item.id) ? 
+                                        `border-[${lightMode ? '#E93969' : '#30B1BD'}] border-3` : 
+                                        'border-3 border-transparent'
+                                    } transition-all hover:border-[${lightMode ? '#E93969' : '#30B1BD'}] hover:border-3`}
+                                    onClick={() => {
+                                        setExpandedQuestions(prev => prev === item.id ? null : item.id);
+                                        setHoveredQuestion(null);
+                                    }}
+                                    onMouseEnter={() => {
+                                        if (!expandedQuestions) {
+                                            setHoveredQuestion(item.id);
+                                        }
+                                    }}
+                                    onMouseLeave={() => {
+                                        setHoveredQuestion(null);
+                                    }}
+                                >
+                                    <div className={`text-xl font-bold py-4 flex justify-between items-center`}>
+                                        <div className={`${
+                                            (expandedQuestions === item.id || hoveredQuestion === item.id) ? 
+                                            `text-[${lightMode ? '#E93969' : '#30B1BD'}]` : ''
+                                        }`}>
+                                            Q. {item.question}
+                                        </div>
+                                        <span className={`transform transition-transform duration-300 ${
+                                            (expandedQuestions === item.id || hoveredQuestion === item.id) ? 'rotate-180' : ''
+                                        }`}>▼</span>
                                     </div>
-                                    <span className={`transform transition-transform duration-300 group-hover:rotate-180 inline-block`}>▼</span>
-                                </div>
-                                
-                                <div className={`overflow-hidden transition-all duration-300 ${
-                                    "max-h-0 group-hover:max-h-[100px]"
-                                }`}>
-                                    <div className="pb-4 text-lg">
-                                        A. 約十平方公里，其中有一半的面積是山區，易於活動的地方較小，大概住有200人左右。
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* 第二個問題 */}
-                            <div className={`group fanClubbg sm:w-[90%] w-[380px] rounded-[20px] pl-10 pr-10 mb-3 hover:border-[${lightMode ? '#E93969' : '#30B1BD'}] border-3 border-transparent transition-all`}>
-                                <div className={`text-xl font-bold group-hover:text-[${lightMode ? '#E93969' : '#30B1BD'}] py-4 flex justify-between items-center`}>
-                                    <div>Q. 在阿雞師開發風信子口味雞蛋糕之前，還有其他奇葩口味嗎？</div>
-                                    <span className="transform transition-transform duration-300 group-hover:rotate-180 inline-block">▼</span>
-                                </div>
-                                <div className={`overflow-hidden transition-all duration-300 ${
-                                    "max-h-0 group-hover:max-h-[100px]"
-                                }`}>
-                                    <div className="pb-4 text-lg">
-                                        A. 有，多到數不清。例如：絲瓜、牛蒡、大白菜......種得出來的作物都逃不了。
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* 第三個問題 */}
-                            <div className={`group fanClubbg sm:w-[90%] w-[380px] rounded-[20px] pl-10 pr-10 mb-3 hover:border-[${lightMode ? '#E93969' : '#30B1BD'}] border-3 border-transparent transition-all`}>
-                                <div className={`text-xl font-bold group-hover:text-[${lightMode ? '#E93969' : '#30B1BD'}] py-4 flex justify-between items-center`}>
-                                    <div>Q. 花店老闆用什麼方法保養得以凍齡？</div>
-                                    <span className="transform transition-transform duration-300 group-hover:rotate-180 inline-block">▼</span>
-                                </div>
-                                <div className={`overflow-hidden transition-all duration-300 ${
-                                    "max-h-0 group-hover:max-h-[100px]"
-                                }`}>
-                                    <div className="pb-4 text-lg">
-                                        A. 據本人所說，只要和花草和平相處，它們就會祝福你青春永駐。
+                                    
+                                    <div className={`overflow-hidden transition-all duration-300 ${
+                                        (expandedQuestions === item.id || hoveredQuestion === item.id) ? 
+                                        "max-h-[100px]" : "max-h-0"
+                                    }`}>
+                                        <div className="pb-4 text-lg">
+                                            A. {item.answer}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            {/* 第四個問題 */}
-                            <div className={`group fanClubbg sm:w-[90%] w-[380px] rounded-[20px] pl-10 pr-10 mb-3 hover:border-[${lightMode ? '#E93969' : '#30B1BD'}] border-3 border-transparent transition-all`}>
-                                <div className={`text-xl font-bold group-hover:text-[${lightMode ? '#E93969' : '#30B1BD'}] py-4 flex justify-between items-center`}>
-                                    <div>Q. 路西從什麼時候開始喜歡攝影的？</div>
-                                    <span className="transform transition-transform duration-300 group-hover:rotate-180 inline-block">▼</span>
-                                </div>
-                                <div className={`overflow-hidden transition-all duration-300 ${
-                                    "max-h-0 group-hover:max-h-[100px]"
-                                }`}>
-                                    <div className="pb-4 text-lg">
-                                        A. 在他10歲生日的時候得到了一台相機，從那刻起就常常用它記錄生活。
-                                    </div>
-                                </div>
-                            </div>
+                            ))}
                         </div>
                         
                         {/* 最愛角色票選｜Vote your Oshi */}

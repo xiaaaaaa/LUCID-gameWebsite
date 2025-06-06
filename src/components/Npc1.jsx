@@ -15,18 +15,18 @@ function Npc1() {
 
     const addToNpc = (flowerName, e) => {
         dispatch(addGetFlowerLists({
-            name: "lucid",
+            name: "花店老闆",
             flower: flowerName,
         }))
     }
 
     return (
         <>
-            {getFlowerPeople.some(item => item.name === "lucid") ? (
+            {getFlowerPeople.some(item => item.name === "花店老闆") ? (
                 <div className="tooltip tooltip-right">
                     <div className="tooltip-content npc-tooltip">
                         <div className="animate-bounce -rotate-0 text-2xl font-black ">
-                            謝謝你送我{getFlowerPeople.find(item => item.name === "lucid")?.flower}!
+                            謝謝你送我{getFlowerPeople.find(item => item.name === "花店老闆")?.flower}!
                         </div>
                     </div>
                     <button
@@ -36,20 +36,20 @@ function Npc1() {
                         <img
                             className="h-[60px] w-[50px] md:h-full md:w-full object-cover "
                             src="/images/npc-lucid.png"
-                            alt="lucid"
+                            alt="花店老闆"
                         />
                     </button>
                 </div>
             ) : (
                 <div className="dropdown dropdown-start">
                     <button
-                        className=" h-[60px] w-[50px] md:h-[100px] md:w-[90px]"
+                        className=" h-[60px] w-[50px] md:h-[100px] md:w-[90px] hover:scale-110"
                         onClick={toggleDropdown}
                     >
                         <img
                             className="h-[60px] w-[50px] md:h-full md:w-full object-cover "
                             src="/images/npc-lucid.png"
-                            alt="lucid"
+                            alt="花店老闆"
                         />
                     </button>
 

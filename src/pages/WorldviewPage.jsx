@@ -16,7 +16,7 @@ function WorldviewPage() {
                     </Link>
                 </button>
             </div>*/}
-            <div className="mt-20">
+            <div className="mt-20 mb-50">
                 <WorldViewBody />
             </div>
             <Footer />
