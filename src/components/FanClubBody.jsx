@@ -98,7 +98,7 @@ function FanClubBody() {
                     {/* 殘酷二選一｜Pick a Side< */}
                     <div className="flex flex-col justify-center mt-10">
                         <h1 className="font-bold sm:text-3xl text-2xl mb-3 sm:text-left ml-5">殘酷二選一｜Pick a Side</h1>
-                        <div className="h-[2.5px] sm:w-[1250px]  bg-white m-5"></div>
+                        <div className="h-[2.5px] sm:w-[1250px]  line m-5"></div>
                         <div className="flex flex-col items-center">
                             <div className="flex flex-col justify-center items-center h-[180px] sm:w-[1200px] w-[400px] fanClubbg rounded-[20px] mt-7">
                                 <h1 className="sm:text-2xl text-lg">每當開啟新的一天，你更常選擇哪種早餐口味？</h1>
@@ -149,7 +149,7 @@ function FanClubBody() {
                         <div className="flex flex-col text-left items-center mt-30">
                             <div className="w-[1250px]"> 
                                 <h1 className="font-bold sm:text-3xl text-2xl mb-3 sm:text-left text-center">趣味問答｜Fun Fact</h1>
-                                <div className="h-[2.5px] w-full bg-white mb-5"></div>
+                                <div className="h-[2.5px] w-full line mb-5"></div>
                             </div>
 
                             
@@ -201,7 +201,7 @@ function FanClubBody() {
                         {/* 最愛角色票選｜Vote your Oshi */}
                         <div className="flex flex-col justify-center mt-20 mb-50">
                             <h1 className="font-bold sm:text-3xl text-2xl mb-3 sm:text-left sm:ml-2">最愛角色票選｜Vote your Oshi</h1>
-                            <div className="h-[2.5px] w-[1250px] bg-white"></div>
+                            <div className="h-[2.5px] w-[1250px] line"></div>
 
                             <OshiVote/>
                             <div className="flex flex-row text-left items-center justify-center">
