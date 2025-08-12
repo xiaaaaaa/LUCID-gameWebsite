@@ -12,7 +12,7 @@ function HomePage() {
     useEffect(() => {
         const handleScroll = () => {
             // 當滾動超過視窗高度的 10% 時顯示元素
-            if (window.scrollY > window.innerHeight * 0.1) {
+            if (window.scrollY > window.innerHeight * 0.05) {
                 setShowElements(true);
             } else {
                 setShowElements(false);
@@ -47,7 +47,7 @@ function HomePage() {
                     </div>
                 </div>
             </div>
-            <div className="h-screen w-full content-center bg-[#2D2D2D]">
+            {/* <div className="h-screen w-full content-center bg-[#2D2D2D]">
                 {!isVideoLoaded && (
                     <div className="skeleton hero w-screen object-cover object-center" > </div>
                 )}
@@ -64,7 +64,7 @@ function HomePage() {
                         <source src="/videos/cover.mp4" type="video/mp4" />
                     </video>
                 
-            </div>
+            </div> */}
 
             <div className="content-container relative z-0">
                 <HomeBody />
