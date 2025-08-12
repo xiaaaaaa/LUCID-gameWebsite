@@ -46,13 +46,13 @@ function HomeBody() {
 
 
     return (
-        <div className="mt-20 sm:home-body sm:mt-0" ref={mainVisualRef}>
+        <div className="mt-10 sm:home-body sm:mt-12" ref={mainVisualRef}>
             {/*Main Visual and Logo*/}
             <RightfadeInDiv className="flex justify-center items-center relative z-50">
                 <img className="hero w-[35vw] max-w-[500px] h-auto object-cover" src="/images/Mainlogo.png" alt="LUCID_MainLogo" />
             </RightfadeInDiv>
 
-            <LeftfadeInDiv className="flex justify-center items-center -mt-[max(10vh,10px)] relative z-49 sm:-mt-28">
+            <LeftfadeInDiv className="flex justify-center items-center -mt-[max(5vh,5px)] relative z-49 sm:-mt-28">
                 {lightMode === true ? (
                     <img className="hero w-[1125px] h-full object-cover" src="/images/MainVisual_light.png" alt="MainVisual" />
                 ) : (

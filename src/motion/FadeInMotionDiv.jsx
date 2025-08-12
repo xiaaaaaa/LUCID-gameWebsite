@@ -7,7 +7,7 @@ const FadeInMotionDiv = ({ children, className}) => {
                 className={className}
                 initial={{ opacity: 0}}
                 whileInView={{ opacity: 1 }}
-                transition={{ duration: 2.0, ease: "easeInOut" }}
+                transition={{ duration: 1.5, ease: "easeInOut" }}
             >
                 {children}
             </motion.div>

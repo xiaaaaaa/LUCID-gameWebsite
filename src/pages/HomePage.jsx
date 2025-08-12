@@ -12,7 +12,7 @@ function HomePage() {
     useEffect(() => {
         const handleScroll = () => {
             // 當滾動超過視窗高度的 10% 時顯示元素
-            if (window.scrollY > window.innerHeight * 0.05) {
+            if (window.scrollY > window.innerHeight * 0.1) {
                 setShowElements(true);
             } else {
                 setShowElements(false);
@@ -25,7 +25,10 @@ function HomePage() {
 
     return (
         <div className="relative">
-            <div className={`fixed top-0 left-0 right-0 z-50 transition-opacity duration-300 ${showElements ? 'opacity-100' : 'opacity-0'}`}>
+            {/* <div className={`fixed top-0 left-0 right-0 z-50 transition-opacity duration-300 ${showElements ? 'opacity-100' : 'opacity-0'}`}>
+                <Nav />
+            </div> */}
+            <div className={`fixed top-0 left-0 right-0 z-50 transition-opacity duration-300`}>
                 <Nav />
             </div>
 
